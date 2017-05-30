@@ -100,7 +100,7 @@ body {
     -ms-overflow-style: scrollbar;
 }
 /* textual modifiers */
-body a{text-decoration:underline;}
+body a{text-decoration:underline; color: #0057B8;}
 body a:hover{text-decoration:none;}
 em {
     font-style: italic;
@@ -722,7 +722,7 @@ a:hover {
         width: 100%;
     }
     .leftRail ul ul li a {
-        color: #a7a7a7;
+        color: #666;
         display: block;
     }
     .leftRail li {

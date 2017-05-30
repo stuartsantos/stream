@@ -100,7 +100,7 @@ body {
     -ms-overflow-style: scrollbar;
 }
 /* textual modifiers */
-body a{text-decoration:underline;}
+body a{text-decoration:underline; color: #0057B8;}
 body a:hover{text-decoration:none;}
 em {
     font-style: italic;
@@ -236,7 +236,6 @@ hr {
     text-decoration: none !important;
 	color:#fff;
 }
-.dark.overlay a:hover {opacity:.8;}
 .overlay h2 {
     font-size: 1.3rem;
     color: #fff !important;
@@ -327,10 +326,10 @@ hr {
     text-decoration: none;
 }
 .blue.button {
-    background: #00a4e4;
+    background: #0057B8;
 }
 .blue.button:hover {
-    background: #0073ae;
+    background: #002554;
 }
 .orange.button, .contactFlyout {
     background: #e36f1e;
@@ -722,7 +721,7 @@ a:hover {
         width: 100%;
     }
     .leftRail ul ul li a {
-        color: #a7a7a7;
+        color: #666;
         display: block;
     }
     .leftRail li {

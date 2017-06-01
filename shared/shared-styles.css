@@ -352,13 +352,13 @@ hr {
     display: inline-block;
 }
 .skeleton.blue.button {
-    border: 2px solid #00a4e4;
-    color: #00a4e4;
+    border: 2px solid #0057B8;
+    color: #0057B8;
     background: #fff;
 }
 .skeleton.blue.button:hover {
-    border: 2px solid #0073ae;
-    color: #0073ae;
+    border: 2px solid #002554;
+    color: #002554;
 }
 .card .skeleton.blue.button {
     position: absolute;
@@ -508,11 +508,11 @@ a:hover {
     margin-left: 18px;
 }
 .textCopy a {
-    color: #01a6e4;
+    color: #: 0057B8;
     /*white-space: nowrap;*/
 }
 .textCopy a:hover {
-    color: #0073ae;
+    color: #002554;
 }
 /* put an arrow after the link */
 /*.textCopy a:after {

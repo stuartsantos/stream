@@ -106,7 +106,7 @@ em {
     font-style: italic;
 }
 h1, h2, h3, h4 {
-    color: #0073ae !important; /*got to beat bootstrap's css*/
+    color: #0057b8 !important; /*got to beat bootstrap's css*/
 	margin-bottom:12px;
 }
 h2.compl {
@@ -318,7 +318,7 @@ hr {
     cursor: pointer;
     /*width: 100%;*/
     color: #fff;
-    font-family: "FuturaPT-Medium", helvetica, arial, sans-serif;
+    font-family: "Futura PT", helvetica, arial, sans-serif;
 	white-space: normal;/*input type=button nowrap fix*/
 }
 .button:hover {
@@ -332,10 +332,10 @@ hr {
     background: #002554;
 }
 .orange.button, .contactFlyout {
-    background: #e36f1e;
+    background: #a9431E;/*AIG Dark Orange*/
 }
 .orange.button:hover {
-    background: #cf5805;
+    background: #a6631b;/*AIG Dark Yellow*/
 }
 .orange.button, .orange.button:hover {
     color: #fff;
@@ -1228,15 +1228,16 @@ CTA BUTTONS
 	color:#fff !important;
 	font-weight: bold;
 	vertical-align:middle;
-	background: #e36f1e !important;
+	background: #a9431E !important;
 	cursor:pointer;
 	border:0 !important;
 	white-space:normal;
 	margin:0;
 	height:auto !important;/*chome mobile nav fix*/
 	width:100%;
+	font-family: "Futura PT", helvetica, arial, sans-serif;
 }
-.CTA_button:hover{background: #d64f11 !important;text-decoration:none;}
+.CTA_button:hover{background: #a6631b !important;text-decoration:none;}
 .CTA_buttonBlue{background: #0073ae !important;}
 .CTA_buttonBlue:hover{background: #00a4e4 !important;}
 .CTA_buttonGreen{background: #78a22f !important;}

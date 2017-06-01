@@ -100,8 +100,8 @@ body {
     -ms-overflow-style: scrollbar;
 }
 /* textual modifiers */
-body a{text-decoration:underline; color: #0057B8;}
-body a:hover{text-decoration:none;}
+body a{text-decoration:underline; color: #0057B8;/*AIG Medium Blue*/}
+body a:hover{text-decoration:none;color: #002554;/*AIG Dark Blue*/}
 em {
     font-style: italic;
 }
@@ -508,11 +508,11 @@ a:hover {
     margin-left: 18px;
 }
 .textCopy a {
-    color: #: 0057B8;
+    color: #: 0057B8;/*AIG Medium Blue*/
     /*white-space: nowrap;*/
 }
 .textCopy a:hover {
-    color: #002554;
+    color: #002554;/*AIG Dark Blue*/
 }
 /* put an arrow after the link */
 /*.textCopy a:after {

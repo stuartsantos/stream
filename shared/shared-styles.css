@@ -320,6 +320,7 @@ hr {
     color: #fff;
     font-family: "Futura PT", helvetica, arial, sans-serif;
 	white-space: normal;/*input type=button nowrap fix*/
+	font-weight: bold;
 }
 .button:hover {
     color: #fff;
@@ -332,10 +333,10 @@ hr {
     background: #002554;
 }
 .orange.button, .contactFlyout {
-    background: #a9431E;/*AIG Dark Orange*/
+    background: #e36f1e;/*AIG Orange*/
 }
 .orange.button:hover {
-    background: #a6631b;/*AIG Dark Yellow*/
+    background: #a9431E;/*AIG Dark Orange*/
 }
 .orange.button, .orange.button:hover {
     color: #fff;
@@ -1228,7 +1229,7 @@ CTA BUTTONS
 	color:#fff !important;
 	font-weight: bold;
 	vertical-align:middle;
-	background: #a9431E !important;
+	background: #e36f1e !important;/* (AIG Orange) */
 	cursor:pointer;
 	border:0 !important;
 	white-space:normal;
@@ -1237,7 +1238,7 @@ CTA BUTTONS
 	width:100%;
 	font-family: "Futura PT", helvetica, arial, sans-serif;
 }
-.CTA_button:hover{background: #a6631b !important;text-decoration:none;}
+.CTA_button:hover{background: #a9431E !important;text-decoration:none;}/* (AIG Dark Orange) */
 .CTA_buttonBlue{background: #0073ae !important;}
 .CTA_buttonBlue:hover{background: #00a4e4 !important;}
 .CTA_buttonGreen{background: #78a22f !important;}

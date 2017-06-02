@@ -1,0 +1,31 @@
+#header {height: 0;}
+@media screen and (min-width: 768px) {
+	.nav-container {margin: auto 1em;}
+	.toggle_NavContent {background:#0057b8 none repeat scroll 0 0; border: none; top: 64px}
+	.toggle_NavContent:before {
+		content: '';
+		height: 16px;
+		width: 16px;
+		position: absolute;
+		top: -16px;
+		border-bottom: 16px solid #0057b8;
+		border-right: 16px solid transparent;
+		border-left: 16px solid transparent;
+	}
+	#phone-banner {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		color: #fff;
+	}
+	.link {
+		font-size: 1.1em;
+		text-align: center;
+		margin:auto 1.2em;
+		display:table-cell;
+		vertical-align:middle;
+	}
+}
+@media (max-width: 1000px) {
+	.link {margin:auto .3em;}
+}

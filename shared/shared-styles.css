@@ -1250,19 +1250,19 @@ CTA BUTTONS
 /** altCTA BUTTONS **/
 .altCTA_button{display:block;border:2px solid #e57125;color:#e57125;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
 .altCTA_button:hover, .altCTA_button:visited{color:#e57125;background:#fff;background: rgba(229,113,37,0.45);text-decoration:none;}
-.altCTA_button.altCTA_buttonBlue{border-color:#01a6e4;color:#01a6e4;}
-.altCTA_button.altCTA_buttonBlue:hover{background:#01a6e4;background: rgba(1,166,228,0.45);color:#01a6e4;}
+.altCTA_button.altCTA_buttonBlue{border-color:#0057b8;color:#0057b8;}
+.altCTA_button.altCTA_buttonBlue:hover{background:#fff;/*fix for non-compliant browsers*/background: rgba(0,87,184,0.45);color:#0057b8;}
 .altCTA_button.altCTA_buttonWhite{border-color:#fff;color:#fff;background-color: transparent;}
 .altCTA_button.altCTA_buttonWhite:hover{background:#000;/*fix for non-compliant browsers*/background: rgba(255,255,255,0.45);color:#fff;}
 /** dropCTA BUTTONS **/
-#bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:#0a5c98;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
-#bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:#0a5c98;text-decoration:none;}
+#bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:#0057b8;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
+#bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:#002554;text-decoration:none;}
 #bodyID .toggleCTA_button.closed{background:#1ca3dc;}
 #bodyID .toggleCTA_button:visited{color:#fff;}
 /** toggleNav BUTTONS **/
-.toggle_NavContent{background:#01a6e4;width:100%;display:none;border-top:1px solid #fff;}
+.toggle_NavContent{background:#0057b8;width:100%;display:none;border-top:1px solid #fff;}
 #bodyID .toggle_NavContent a{display:block;color:#fff;text-align:left;text-decoration:none;padding:8px 12px;}
-#bodyID .toggle_NavContent a:hover{color:#fff;background:#0a5c98;text-decoration:underline;}
+#bodyID .toggle_NavContent a:hover{color:#fff;background:#002554;text-decoration:underline;}
 /** config BUTTONS **/
 .altCTA_button.inline, .CTA_button.inline{width:auto;display:inline-block;}
 .center > .altCTA_button.inline, .center > .CTA_button.inline{margin-right:auto;margin-left:auto;}
@@ -1767,7 +1767,7 @@ Main Nav
 /* ----------- responsive Nav --------------------- */
 #navDropWrap{display:none;width:100%;position: absolute;top:0;z-index:110;text-align:left;}
 #bodyID.openNav #navDropWrap{display:block;}
-#navDrop{display:none;width:100%;position: absolute;z-index:112;}
+#navDrop{display:none;width:100%;position: absolute;z-index:112;/* top: 100px; */}
 #navDrop ul{padding:0;margin:0;}
 #navDrop > ul{
 	-webkit-box-shadow: 0px 10px 21px -10px rgba(0,0,0,0.75);
@@ -1780,9 +1780,9 @@ Main Nav
 #navDrop > ul{background:#00a3e4;}
 #navDrop li{display:block;margin:0;background:transparent;padding:0;}
 #navDrop li A{display:block;padding:12px 39px 12px 24px;color:#fff;text-decoration:none;}
-#navDrop > ul > li:hover{background:#0072ae;}
+#navDrop > ul > li:hover{background:#0057b8;}
 #navDrop ul li.contains-sub > a{position:relative;}
-#navDrop ul li.contains-sub > a:after{color:#0072ae;position:absolute;right:12px;top: 50%;-ms-transform: translateY(-50%);/* IE */transform: translateY(-50%);-webkit-transform: translateY(-50%);/* Safari and Chrome */font-family:'Glyphicons Halflings';content:"\e114";}/*down arrow*/
+#navDrop ul li.contains-sub > a:after{color:#0057b8;position:absolute;right:12px;top: 50%;-ms-transform: translateY(-50%);/* IE */transform: translateY(-50%);-webkit-transform: translateY(-50%);/* Safari and Chrome */font-family:'Glyphicons Halflings';content:"\e114";}/*down arrow*/
 
 #navDrop #navCloseLI A{padding: 32px 12px 32px 24px;}
 #navDrop #navClosePolicyOptions{background:#038ecf;padding:24px;text-transform:uppercase;color:#fff;}
@@ -1795,11 +1795,11 @@ Main Nav
 #navDrop li.current li.current > a, #navDrop li.current.contains-sub li.current.contains-sub > a:after {color: #f6e096;}/*light yellow*/
 
 /* ----------- 2nd depth --------------------- */
-#navDrop .submenu{display:none;background:#0072ae;}
-#navDrop .contains-sub.current{background:#0072ae;}
-#navDrop li.current > a{color: #f1bb04;border-bottom:1px solid #0a5c98;}
-#navDrop .submenu li:hover{background:#00a3e4;}
-#navDrop .submenu li A{padding-left:36px;border-bottom:1px solid #0a5c98;}
+#navDrop .submenu{display:none;background:#0057b8;}
+#navDrop .contains-sub.current{background:#0057b8;}
+#navDrop li.current > a{color: #f1bb04;border-bottom:1px solid #002554;}
+#navDrop .submenu li:hover{background:#002554;}
+#navDrop .submenu li A{padding-left:36px;border-bottom:1px solid #002554;}
 #navDrop .navLiItem{padding: 12px 12px 12px 36px;}
 /* ----------- 3rd depth --------------------- */
 #navDrop .contains-sub.current .contains-sub.current{background:#06528a;}

@@ -184,7 +184,6 @@ hr {
     }
 }
 .masthead {
-    /* background: url('/uploads/00001941/banner_beachhouse.jpg');*/
     background-size: cover;
     background-position: 50% 70%;
     width: 100%;
@@ -219,6 +218,7 @@ hr {
 
 /* the form used on the landing page */
 .dark.overlay {
+	background: #000;/*fix for non-compliant browsers*/
     background: rgba(0, 0, 0, 0.7);
     padding: 20px 20px;
     color: #fff;
@@ -1252,7 +1252,7 @@ CTA BUTTONS
 .altCTA_button.altCTA_buttonBlue{border-color:#01a6e4;color:#01a6e4;}
 .altCTA_button.altCTA_buttonBlue:hover{background:#01a6e4;background: rgba(1,166,228,0.45);color:#01a6e4;}
 .altCTA_button.altCTA_buttonWhite{border-color:#fff;color:#fff;background-color: transparent;}
-.altCTA_button.altCTA_buttonWhite:hover{background:#fff;background: rgba(255,255,255,0.45);color:#fff;}
+.altCTA_button.altCTA_buttonWhite:hover{background:#000;/*fix for non-compliant browsers*/background: rgba(255,255,255,0.45);color:#fff;}
 /** dropCTA BUTTONS **/
 #bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:#0a5c98;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
 #bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:#0a5c98;text-decoration:none;}

@@ -88,16 +88,13 @@ table {
     font-style: normal
 }
 /* general rules */
-* {
-    font-family: 'Futura PT Book', sans-serif;
-    /*font-weight: normal;*/
-    /*font-style: normal;*/
-}
+
 html {font-size: 110%; /* !omportant got to override scaffolding */}
 body {
     font-size: inherit; /*!important;  got to override scaffolding */
     /*line-height: 1; */
     -ms-overflow-style: scrollbar;
+    font-family: 'Futura PT Book', sans-serif;
 }
 /* textual modifiers */
 body a{text-decoration:underline; color: #0057B8;/*AIG Medium Blue*/}
@@ -112,7 +109,7 @@ h1, h2, h3, h4 {
 h2.compl {
     margin-top: 70px!important;
 }
-body h1{font-size:1.5rem;}
+body h1{font-size:1.5rem; font-family: 'Futura PT', sans-serif;}
 body h2{font-size:1.4rem;}
 body h3{font-size:1.3rem;}
 body h4{font-size:1.2rem;}
@@ -133,6 +130,10 @@ h4.compl {
 hr {
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+strong {
+    font-family: 'Futura PT', sans-serif;
 }
 /* override bootstrap theme
 .row {
@@ -619,7 +620,15 @@ a:hover {
 .gutter {
     padding: 0 8%;
 }
-.customArticleCOB{padding:0;}
+.customArticleCOB {
+    padding: 10px;
+}
+
+.customArticleCOB h3 {
+    padding:10px;
+    margin-bottom: 0;
+}
+
 .leftRail {
     margin-top: 15px;
 }
@@ -686,7 +695,7 @@ a:hover {
         width: 100%;
         padding: 10px;
     }
-    .leftRail ul li h3{
+    .leftRail ul li h3, .customArticleCOB {
         padding: 0;
 		margin:0;
     }
@@ -726,7 +735,10 @@ a:hover {
         display: block;
     }
     .leftRail li {
-        color: #01A6E4;
+        color: #0057B8;
+    }
+    .customArticleCOB {
+        margin-top: 1em;
     }
 }
 }

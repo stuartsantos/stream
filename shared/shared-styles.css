@@ -510,7 +510,7 @@ a:hover {
     margin-left: 18px;
 }
 .textCopy a {
-    color: #: 0057B8;/*AIG Medium Blue*/
+    color: #0057B8; /*AIG Medium Blue*/
     /*white-space: nowrap;*/
 }
 .textCopy a:hover {
@@ -783,9 +783,10 @@ a:hover {
 }
 .modal-close{cursor:pointer;}
 /* override the default accordion styles */
+.ui-widget {font-family: 'Futura PT Book', sans-serif;}
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited,
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
-    color: #01a6e4;
+    color: #0057B8;
     text-decoration:none!important;
 
 }
@@ -822,7 +823,7 @@ a:hover {
 }
 .ui-accordion  .ui-accordion-header.ui-state-active a:after{ /* the open accordion has an up arrow */
     content: "\e260";
-    color: #01a6e4; /*and its always blue*/
+    color: #0057B8; /*and its always blue*/
     font-weight:200; /*and never bold */
 }
 

@@ -788,7 +788,7 @@ a:hover {
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
     color: #0057B8;
     text-decoration:none!important;
-
+    font-weight: normal;
 }
 .ui-state-active a:link{
     color:#333333; /* the active accordion is grey captioned*/

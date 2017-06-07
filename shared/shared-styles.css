@@ -100,13 +100,13 @@ body {
     -ms-overflow-style: scrollbar;
 }
 /* textual modifiers */
-body a{text-decoration:underline; color: #0057B8;}
-body a:hover{text-decoration:none;}
+body a{text-decoration:underline; color: #0057B8;/*AIG Medium Blue*/}
+body a:hover{text-decoration:none;color: #002554;/*AIG Dark Blue*/}
 em {
     font-style: italic;
 }
 h1, h2, h3, h4 {
-    color: #0073ae !important; /*got to beat bootstrap's css*/
+    color: #0057b8 !important; /*got to beat bootstrap's css*/
 	margin-bottom:12px;
 }
 h2.compl {
@@ -184,7 +184,6 @@ hr {
     }
 }
 .masthead {
-    /* background: url('/uploads/00001941/banner_beachhouse.jpg');*/
     background-size: cover;
     background-position: 50% 70%;
     width: 100%;
@@ -219,6 +218,7 @@ hr {
 
 /* the form used on the landing page */
 .dark.overlay {
+	background: #000;/*fix for non-compliant browsers*/
     background: rgba(0, 0, 0, 0.7);
     padding: 20px 20px;
     color: #fff;
@@ -318,8 +318,9 @@ hr {
     cursor: pointer;
     /*width: 100%;*/
     color: #fff;
-    font-family: "FuturaPT-Medium", helvetica, arial, sans-serif;
+    font-family: "Futura PT", helvetica, arial, sans-serif;
 	white-space: normal;/*input type=button nowrap fix*/
+	font-weight: bold;
 }
 .button:hover {
     color: #fff;
@@ -332,10 +333,10 @@ hr {
     background: #002554;
 }
 .orange.button, .contactFlyout {
-    background: #e36f1e;
+    background: #e36f1e;/*AIG Orange*/
 }
 .orange.button:hover {
-    background: #cf5805;
+    background: #a9431E;/*AIG Dark Orange*/
 }
 .orange.button, .orange.button:hover {
     color: #fff;
@@ -352,13 +353,13 @@ hr {
     display: inline-block;
 }
 .skeleton.blue.button {
-    border: 2px solid #00a4e4;
-    color: #00a4e4;
+    border: 2px solid #0057B8;
+    color: #0057B8;
     background: #fff;
 }
 .skeleton.blue.button:hover {
-    border: 2px solid #0073ae;
-    color: #0073ae;
+    border: 2px solid #002554;
+    color: #002554;
 }
 .card .skeleton.blue.button {
     position: absolute;
@@ -508,11 +509,11 @@ a:hover {
     margin-left: 18px;
 }
 .textCopy a {
-    color: #01a6e4;
+    color: #: 0057B8;/*AIG Medium Blue*/
     /*white-space: nowrap;*/
 }
 .textCopy a:hover {
-    color: #0073ae;
+    color: #002554;/*AIG Dark Blue*/
 }
 /* put an arrow after the link */
 /*.textCopy a:after {
@@ -1228,15 +1229,16 @@ CTA BUTTONS
 	color:#fff !important;
 	font-weight: bold;
 	vertical-align:middle;
-	background: #e36f1e !important;
+	background: #e36f1e !important;/* (AIG Orange) */
 	cursor:pointer;
 	border:0 !important;
 	white-space:normal;
 	margin:0;
 	height:auto !important;/*chome mobile nav fix*/
 	width:100%;
+	font-family: "Futura PT", helvetica, arial, sans-serif;
 }
-.CTA_button:hover{background: #d64f11 !important;text-decoration:none;}
+.CTA_button:hover{background: #a9431E !important;text-decoration:none;}/* (AIG Dark Orange) */
 .CTA_buttonBlue{background: #0073ae !important;}
 .CTA_buttonBlue:hover{background: #00a4e4 !important;}
 .CTA_buttonGreen{background: #78a22f !important;}
@@ -1248,19 +1250,19 @@ CTA BUTTONS
 /** altCTA BUTTONS **/
 .altCTA_button{display:block;border:2px solid #e57125;color:#e57125;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
 .altCTA_button:hover, .altCTA_button:visited{color:#e57125;background:#fff;background: rgba(229,113,37,0.45);text-decoration:none;}
-.altCTA_button.altCTA_buttonBlue{border-color:#01a6e4;color:#01a6e4;}
-.altCTA_button.altCTA_buttonBlue:hover{background:#01a6e4;background: rgba(1,166,228,0.45);color:#01a6e4;}
+.altCTA_button.altCTA_buttonBlue{border-color:#0057b8;color:#0057b8;}
+.altCTA_button.altCTA_buttonBlue:hover{background:#fff;/*fix for non-compliant browsers*/background: rgba(0,87,184,0.45);color:#0057b8;}
 .altCTA_button.altCTA_buttonWhite{border-color:#fff;color:#fff;background-color: transparent;}
-.altCTA_button.altCTA_buttonWhite:hover{background:#fff;background: rgba(255,255,255,0.45);color:#fff;}
+.altCTA_button.altCTA_buttonWhite:hover{background:#000;/*fix for non-compliant browsers*/background: rgba(255,255,255,0.45);color:#fff;}
 /** dropCTA BUTTONS **/
-#bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:#0a5c98;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
-#bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:#0a5c98;text-decoration:none;}
+#bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:#0057b8;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
+#bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:#002554;text-decoration:none;}
 #bodyID .toggleCTA_button.closed{background:#1ca3dc;}
 #bodyID .toggleCTA_button:visited{color:#fff;}
 /** toggleNav BUTTONS **/
-.toggle_NavContent{background:#01a6e4;width:100%;display:none;border-top:1px solid #fff;}
+.toggle_NavContent{background:#0057b8;width:100%;display:none;border-top:1px solid #fff;}
 #bodyID .toggle_NavContent a{display:block;color:#fff;text-align:left;text-decoration:none;padding:8px 12px;}
-#bodyID .toggle_NavContent a:hover{color:#fff;background:#0a5c98;text-decoration:underline;}
+#bodyID .toggle_NavContent a:hover{color:#fff;background:#002554;text-decoration:underline;}
 /** config BUTTONS **/
 .altCTA_button.inline, .CTA_button.inline{width:auto;display:inline-block;}
 .center > .altCTA_button.inline, .center > .CTA_button.inline{margin-right:auto;margin-left:auto;}
@@ -1765,7 +1767,7 @@ Main Nav
 /* ----------- responsive Nav --------------------- */
 #navDropWrap{display:none;width:100%;position: absolute;top:0;z-index:110;text-align:left;}
 #bodyID.openNav #navDropWrap{display:block;}
-#navDrop{display:none;width:100%;position: absolute;z-index:112;}
+#navDrop{display:none;width:100%;position: absolute;z-index:112;/* top: 100px; */}
 #navDrop ul{padding:0;margin:0;}
 #navDrop > ul{
 	-webkit-box-shadow: 0px 10px 21px -10px rgba(0,0,0,0.75);
@@ -1778,9 +1780,9 @@ Main Nav
 #navDrop > ul{background:#00a3e4;}
 #navDrop li{display:block;margin:0;background:transparent;padding:0;}
 #navDrop li A{display:block;padding:12px 39px 12px 24px;color:#fff;text-decoration:none;}
-#navDrop > ul > li:hover{background:#0072ae;}
+#navDrop > ul > li:hover{background:#0057b8;}
 #navDrop ul li.contains-sub > a{position:relative;}
-#navDrop ul li.contains-sub > a:after{color:#0072ae;position:absolute;right:12px;top: 50%;-ms-transform: translateY(-50%);/* IE */transform: translateY(-50%);-webkit-transform: translateY(-50%);/* Safari and Chrome */font-family:'Glyphicons Halflings';content:"\e114";}/*down arrow*/
+#navDrop ul li.contains-sub > a:after{color:#0057b8;position:absolute;right:12px;top: 50%;-ms-transform: translateY(-50%);/* IE */transform: translateY(-50%);-webkit-transform: translateY(-50%);/* Safari and Chrome */font-family:'Glyphicons Halflings';content:"\e114";}/*down arrow*/
 
 #navDrop #navCloseLI A{padding: 32px 12px 32px 24px;}
 #navDrop #navClosePolicyOptions{background:#038ecf;padding:24px;text-transform:uppercase;color:#fff;}
@@ -1793,11 +1795,11 @@ Main Nav
 #navDrop li.current li.current > a, #navDrop li.current.contains-sub li.current.contains-sub > a:after {color: #f6e096;}/*light yellow*/
 
 /* ----------- 2nd depth --------------------- */
-#navDrop .submenu{display:none;background:#0072ae;}
-#navDrop .contains-sub.current{background:#0072ae;}
-#navDrop li.current > a{color: #f1bb04;border-bottom:1px solid #0a5c98;}
-#navDrop .submenu li:hover{background:#00a3e4;}
-#navDrop .submenu li A{padding-left:36px;border-bottom:1px solid #0a5c98;}
+#navDrop .submenu{display:none;background:#0057b8;}
+#navDrop .contains-sub.current{background:#0057b8;}
+#navDrop li.current > a{color: #f1bb04;border-bottom:1px solid #002554;}
+#navDrop .submenu li:hover{background:#002554;}
+#navDrop .submenu li A{padding-left:36px;border-bottom:1px solid #002554;}
 #navDrop .navLiItem{padding: 12px 12px 12px 36px;}
 /* ----------- 3rd depth --------------------- */
 #navDrop .contains-sub.current .contains-sub.current{background:#06528a;}

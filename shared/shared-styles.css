@@ -135,6 +135,10 @@ hr {
 strong {
     font-family: 'Futura PT', sans-serif;
 }
+
+legend {
+    font-size: 1rem;
+}
 /* override bootstrap theme
 .row {
     margin-bottom: 20px;

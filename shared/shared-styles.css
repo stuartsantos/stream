@@ -387,6 +387,7 @@ strong {
 .contactFlyout .orange.button {
     text-align: left;
     padding: 5px 0 0;
+    background: #0057B8;
 }
 .glyphicon {
     /* the default glyphicons are too high */

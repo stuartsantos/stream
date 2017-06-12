@@ -333,7 +333,7 @@ strong {
 .blue.button:hover {
     background: #002554;
 }
-.orange.button, .contactFlyout {
+.orange.button {
     background: #e36f1e;/*AIG Orange*/
 }
 .orange.button:hover {
@@ -597,6 +597,7 @@ a:hover {
     color: #fff;
 	cursor:pointer;
 	top:95px;
+	background: #0057B8;
 }
 .contactFlyout.expanded {
     /*this is the expanded form*/
@@ -609,6 +610,9 @@ a:hover {
     /* this is the button */
     padding: 10px;
     margin: -15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: initial;
 }
 .contactFlyout h2 {
     font-size: 1.1rem;
@@ -945,7 +949,7 @@ html.ltIE10 .showOnOnlyltIE10{display:block;}
 .placeholderTitle{font-weight:bold;}
 .bluebacked .placeholderTitle{color:#fff;}
 
-.button.orange{border:0;}
+.button.orange{border:0; font-size: 1.1em;}
 .inlineBlock{display:inline-block;width:auto;}
 .ui-datepicker{font-size: .75rem;}
 .hasError{border:1px solid red !important;}

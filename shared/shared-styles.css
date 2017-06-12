@@ -387,6 +387,7 @@ strong {
 .contactFlyout .orange.button {
     text-align: left;
     padding: 5px 0 0;
+    background: #0057B8;
 }
 .glyphicon {
     /* the default glyphicons are too high */
@@ -949,7 +950,7 @@ html.ltIE10 .showOnOnlyltIE10{display:block;}
 .placeholderTitle{font-weight:bold;}
 .bluebacked .placeholderTitle{color:#fff;}
 
-.button.orange{border:0; font-size: 1.1em;}
+.button.orange{border:0; font-size: 1.1rem;}
 .inlineBlock{display:inline-block;width:auto;}
 .ui-datepicker{font-size: .75rem;}
 .hasError{border:1px solid red !important;}

@@ -536,6 +536,7 @@ label {
     width: 100%;
     text-align: left;
     font-weight: normal;
+    font-family: 'Futura PT', sans-serif;
 }
 
 .contactForm .require, .contactForm .spacer {
@@ -1330,6 +1331,7 @@ input, select{border:1px solid #d6d6d6;padding:3px 6px;
     outline: medium none;
     padding: 10px;
     width: 100%;
+    font-family: 'Futura PT Book', sans-serif;
 }
 .shortInputBox div.answer{max-width:350px;}
 .trInputRowSpacers > .answer{padding-top:8px;padding-bottom:8px;}

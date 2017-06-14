@@ -532,6 +532,12 @@ a:hover {
     -moz-osx-font-smoothing: grayscale;
 }*/
 
+label {
+    width: 100%;
+    text-align: left;
+    font-weight: normal;
+}
+
 .contactForm .require, .contactForm .spacer {
     display: none; /*hide the asterisks*/
 }

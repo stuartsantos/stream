@@ -1,3 +1,5 @@
+/* versioning file: /uploads/00002066/whirlpool_v2.css */
+
 /************************
 Tracking
 ************************/
@@ -9,7 +11,7 @@ Common Settings
 * {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 html.ltIE12 {-ms-overflow-style: scrollbar;}
 html {
-	font-size: 14px !important;
+	font-size: 100%;/* override scaffolding w ~16px */
 	height: 100%;
 	overflow-y: scroll; /* Force a scrollbar in non-IE */
 	-webkit-text-size-adjust: 100%; /* Prevent iOS text size adjust on orientation change without disabling user zoom */
@@ -17,9 +19,12 @@ html {
 }
 body {
 	font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;/*f*/
-	color: #666;
-	width: 100%;
-	background: #fff !important;
+    font-size: 1rem;/* override bootstrap, set to default of 16px */
+	color: #000;
+	background:#fff;
+	position: relative;/*fix for mask height? */
+    font-size: 1rem;/* override bootstrap, set to default of 16px */
+    -ms-overflow-style: scrollbar;
 }
 html, body {height:100%;}
 html, body, form {
@@ -31,7 +36,7 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-A {text-decoration: underline;color:#50b6da;}
+A {text-decoration: underline;color:#000;}
 A:hover, a:hover,a:active {outline: 0;text-decoration: none;}
 A:hover{color:#eeb111;}
 img {/* Responsive images (ensure images don't scale beyond their parents) */
@@ -50,42 +55,49 @@ p{margin:0 0 24px 0;}
     overflow-y: scroll;
     -ms-overflow-style: scrollbar;/* IE10 fix for snap */
 }
-
-
-ul > li {
-	padding: 4px 0px 4px 14px;
-	margin: 0;
-    background: url(/uploads/00002066/lidot.png) no-repeat 0 .65em transparent;
-    list-style-type: none;
+ul{margin: 0;padding: 0 0 0 -1.35em;}
+ul li:before{
+    content: '\2022';/* Insert content that looks like bullets */
+    padding-right: 1em;
+    color: #000;
+    margin-left: -1.3em;
+    font-weight: bold;
 }
-ul{
-	list-style: none;
-	margin: 0;
-	padding: 0;
+ul li {list-style-type: none;padding: 0 0 12px 0;}
+ul.customLiIcons{margin: 0 0 0 60px;padding: 0;}
+ul.customLiIcons li{clear:both;}
+ul.customLiIcons li:before{
+	padding-right: 1em;
+	margin-left: -60px;
+	font-weight: bold;
+	min-width:60px;
+	display: inline-block;
+	float:left;
+	clear:both;
+	text-align:center;
+	content:'\00a0';
 }
-ul ul{
-	padding: 0px 0px 0px 12px;
-}
-ul ul > li{
-	padding: 0px 0px 0px 12px;
-	background: url(/uploads/00002066/lidotALT.gif) no-repeat 0 .65em transparent;
-}
-ol{
-	margin: 0px 0px 0px 20px;
-	padding: 0px;
+ol {
+  margin: 0;
+  padding: 0;
+  counter-reset: item;
 }
 ol > li {
-  text-indent: -1rem;
-  list-style-type: none;
-  counter-increment: item;
+    margin: 0;
+    padding: 0 ;
+    list-style-type: none;
+    counter-increment: item;
 }
 ol > li:before {
-  display: inline-block;
-  width: 1em;
-  padding-right: 0.5em;
-  font-weight: bold;
-  text-align: right;
-  content: counter(item) ".";
+    display: inline-block;
+    width: 1.5em;
+    padding-right: 1em;
+    font-weight: bold;
+    text-align: right;
+    content: counter(item) ".";
+}
+@media (min-width:768px){/*don't style phone #s by default on desktop sizes */
+	.hasHrefPhoneNum{color:inherit !important;cursor:initial !important;text-decoration:none;}
 }
 /** Misc *****************************************************************/
 h1, h2, h3, h4, h5, h6, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a{
@@ -95,53 +107,32 @@ h1, h2, h3, h4, h5, h6, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a{
 	color:#000;
 	font-weight:bold;
 }
-h1{font-size: 1.5rem;color:#000;}
-h2{font-size: 1.4rem;}
-h3{font-size: 1.3rem;}
-h4{font-size: 1.2rem;}
-h5{font-size: 1.1rem;}
-h6{font-size: 1rem;}
-#bodyID .lineThroughMiddle {line-height: 0.1em;} 
-.lineThroughMiddle {
-	border-bottom:2px solid #cecaca;
-    height: 3px;
-    text-align: center;
+h1{font-size:1.5rem;}/*~24px*/
+h2{font-size:1.375rem;}/*~22px*/
+h3{font-size:1.25rem;}/*~20px*/
+h4{font-size:1.125rem;}/*~18px*/
+h5{font-size:1.0625rem;}/*~17px*/
+h6{font-size:1.0625rem;}/*~17px*/
+h7{font-size:1.0625rem;}/*~17px*/
+h8{font-size:1.0625rem;}/*~17px*/
+hr {margin: 24px 0;}
+/******************************************************************/
+.lineThroughMiddle {position:relative;text-align:center;margin: 36px 0;padding:0 24px;} 
+.lineThroughMiddle > span { 
+    background:#fff; 
+    padding:0 12px;
+    display:inline-block;
 }
-#bodyID .lineThroughMiddle > span { 
-	background:#fff; 
-	padding:0 20px;
-	line-height:normal;
-	z-index:2;
-	position:absolute;
-
-	transform: translate(-50%, -50%);
-	left:50%;/*IE fix*/
-}
-@media screen and (max-width: 767px) {
-	/*#bodyID .lineThroughMiddle > span { 
-		transform: translate(0%, -50%);
-		left:10%;
-		width:80%;
-	}*/
-}
-@media screen and (max-width: 400px) {
-	.lineThroughMiddle.lineThroughMiddle_MobileFix{margin: 40px 0;}
-}
-.lineThroughMiddleGradient {
-   /*background-image: linear-gradient(to right, #3acfd5 0%, #3a4ed5 100%), linear-gradient(to right, #3acfd5 0%, #3a4ed5 100%);*/
-	background-image: rgba(255,255,255,1);
-	background-image: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(164,164,164,1) 50%, rgba(255,255,255,1) 100%);
-	background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(50%, rgba(164,164,164,1)), color-stop(100%, rgba(255,255,255,1)));
-	background-image: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(164,164,164,1) 50%, rgba(255,255,255,1) 100%);
-	background-image: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(164,164,164,1) 50%, rgba(255,255,255,1) 100%);
-	background-image: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(164,164,164,1) 50%, rgba(255,255,255,1) 100%);
-	background-image: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(164,164,164,1) 50%, rgba(255,255,255,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );   
-    background-position: 0 0px, 0 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 20px;
-    height: 5px;
-	border-bottom:0;
+.lineThroughMiddle > span:before { 
+    background:#000;
+    position:absolute;
+    height:1px;
+    left:0;
+    right:0;
+    content:"";
+    top:50% !important;
+	-ms-transform: translateY(-50%);/* IE */transform: translateY(-50%) !important;	-webkit-transform: translateY(-50%);/* Safari and Chrome */
+	z-index:-1;
 }
 /***************************************
 Framework Setup
@@ -213,7 +204,7 @@ Main Nav
 	z-index:100;
 	margin:0;
 }
-#navWrap{background:#fff;width:100%;border-top:6px solid #012f60;border-bottom:1px solid #012f60;position: relative;}
+#navWrap{background:#fff;width:100%;border-top:16px solid #012f60;border-bottom:1px solid #012f60;position: relative;}
 #bodyID.openNav #nav{position:static;}
 #bodyID.openNav .hideOnNav{display:none;}
 #bodyID.openNav #M_S_fixedCallCTA{display:none !important;}/*overwrite bootstrap*/
@@ -390,7 +381,7 @@ CTA BUTTONS
 	font-weight: bold;
 	vertical-align:middle;
 	-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;
-	background: #f6961e !important;
+	background: #eeb111 !important;/*now yellow*/
 	border:2px solid transparent !important;
 	cursor:pointer;
 	white-space:normal;
@@ -399,7 +390,7 @@ CTA BUTTONS
 	width:100%;
 }
 .CTA_button:focus {text-decoration: none;}
-.CTA_button:hover,#dlgDynamic input[type=button]:hover{background: #fa9f1e !important;border:2px solid #fa9f1e !important;text-decoration:none !important;}
+.CTA_button:hover,#dlgDynamic input[type=button]:hover{background: #cecaca !important;color: #222221 !important;border:2px solid transparent !important;text-decoration:none !important;}
 .CTA_buttonBlue{background: #ccd5df !important;border:2px solid #295789 !important;color:#295789 !important;}
 .CTA_buttonBlue:hover{background: #ccd5df !important;border-color: #fff !important;color:#fff !important;}
 .CTA_buttonGreen{background: #78a22f !important;}
@@ -410,10 +401,14 @@ CTA BUTTONS
 .CTA_buttonRed:hover{background: #d15852 !important;}
 .CTA_buttonOrange{background: #eeb111 !important;color:#fff !important;}
 .CTA_buttonOrange:hover{background: #ffc379 !important;}
+/*.CTA_buttonYellow{background: #eeb111 !important;color:#fff !important;}
+.CTA_buttonYellow:hover{background:#cecaca !important;color: #222221 !important;}*/
 .CTA_buttonWhiteOutline{background: transparent !important;color:#fff !important;border:2px solid #fff !important;}
 .CTA_buttonWhiteOutline:hover{background: #fff !important;color:#012f60 !important;border-color: #012f60 !important;}
 .CTA_buttonBlueOutline{background: transparent !important;color:#012f60 !important;border:2px solid #012f60 !important;}
 .CTA_buttonBlueOutline:hover{background: #cecaca !important;color:#012f60 !important;border-color: #012f60 !important;}
+.CTA_buttonDarkOutline{background: transparent !important;color:#222221 !important;border:2px solid #222221 !important;}
+.CTA_buttonDarkOutline:hover{background: #cecaca !important;color:#222221 !important;border-color: #222221 !important;}
 
 /** altCTA BUTTONS **/
 .altCTA_button{
@@ -442,54 +437,6 @@ CTA BUTTONS
 .CTA_button.CTA_buttonSmall.hasTGicon{line-height:1.6rem;}
 .CTA_button .smallest{font-size:.55rem;margin-top:-4px;}
 
-/*****************************************
-INPUT/RADIO/CHECKBOX/COMMENT BOX STYLE
-*****************************************/
-input[type=text], input[type=tel], input[type=num]{width:100%;padding:6px 12px;height:auto;font-size:16px;color:#666;}
-select{width:100%;-webkit-appearance:none;}
-/*select > option{padding:6px 12px;height:auto;font-size:16px;color:#666;}*/
-
-
-.inputPlaceholder{padding:0;margin:0;border:0;background:#fff !important;color:#fff;width:auto;min-height:0;line-height:0;}/* use this for tabUpdate function */
-.inputPlaceholder::-moz-selection {color: #fff;background: #fff;}
-.inputPlaceholder::selection {color: #fff;background: #fff;}
-input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
-input[type=number] {-moz-appearance:textfield;}
-select.form-control option, input.form-control, select.form-control {text-align:center;}
-legend{margin-bottom:4px;}
-textarea{min-height:200px;}
-select{cursor:pointer;}
-select optgroup{background:#666;color:#fff;}
-select optgroup option{background:#fff;color:#231f20;cursor:pointer;}
-/* .ios select{height:52px;}iOS fix for padding and line-height not working */
-select.form-control, select.form-control option, select:focus.form-control, select:focus.form-control option, textarea.form-control, input.form-control, label.form-control, .input-group-addon  {line-height: 2.0857;font-size: 18px !important;}/*fix iOS zoom on <inputs> and <select>*/
-.ltIE10 .input-group-addon  {line-height: .8;}/* <IE10 fix */
-.ie11 .input-group > input.form-control{padding:9px 12px;}/* IE11 fix */
-@media (min-width: 768px) {
-select.form-control, select.form-control option, select:focus.form-control, select:focus.form-control option, textarea.form-control, input.form-control, label.form-control, .input-group-addon  {line-height: 1.4857;font-size: 16px !important;}/*fix iOS zoom on <inputs> and <select>*/
-.ltIE10 .input-group-addon  {line-height: 1.2;}/* <IE10 fix */
-}
-input[type=radio] {
-transform: scale(1.3);/* All browsers except webkit*/
--webkit-transform: scale(1.3);/* Webkit browsers*/
-width:auto;/*undo generic input/select 100% */
-vertical-align:middle;
-line-height:18px !important;
-margin: 0 8px 4px 0 !important;
-}
-.form-control{height:auto;}
-.input-group-addon-calendar{
-	background-image: url(/uploads/00002066/calendarIcon2.png);
-	background-repeat:no-repeat;
-	background-position: 50%;
-	min-width:40px;
-}
-.form-calendar-group input{cursor:pointer;}
-/* calendar conflicts w bootstrap */
-.ui-datepicker div.ui-datepicker-status{height:auto;min-height:50px;}
-.transparentInput{background:transparent !important;border:0;}
-.ui-state-default.calendarDepartureDate, .ui-state-default.calendarInitDepositDate{background:#defce1;color:green;}
-.zipInput input {width: 80px;}
 /***************************************/
 /* mobileOnly collapsibles */
 .mobileOnlyCollapsible_Toggle{cursor:pointer;}
@@ -501,86 +448,13 @@ body .mobileOnlyCollapsible_Content{display:none;}
 	.mobileOnlyCollapsible_Toggle{cursor:default;}
 	body .mobileOnlyCollapsible_Content{display:inherit;}/* might break w parent = inline items?, on home page? */
 }
-
-
-
-/** Inputs and InputRows *****************************************************************/
-.trDisplayInputAsRow td{display:block;}
-.trDisplayInputAsRow td.require{float:left;}
-.ltIE10 .trDisplayInputAsRow > td{float:left;}/*IE9 fix for td not compatibile w display block*/
-.ltIE10 .trDisplayInputAsRow > td.answer{width:100%;clear:both;}
-
-.trinput100 > td {padding: 3px 0;}
-.trinput100 > td.answer {padding: 0px 0 8px 0;}
-.trinput100 input{width:100%;}
-.inputLeft input {text-align:left !important;}
-input, select{
-	border:1px solid #d6d6d6;
-    border-radius: 0;
-    outline: medium none;
-    width: 100%;
-}
-input{padding: 10px;}
-.trInputRowSpacers > .answer{padding-top:8px;padding-bottom:8px;}
-.hasErrorIndicators .require{color:#ff0000;}
-.hasErrorIndicators .warning{color:#f48585;}
-.hasErrorIndicators h1,.hasErrorIndicators h2,.hasErrorIndicators h3,.hasErrorIndicators h4{margin-top:0 !important;}
-.testInputVariables input{background:#f0f0f0;border:1px solid #d6d6d6;text-align:center;color:#b5b5b5;}
-.showOnIsTest{display:block;
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: -200vw;
-	top: -200vh;
-	overflow:hidden;
-}/*hide test data by default*/
-.isTest .showOnIsTest{
-	position: relative;
-	width: auto;
-	height: auto;
-	left: auto;
-	top: auto;'overflow:visible;
-}/*show test data when specific variable is passed*/
-
-.streamCheckboxInput > td{vertical-align:top;}
-.streamCheckboxInput > td:nth-of-type(1){width:0;}
-input[type=checkbox] {transform: scale(1.7,1.7);width:auto !important;height:auto !important;padding:0 !important;margin:0 8px 0 4px !important;vertical-align: middle;}
-.ltIE12 input[type=checkbox] {transform: scale(1.8,1.8);width:15px !important;height:15px !important;}
-.ltIE10 input[type=checkbox] {transform: scale(1,1);}
-.ltIE11 .streamCheckboxInput > td:nth-of-type(3){width:100%;}
-
-.responsiveStreamInput > table{width:100%;}
-.responsiveStreamInput td.require{width:10px;}
-.responsiveStreamInput td{vertical-align:top;padding-bottom:12px;}
-
-.streamCheckboxInput{}
-.streamCheckboxInput > td:nth-of-type(1){float:left;}
-.streamCheckboxInput > td:nth-of-type(2){padding-left:40px;}
-.streamCheckboxInput > td:nth-of-type(3){position:absolute;left:30px;/*top:5px;float:left;*/}
-.streamCheckboxInput > td > label{font-weight:normal;}
-@media (max-width: 767px) {
-	.responsiveStreamInput{display: block;margin-top:10px;}
-	.responsiveStreamInput > td.require{display: block;float:left;}
-	.responsiveStreamInput > td.spacer{display: block;}
-	.responsiveStreamInput > td.answer {display: block;margin-bottom:12px;}
-}
-@media (min-width: 768px) {
-	.responsiveStreamInput td.answer{text-align:right;}	
-}
-label {font-weight: normal;margin-bottom:0;}
-
-
-.input-group-addon-calendarWrap input{background: #fff !important;}
-input, select{
-	width:100%;
-	padding:14px 12px !important;
-	height:auto;
-	color:#999 !important;
-	line-height: normal !important;
-	font-size: 16px !important;
-	border:1px solid #ccc;
-}
-.ios select{-webkit-appearance: none;line-height: 23px !important;}/* iOS fix for padding and line-height not working */
+/** sections and sectionTitles *****************************************************************/
+.sectionWrap{}
+.sectionTitle{background:#fff;color:#333;padding: 8px 24px;font-weight:bold;font-size:1.4rem;}
+.sectionWrap.current  > .sectionTitle{background:#cecaca;}
+.sectionContent{border:1px solid #cecaca;padding:24px;color:#333;}
+/*-- selectPlan --*/
+.selectPlanDuration.active{background:#012f60;color:#fff;padding:4px 8px;font-weight:bold;}
 /***************************************
 bootstrap equal height
 ***************************************/
@@ -623,6 +497,9 @@ bootstrap equal height
 /***************************************
 bootstrap fixes
 ***************************************/
+@media print {
+  a[href]:after {content: none;}/*undo bootstrap showing of url on print*/
+}
 /* no-gutters Class Rules */
 /* body .container {max-width:auto;padding:0;} */
 body .container, body .container-fluid{max-width:auto;padding:0;}
@@ -641,7 +518,41 @@ body .row {margin-right: 0;margin-left: 0;padding:0;}
 }
 .inline-block{display:inline-block;}/* preserves inline display property*/
 .ui-datepicker .ui-datepicker-row-break {font-size:1rem;}/*fixes conflict w JQUI calendars */
+.ui-datepicker-calendar > tbody > tr > tf{width:14.28%;}/* IE11 fix */
 
+/* Custom 5col design **************************************/
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+/* Custom 5col design **************************************/
 /* icon styles */
 #bodyID .hasGlyphicon {display:inline-table;}
 #bodyID .hasGlyphicon .glyphicon:hover:before {text-decoration:none;}
@@ -737,24 +648,20 @@ button and icon styles */
 body.modal-open {padding-right: 0 !important;}/*FF fix*/
 .modal-footer{text-align:center;}
 .modal-footer a{margin:0 auto;}
-
 .modal .modal-header{
-	background-color:#2fb6e9;
-	color:#fff;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	color:#222221;
+	border-radius: 0;
+	border-bottom:0;
 	width:100%;
+	text-align:right;
 }
-.modal .modal-header .modal-title{color:#fff;}
-.glyphicon.modal-close{cursor:pointer;font-size:1.6rem;color: #666;}
-.glyphicon.modal-close:before{opacity:.7;}
-.glyphicon:hover.modal-close:before{opacity:1;}
-
+.modal .modal-header .modal-close{color:#222221;text-decoration:underline;font-weight:bold;}
+.modal .modal-content{border-radius: 0;}
+.modal .modal-body, .modal .modal-header{padding:24px;}
 .modal.errorModal .modal-header{
 	background-color:#ff0000;
 	color:#fff;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	border-radius: 0;
 }
 .modal.errorModal .glyphicon.modal-close:before{color:#ff0000;}
 
@@ -814,9 +721,12 @@ sub { top: 0.5em; }
 .border1{border:1px solid #cecaca;}
 .borderTop1{border-top:1px solid #cecaca;}
 .borderBottom1{border-bottom:1px solid #cecaca;}
+.borderRight1{border-right:1px solid #cecaca;}
+.borderLeft1{border-left:1px solid #cecaca;}
 .borderWhite{border-color: #fff;}
 .borderBlack{border-color: #000;}
 .borderGrey{border-color: #cecaca;}
+.borderDarkBlue{border-color: #012f60;}
 .border0{border:0;}
 .borderTop0{border-top-width:0;}
 .borderRight0{border-right-width:0;}
@@ -832,40 +742,55 @@ sub { top: 0.5em; }
 .pad0{padding: 0 !important;}
 .pad12{padding: 12px !important;}
 .pad24{padding: 24px !important;}
+.pad48{padding: 48px !important;}
+.padTop0{padding-top: 0 !important;}
 .padTop12{padding-top: 12px !important;}
 .padTop24{padding-top: 24px !important;}
-.padTop40{padding-top: 40px !important;}
+.padTop48{padding-top: 48px !important;}
+.padRight0{padding-right: 0 !important;}
 .padRight12{padding-right: 12px !important;}
 .padRight24{padding-right: 24px !important;}
+.padRight48{padding-right: 48px !important;}
+.padLeft0{padding-left: 0 !important;}
 .padLeft12{padding-left: 12px !important;}
 .padLeft24{padding-left: 24px !important;}
+.padLeft48{padding-left: 48px !important;}
+.padBottom0{padding-bottom: 0 !important;}
 .padBottom12{padding-bottom: 12px !important;}
 .padBottom24{padding-bottom: 24px !important;}
-.padBottom40{padding-bottom: 40px !important;}
+.padBottom48{padding-bottom: 48px !important;}
+.margin0{margin: 0 !important;}
 .margin12{margin: 12px !important;}
 .margin24{margin: 24px !important;}
+.margin48{margin: 48px !important;}
+.marginLeft0{margin-left: 0 !important;}
 .marginLeft12{margin-left: 12px !important;}
 .marginLeft24{margin-left: 24px !important;}
+.marginLeft48{margin-left: 48px !important;}
+.marginRight0{margin-right: 0 !important;}
 .marginRight12{margin-right: 12px !important;}
 .marginRight24{margin-right: 24px !important;}
+.marginRight48{margin-right: 48px !important;}
+.marginTop0{margin-top: 0 !important;}
 .marginTop12{margin-top: 12px !important;}
 .marginTop24{margin-top: 24px !important;}
+.marginTop48{margin-top: 48px !important;}
+.marginBottom0{margin-bottom: 0 !important;}
 .marginBottom12{margin-bottom: 12px !important;}
 .marginBottom24{margin-bottom: 24px !important;}
-.marginBottom0{margin-bottom: 0 !important;}
+.marginBottom48{margin-bottom: 48px !important;}
 .tgHide{display:none;}
 .tgShow{display:block;}
 #bodyID .hasError, #bodyID .inerror{border:1px solid red !important;}
 #bodyID input[type="checkbox"].hasError, #bodyID input[type="checkbox"].inerror{border:0 !important;outline: 1px solid red;}
 #bodyID input.hasError, #bodyID select.hasError, .hasError > .tg-flipswitch > .form-group{background-color:#ffeeee;color:#ff0000;}
 .hasError.form-control::-moz-placeholder, .hasError > .tg-flipswitch > .form-group .form-control {color: #ff0000;}
-.large{font-size:1.10rem;}
-.larger{font-size:1.25rem;}
-.largest{font-size:1.45rem;}
-.largest2{font-size:1.65rem;}
-.small{font-size:.95rem;}
-.smaller{font-size:.85rem;}
-.smallest{font-size:.75rem;}
+.large{font-size:1.125rem;}/*~18px;*/
+.larger{font-size:1.25rem;}/*~20px;*/
+.largest{font-size:1.375rem;}/*~22px;*/
+.small{font-size:0.875rem;}/*~14px;*/
+.smaller{font-size:0.75rem;}/*~12px;*/
+.smallest{font-size:0.625rem;}/*~10px;*/
 .bold{font-weight:bold;}
 .normal{font-weight:normal;}
 .italicize{font-style:italic;}
@@ -874,12 +799,14 @@ sub { top: 0.5em; }
 .customNoUnderline > .doUnderlineThis{text-decoration:underline;}
 .customNoUnderline:hover > .doUnderlineThis{text-decoration:none;}
 .vTop, .vTop td{vertical-align:top;}
-.vMid, .vMid td{vertical-align:middle;}
-.left, .left td{text-align: left;}
+.vMid, .vMid td, .vMid .divTableCell{vertical-align:middle;}
+.vBottom, .vBottom td{vertical-align:bottom;}
 .center, .center td{text-align: center;}
-.marginCenter{margin-left:auto !important;margin-right:auto !important;}
+.marginCenter{margin-left:auto;margin-right:auto;}
 .right, .right td{text-align: right;}
+.left, .left td{text-align: left;}
 .uppercase{text-transform:uppercase;}
+.lowercase{text-transform:lowercase !important;}
 .tgHelpLink,.tgHelpLink A{color: #39940c;}
 .tgHelpLink:hover, .tgHelpLink a:hover,.tgHelpLink:visited, .tgHelpLink a:visited{color:#2f8107;}
 .tgHelpLink .glyphicon{color: #005a84;font-size:1.25rem;}
@@ -919,69 +846,92 @@ ul.ulNoDot li{background-image:none;padding-left:0;}
 .colorMedBlue, A.colorMedBlue{color:#01a6e4;}
 .bkgWhite{background:#fff;}
 .bkgLightGrey{background:#f2f2f3;}
-.bkgDarkBlue{background:#005a84;}
+.bkgDarkBlue{background:#012f60;}
 .bkgMedBlue{background:#01a6e4;}
 .bkgGrey{background:#ccc;}
 .bkgMedGrey{background:#cecaca;}
 .bkgDarkGrey{background:#404041;}
+.showOnOnlyltIE10{display:none;}
+html.ltIE10 .showOnOnlyltIE10{display:block;}
+.showOnIsTest{/*hide test data by default*/
+	display:block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -200vw;
+	top: -200vh;
+	overflow:hidden;
+}
+.isTest .showOnIsTest{/*show test data when specific variable is passed*/
+	position: relative;
+	width: auto;
+	height: auto;
+	left: auto;
+	top: auto;
+	overflow:visible;
+}
 @media (min-width: 768px) {/*-- mobile/tablet --*/
 	.mobileOnlyTable{display:none;}
 	.desktopOnlyTable{display:table;}
 	.desktopOnlyNowrap{white-space:nowrap;}
 }
 @media (max-width: 767px) {/*-- mobile/tablet --*/
-
+    .mobileOnlyClrRight{clear:right !important;}
+    .mobileOnlyClrLeft{clear:left !important;}
+    .mobileOnlyClrWidth{width:auto !important;}
+    .mobileOnlyClrFloat{float:none !important;text-align:left;}
+    .mobileOnlyClrMargins{margin:0 !important;}
+    .mobileOnlyClrPad{padding:0 !important;}
+    .mobileOnlyClrPadTop{padding-top:0 !important;}
+    .mobileOnlyClrPadRight{padding-right:0 !important;}
+    .mobileOnlyClrPadBottom{padding-bottom:0 !important;}
+    .mobileOnlyClrPadLeft{padding-left:0 !important;}
+    .mobileOnlyClrMarginTop{margin-top:0 !important;}
+    .mobileOnlyClrMarginRight{margin-right:0 !important;}
+    .mobileOnlyClrMarginBottom{margin-bottom:0 !important;}
+    .mobileOnlyClrMarginLeft{margin-left:0 !important;}
+    .mobileOnlyClrBorder{border:0 !important;}
+    .mobileOnlyClrBorderBottom{border-bottom:0 !important;}
+    .mobileOnlyPad12{padding:12px !important;}
+    .mobileOnlyPad24{padding:24px !important;}
+    .mobileOnlyPad48{padding:48px !important;}
+    .mobileOnlyPadTop12{padding-top:12px !important;}
+    .mobileOnlyPadTop24{padding-top:24px !important;}
+    .mobileOnlyPadTop48{padding-top:48px !important;}
+    .mobileOnlyPadRight12{padding-right:12px !important;}
+    .mobileOnlyPadRight24{padding-right:24px !important;}
+    .mobileOnlyPadRight48{padding-right:48px !important;}
+    .mobileOnlyPadBottom12{padding-bottom:12px !important;}
+    .mobileOnlyPadBottom24{padding-bottom:24px !important;}
+    .mobileOnlyPadBottom48{padding-bottom:48px !important;}
+    .mobileOnlyPadLeft12{padding-left:12px !important;}
+    .mobileOnlyPadLeft24{padding-left:24px !important;}
+    .mobileOnlyPadLeft48{padding-left:48px !important;}
+    .mobileOnlyMarginTop12{margin-top:12px !important;}
+    .mobileOnlyMarginTop24{margin-top:24px !important;}
+    .mobileOnlyMarginTop48{margin-top:48px !important;}
+    .mobileOnlyMarginRight12{margin-right:12px !important;}
+    .mobileOnlyMarginRight24{margin-right:24px !important;}
+    .mobileOnlyMarginRight248{margin-right:48px !important;}
+    .mobileOnlyMarginBottom12{margin-bottom:12px !important;}
+    .mobileOnlyMarginBottom24{margin-bottom:24px !important;}
+    .mobileOnlyMarginBottom48{margin-bottom:48px !important;}
+    .mobileOnlyMarginLeft12{margin-left:12px !important;}
+    .mobileOnlyMarginLeft24{margin-left:24px !important;}
+    .mobileOnlyMarginLeft48{margin-left:48px !important;}
+	.mobileOnlyCenter, .mobileOnlyCenter td{text-align: center;}
+	.mobileOnlyRight, .mobileOnlyRight td{text-align: right;}
+	.mobileOnlyLeft, .mobileOnlyLeft td{text-align: left;}
 	.mobileOnlyTable{display:table;}
-	.mobileOnlyBlock{display:block;}
 	.desktopOnlyTable{display:none;}
-	.mobileOnlyClrRight{clear:right !important;}
-	.mobileOnlyClrLeft{clear:left !important;}
-	.mobileOnlyClrWidth{width:auto !important;}
-	.mobileOnlyClrFloat{float:none !important;text-align:left;}
-	.mobileOnlyCenter{text-align: center;}
-	.mobileOnlyLeft{text-align: left;}
-	.mobileOnlyClrMargins{margin:0 !important;}
-	.mobileOnlyClrPad{padding:0 !important;}
-	.mobileOnlyClrPadTop{padding-top:0 !important;}
-	.mobileOnlyClrPadRight{padding-right:0 !important;}
-	.mobileOnlyClrPadBottom{padding-bottom:0 !important;}
-	.mobileOnlyClrPadLeft{padding-left:0 !important;}
-	.mobileOnlyClrMarginTop{margin-top:0 !important;}
-	.mobileOnlyClrMarginRight{margin-right:0 !important;}
-	.mobileOnlyClrMarginBottom{margin-bottom:0 !important;}
-	.mobileOnlyClrMarginLeft{margin-left:0 !important;}
-	.mobileOnlyClrBorder{border:0 !important;}
-	.mobileOnlyClrBorderBottom{border-bottom:0 !important;}
-	.mobileOnlyWidth100{width:100%;}
-	.mobileOnlyPad0{padding: 0 !important;}
-	.mobileOnlyPad12{padding: 12px !important;}
-	.mobileOnlyPad24{padding: 24px !important;}
-	.mobileOnlyPadTop12{padding-top:12px !important;}
-	.mobileOnlyPadTop24{padding-top:24px !important;}
-	.mobileOnlyPadRight12{padding-right:12px !important;}
-	.mobileOnlyPadRight24{padding-right:24px !important;}
-	.mobileOnlyPadBottom12{padding-bottom:12px !important;}
-	.mobileOnlyPadBottom24{padding-bottom:24px !important;}
-	.mobileOnlyPadLeft12{padding-left:12px !important;}
-	.mobileOnlyPadLeft24{padding-left:24px !important;}
-	.mobileOnlyMarginTop12{margin-top:12px !important;}
-	.mobileOnlyMarginTop24{margin-top:24px !important;}
-	.mobileOnlyMarginRight12{margin-right:12px !important;}
-	.mobileOnlyMarginRight24{margin-right:24px !important;}
-	.mobileOnlyMarginBottom12{margin-bottom:12px !important;}
-	.mobileOnlyMarginBottom24{margin-bottom:24px !important;}
-	.mobileOnlyMarginBottom48{margin-bottom:48px !important;}
-	.mobileOnlyMarginLeft12{margin-left:12px !important;}
-	.mobileOnlyMarginLeft24{margin-left:24px !important;}
+	.mobileOnlyBlock{display:block;}
+	.mobileOnlyInlineBlock{display:inline-block;}
+	.mobileOnlyMaxWidth100{max-width:100px;}
+	.mobileOnlyMaxWidth200{max-width:200px;}
+	.mobileOnlyMaxWidth300{max-width:300px;}
 	
 	.mobileOnlyNegSiteWidth{margin:0 -12px;}
 }
-/** sections and sectionTitles *****************************************************************/
-.sectionWrap{}
-.sectionTitle{background:#cecaca;color:#333;padding: 8px 24px;font-weight:bold;font-size:1.4rem;}
-.sectionContent{border:1px solid #cecaca;padding:24px;color:#333;}
-/*-- selectPlan --*/
-.selectPlanDuration.active{background:#012f60;color:#fff;padding:4px 8px;font-weight:bold;}
 /*****************************************
 Messages
 *****************************************/
@@ -1117,34 +1067,33 @@ Responsive tables
 	}
 }
 /*-- customSlider --*/
-#customSlider{overflow:hidden !important;white-space: nowrap;position:relative;}
-#customSlider .customSliderCell{white-space: normal;padding:12px 48px;color:#919295;font-size:1.125rem;vertical-align: top;margin-right:-4px;}
+.customSlider{overflow:hidden !important;white-space: nowrap;position:relative;}
+.customSlider .customSliderCell{white-space: normal;padding:12px 48px;vertical-align: top;margin-right:-4px;}
 .customSliderTextWrap {max-width: 180px;margin: 0 auto;}
 @media (min-width: 768px) {
 	.customSliderWrap {margin: 0 40px;}
 }
-#customSlider.atMinPos .customSliderLeftBtn, #customSlider.atMaxPos .customSliderRightBtn{display:none;}
+#bodyID .customSlider.atMinPos .customSliderLeftBtn, #bodyID .customSlider.atMaxPos .customSliderRightBtn{display:none;}
 .ltIE10 .customSliderWrap > .divTable{width:100% !important;}/*fix IE vw bug */
-.ltIE10 #customSlider .customSliderBtn {display:none;}
+.ltIE10 .customSlider .customSliderBtn {display:none;}
 
 .ltIE10 .customSliderWrap > .divTable > .divTableRow > .customSliderCell{display:block;width:100% !important;}/*fix IE flex bug */
 }
 .customSliderBtns{}
 .customSliderBtn{position:absolute;top:0;bottom:0;padding:0 4px;height: 100%;}
-#customSlider .customSliderLeftBtn{left:0;}
-#customSlider .customSliderRightBtn{right:0;}
+.customSlider .customSliderLeftBtn{left:0;}
+.customSlider .customSliderRightBtn{right:0;}
 .customSliderBtn{
-	background: #fff url(/uploads/00002066/customSliderBtn.png) center left no-repeat;
-	padding: 4px 20px;
-	color:#012f60;
+font-size:1.5rem;
+color: #eeb111;
+padding: 4px 20px;
 	line-height:normal;
 	top: 50%;
 	-ms-transform: translateY(-50%);/* IE */transform: translateY(-50%);-webkit-transform: translateY(-50%);/* Safari and Chrome */
 	vertical-align:middle;
-	background-position:5px 50%;
 	margin-top: -1px;/*position fix for cut off bottom border */
 }
-.customSliderBtn.customSliderRightBtn{background-position:-63px 50%;}
+.customSliderBtn:hover{color: #222221;}
 
 /*-- divTable --*/
 .divTable{display:table;width:100%;}
@@ -1344,10 +1293,10 @@ padding:12px;
 /*****************************************
 custom Tabs - SingleRow
 *****************************************/
-#greenMainTabs > .customTabsContentWrap{padding:80px 40px;}
+#greenMainTabs > .customTabsContentWrap{margin-top: 48px;margin-bottom: 48px;}
 .customTabsButtonsWrap .customTabsButtonsLink, .customTabsButtonsWrap{border:0;}
 #greenMainTabs > .customTabsBorderWrap{background: #eeb111;}
-#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsWrap2 .customTabsButtonsLink{background: #eeb111;color:#000;font-weight:bold;}
+#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsWrap2 .customTabsButtonsLink{background: #eeb111;color:#fff;font-weight:bold;}
 .customTabsWrap .customTabsButtonsWrap .customTabsButtonsWrap2 .customTabsButtonsLink{border-collapse: separate;text-decoration:none;text-transform:uppercase;padding:12px;}
 @media (min-width: 768px) {
 	#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsWrap2 .customTabsButtonsLink{border-left:10px solid #fff;}
@@ -1358,8 +1307,8 @@ custom Tabs - SingleRow
 	#greenMainTabs.customTabsWrap .customTabsButtonsWrap .customTabsButtonsWrap2 .customTabsButtonsLink{border-bottom:3px solid #fff;}
 	#greenMainTabs > .customTabsContentWrap{padding:20px 0;}
 }
-#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsLink.current, #greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsLink.current:hover{color: #000;background:#cecaca;cursor:default;}
-#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsLink:hover{background:#cecaca;}
+#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsLink.current, #greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsLink.current:hover{color: #222221;background:#cecaca;cursor:default;}
+#greenMainTabs.customTabsWrap > .customTabsBorderWrap > .customTabsButtonsWrap .customTabsButtonsLink:hover{background:#cecaca;color: #222221;}
 
 .customTabsButtonsWrap .customTabsButtonsLink::before{display: none;}
 .customTabsWrap .customTabsContentWrap .customTab{display:none;}
@@ -1378,18 +1327,6 @@ custom Tabs - SingleRow
 @media (max-width: 767px) {
 	.customTabsRows.customTabsWrap .customTabsContentWrap .customTab{padding:24px 12px;}
 }
-
-@media screen and (min-width: 768px) {
-	.VPcol1{
-		float:left;
-		margin-right:280px;
-	}
-	.VPcol2{
-		max-width:210px;
-		float:left;
-		margin-left:-210px;
-	}
-}
 /*****************************************
 Toggles
 *****************************************/
@@ -1404,21 +1341,24 @@ Toggles
 	font-weight:bold;
 }
 .togglesWrap .toggle_Button.greyButton{
-	border-bottom: 1px solid #fff;
+	border-bottom: 2px solid #fff;
 	color:#fff;
-	background-color:#404041;
+	background-color:#222222;
 }
 .togglesWrap .greyButton.toggle_Button:hover{background-color:#565657;}
 .togglesWrap .greyButton.toggle_Button:last-of-type{border-bottom: 0;}
-.togglesWrap .greyButton.toggle_Button.closed, .greyButton.togglesWrap .toggle_Button.closed:hover{color: #fff;background:#404041;}
+.togglesWrap .greyButton.toggle_Button.closed, .greyButton.togglesWrap .toggle_Button.closed:hover{color: #fff;background:#222222;}
 
-.togglesWrap .toggle_Button .glyphicon:before{content:"\2212";}/* open - */
-.togglesWrap .toggle_Button.closed .glyphicon:before{content:"\2b";}/* closed + */
+.togglesWrap .toggle_Button .glyphicon:before{content:"\e113";}/* open ^ */
+.togglesWrap .toggle_Button.closed .glyphicon:before{content:"\e114";}/* closed ^ */
 
 .togglesWrap .toggle_Content{padding: 36px 24px;}
 @media (max-width: 767px) {
 	.togglesWrap .toggle_Content{padding:24px 12px;}
 }
+
+.togglesWrap .toggle_Button.hasGlyphicon .glyphicon{top:0px;}
+.togglesWrap .toggle_Button.hasGlyphicon .glyphicon, .togglesWrap .toggle_Button.hasGlyphicon .glyphicon::before{display:table-cell;}
 /*****************************************
 progressBar
 *****************************************/
@@ -1460,17 +1400,166 @@ applianceModelLogo
 #modelNumFinder .customTabsButtonsWrap .applianceModelLogo{opacity:.6;}
 #modelNumFinder .customTabsButtonsWrap .applianceModelLogo.current, #modelNumFinder .customTabsButtonsWrap .applianceModelLogo:hover{opacity:1;}
 
-/* ********************************************************** */
-/* Rohde Custom styles */
-.showOnOnlyltIE10{display:none;}
-html.ltIE10 .showOnOnlyltIE10{display:block;}
+/***************************************
+Inputs and InputRows
+***************************************/
+.form-control{height:auto;}
+.input-group-addon-calendar{
+	background-image: url(/uploads/00002066/calendarIcon2.png);
+	background-repeat:no-repeat;
+	background-position: 50%;
+	min-width:40px;
+}
+.form-calendar-group input{cursor:pointer;}
+/* calendar conflicts w bootstrap */
+.ui-datepicker div.ui-datepicker-status{height:auto;min-height:50px;}
+.transparentInput{background:transparent !important;border:0;}
+.ui-state-default.calendarDepartureDate, .ui-state-default.calendarInitDepositDate{background:#defce1;color:green;}
+.zipInput input {width: 80px;}
+label {font-weight: normal;}/*undo bootstrap*/
+.elementcontainer .answer .productField label {;margin-bottom:0;display:inline;margin-right: 15px;}
+.inputLeft input {text-align:left !important;}
+input, select{
+    border-radius: 0;
+	text-transform:capitalize;
+    outline: medium none;
+	width:100%;/*set default for all input types (num, phone, date, text, etc) */
+}
+.normalTextTransform input, .normalTextTransform select{text-transform:none;}
+.shortInputBox div.answer{max-width:350px;}
+.trInputRowSpacers > .answer{padding-top:6px;padding-bottom:24px;}
+
+
+textarea{min-height:200px;}
+select{cursor:pointer;}
+select optgroup{background:#666;color:#fff;}
+select optgroup option{background:#fff;color:#231f20;cursor:pointer;}
+
+select{
+	width:100%;
+	-webkit-appearance:none;
+	cursor:pointer;
+    border-radius: 0;
+    outline: medium none;
+	width:100%;
+	padding:14px 12px !important;
+	-moz-padding:10px 12px !important;
+	height:auto;
+	color:#999 !important;
+	line-height: normal !important;
+	font-size: 16px !important;
+	border:1px solid #ccc;
+	-webkit-line-height: 23px !important;/* iOS fix for padding and line-height not working */
+}
+select:disabled{cursor:default;}
+select > option{height:auto;}/* font-size:1.2em;padding:6px 12px; */
+input[type=text], input[type=tel], input[type=email]{
+	width:100%;
+	-webkit-appearance:none;
+	cursor:text;
+    border-radius: 0;
+    outline: medium none;
+	padding:14px 12px !important;
+	height:auto;
+	color:#999 !important;
+	line-height: normal !important;
+	font-size: 16px !important;
+	border:1px solid #ccc;
+	-webkit-line-height: 23px !important;/* iOS fix for padding and line-height not working */
+}
+html input[disabled] {color: #666 !important;background:#f0f0f0;}
+input[type=checkbox],input[type=radio] {width:auto;}/*undo generic input/select 100% */
+input[type=checkbox].hasCustomCheckboxSprite,input[type=radio].hasCustomRadioSprite {
+-webkit-transform: scale(.5,.5);/*make smaller so they hide */
+}
+/* Custom Checkbox button */
+/*input[type="checkbox"].hasCustomCheckboxSprite {visibility:hidden;}can't hide, breaks validation */
+input[type="checkbox"].hasCustomCheckboxSprite + label.customCheckboxSprite {
+    font-size:1rem;
+   	cursor: pointer;
+	border:2px solid #ccc;
+	background:#fff;
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-1px 4px 0 -15px;
+    vertical-align:middle;
+	position: relative;
+}
+.ios input[type="checkbox"].hasCustomCheckboxSprite + label.customCheckboxSprite {margin-left:-17px;}
+input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite{background-color: #fff;}/* Checked state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite:before {
+	font-family: 'Glyphicons Halflings';
+	content: "\e013";
+	color: #222;
+	margin: -2px 0 0 0;
+	position: absolute;
+}
+@-moz-document url-prefix() {/* FireFox fix */
+	input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite:before {margin: -3px 0 0 0;}
+}
+.internetexplorer input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite:before {margin: -8px 0 0 0;}/* IE fix */
+input[type="checkbox"].hasCustomCheckboxSprite:focus + label.customCheckboxSprite{border-color: #012f60;}/* focus state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:checked:focus + label.customCheckboxSprite{background-color: #012f60;border-color: #ccc;}/* Checked+focus state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:checked:focus + label.customCheckboxSprite:before {color: #fff;}/* Checked+focus state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:disabled+ label.customCheckboxSprite{background-color: #ccc;cursor: default;}/* disabled state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:disabled+ label.customCheckboxSprite:before{color: #666;}/* disabled state for checkbox */
+/* Custom Radio button */
+/*input[type="radio"].hasCustomRadioSprite {visibility:hidden;} can't hide, breaks validation */
+input[type="radio"].hasCustomRadioSprite + label.customRadioSprite {
+    font-size:1rem;
+   	cursor: pointer;
+	border:2px solid #012f60;
+	background:#fff;
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-2px 4px 0 -17px;
+    vertical-align:middle;
+	-moz-border-radius:  50%;
+    border-radius:  50%;
+	position: relative;
+}
+input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite{background-color: #012f60;border-color: #fff;}/* Checked state for radio */
+input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite:before {
+	/*! margin: 3% 0 0% -34%; */
+	content: '\2022';
+	font-size: 2.1rem;
+	line-height: 1rem;
+	/*! position: absolute; */
+	color: #012f60;
+	/*! left: 50%; */
+	/*! border-color: #fff; */
+	/*! width: 100%; */
+	/*! height: 100%; */
+	display: inline-block;
+	margin: 1px 0 0 2px;
+}
+@-moz-document url-prefix() {/* FireFox fix */
+	/*input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite:before {margin: 0 2px;}*/
+}
+.internetexplorer input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite:before {margin: 9px 1px;}/* IE fix */
+input[type="radio"].hasCustomRadioSprite:focus + label.customRadioSprite{border-color: #012f60}/* focus state for checkbox */
+input[type="radio"].hasCustomRadioSprite:checked:focus + label.customRadioSprite{border-color: #fff;}/* Checked+focus state for checkbox */
+input[type="radio"].hasCustomRadioSprite:checked:focus + label.customRadioSprite:before {}/* Checked+focus state for checkbox */
+input[type="radio"].hasCustomRadioSprite:disabled+ label.customRadioSprite{background-color: #ccc;cursor: default;}/* disabled state for radio */
+input[type="radio"].hasCustomRadioSprite:disabled+ label.customRadioSprite:before{color: #666;}/* disabled state for checkbox */
+/** test input variables *****************************************************************/
+.testInputVariables input{background:#f0f0f0;border:1px solid #d6d6d6;text-align:center;color:#666;}
+.testInputVariables .elementcontainer  {padding: 6px;}
+/***************************************
+error messaging
+***************************************/
 .hasError{border:1px solid red !important;}
 input.hasError, select.hasError, .hasError > .tg-flipswitch > .form-group{background-color:#ffeeee;color:#ff0000;}
 .hasError.form-control::-moz-placeholder, .hasError > .tg-flipswitch > .form-group .form-control {color: #ff0000;}
 label.error{color:#ff0000;}
-.customStyleStreamRadioButtons label {margin-right:18px;cursor:pointer;}
-.customStyleStreamRadioButtons label:last-child {margin-right:0;}
-.customStyleStreamRadioButtons input[type=radio]  {margin-right:8px;cursor:pointer;}
+.bluebacked label.error{color:#ff6e6e;}
+
+.hasErrorIndicators .require{color:#ff0000; float:left;padding-right:4px;}
+.trDisplayInputAsRow div.require{float:left;padding-right:4px;}
+.hasErrorIndicators .warning{color:#f48585;}
+.hasErrorIndicators h1,.hasErrorIndicators h2,.hasErrorIndicators h3,.hasErrorIndicators h4{margin-top:0 !important;}
 
 /** Stream Fixes *****************************************************************/
 .fontsize-adjust{display:none;}
@@ -1479,10 +1568,7 @@ label.error{color:#ff0000;}
 .hideBRtag br{display:none;}
 
 /* fix mask issues and give it color overlay */
-#mask {
-    display: none;
-
-}
+#mask {display: none;}
 
 @media screen and (max-width: 767px) {
     #modalDialogs.window, #dlgDynamic.window {
@@ -1554,7 +1640,175 @@ label.error{color:#ff0000;}
 		color:#fff;
 	}
 }
+/* =============================================================================
+Tables
+============================================================================= */
+table.salesContent {
+  margin-bottom: 0;
+  border-spacing: 0 .5em;
+  border-collapse: separate;
+  border: none;
+}
+
+table.salesContent thead tr th {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 0.5rem 0.625rem 0.625rem;
+  background-color: #012f60;
+}
+
+table.salesContent tr {border: #cecaca 1px solid;}
+
+table.salesContent tr td {
+  text-align: center;
+  border-top: #cecaca 1px solid;
+  border-bottom: #cecaca 1px solid;
+}
+  table.salesContent tr td:first-child {
+    font-size: 0.875rem;
+    padding: 0.5625rem 0.625rem;
+    text-align: left;
+    color: #000;
+    background-color: #cecaca;  
+  }
+  table.salesContent tr td:last-child{border-right: #cecaca 1px solid;}
+
+table.salesContent tr.even, table.salesContent tr.alt, table.salesContent tr:nth-of-type(even) {
+  background: none;
+}
+
+/*tr > td {padding-bottom: 10px;} removed per LeAnna */
+
+table.salesContent.savings thead tr th:nth-child(2), table.salesContent.savings thead tr th:nth-child(3) {
+  text-align: center;
+}
+table.salesContent.savings tr td:last-child {font-weight: bold;}
+
+table.salesContent.savings tr th:first-child {width: 200px;}
+
+table.comparison {
+  max-width: 660px;
+  margin: 40px auto 20px;
+}
+  table.comparison thead tr th:nth-child(-n+2)  {background-color: #ffffff;}
+  table.salesContent.comparison tr th:first-child {border-left: none;}
+
+  table.comparison thead tr th {
+    text-align: center;
+    color: #000;
+    background-color: #cecaca;
+  }
+  table.comparison tr td {padding: 0.3rem 0.625rem;}
+  table.comparison tr td:first-child {
+    width: 36px;
+    text-align: center;
+    border-left: none;
+    background-color: #012f60;
+  }
+  table.comparison tr td:nth-child(2) {
+    text-align: left;
+    background-color: #cecaca;
+  }
+  table.comparison tr th:nth-child(3), table.comparison tr th:nth-child(4) {width: 200px;}
+
+
+table.salesContent tr td:first-child, table.salesContent tr td:nth-child(3), table.salesContent tr td:nth-child(4)   {
+  position: relative;
+  height: 32px;
+}
+
+table.salesContent.comparison tr td:first-child span, table.salesContent.comparison tr td:nth-child(3) span, table.salesContent.comparison tr td:nth-child(4) span  {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   -webkit-transform:translate(-50%,-50%);
+   -ms-transform:translate(-50%,-50%);
+  content: "";
+}
+
+table.salesContent.comparison tr:nth-child(3) td:nth-child(3){
+  padding-top:28px;
+  padding-bottom: .3rem;
+}
+
+table.salesContent.comparison tr:nth-child(3) td:nth-child(3) span {top: 30%;}
+
+.gear span{
+  width: 25px;
+  height: 26px;
+  background: url(/uploads/00002066/sprite.png) no-repeat  0 0;
+}
+.wrench span{
+  width: 26px;
+  height: 26px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -34px 0;
+}
+.food span{
+  width: 12px;
+  height: 27px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -104px 0;
+}
+.lemon span{
+  width: 26px;
+  height: 26px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -70px 0;
+}
+.transferable span{
+  width: 25px;
+  height: 26px;
+  background: url(/uploads/00002066/sprite.png) no-repeat 0 -35px;
+}
+.risk-free span{
+  width: 25px;
+  height: 26px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -35px -35px;
+}
+.calendar span{
+  width: 25px;
+  height: 26px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -70px -35px;
+}
+.oem-check span{
+  width: 22px;
+  height: 22px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -104px -35px;
+}
+.typical-check span{
+  width: 14px;
+  height: 12px;
+  background: url(/uploads/00002066/sprite.png) no-repeat -120px 0;
+}
+.typical-x span{
+  width: 12px;
+  height: 12px;  
+  background: url(/uploads/00002066/sprite.png) no-repeat -120px -14px;
+}
+p.legal {
+  font-size: 12px;
+  font-size: 0.750rem;
+}
+
+/* =============================================================================
+  Tablet Down
+============================================================================= */
+@media only screen and (max-width: 64em) { 
+  table.comparison tr th:nth-child(3), table.comparison tr th:nth-child(4) {width: 160px;}  
+}
+
+/* =============================================================================
+  Mobile 
+============================================================================= */
+@media only screen and (max-width: 40em) { 
+  table.comparison tr td:first-child, table.comparison tr th:first-child {display: none;}
+  table.comparison tr th:nth-child(3), table.comparison tr th:nth-child(4) {width: 120px;}
+  table.salesContent.savings thead tr th:nth-child(2), table.salesContent.savings thead tr th:nth-child(3) {text-align: left;}
+}
 /* Select A Plan */
+ul.customLiIcons.WhyNeed li:before {height:50px;background: transparent url(/uploads/00002066/sprite-WhyNeed.gif) no-repeat;}
+ul.customLiIcons li.exclamationIcon:before {}
+ul.customLiIcons li.moneyIcon:before {background-position: -50px 0;}
+ul.customLiIcons li.checkIcon:before {background-position: -103px 0;}
 .WhatsCovered{padding:30px;}
 .SelectAPlanIntro{padding:0 24px;}
 @media (min-width: 768px) {
@@ -1571,35 +1825,3 @@ label.error{color:#ff0000;}
 @media (min-width: 768px) {/*-- tablet+ --*/
 	#brochurePage{min-height:400px;}
 }
-/** custom radio button *****************************************************************/
-.customRadioWrap input[type='radio'] {display:none;}
-.customRadioWrap.customRadioVisibilityFix input[type='radio'] {display:inline;visibility:hidden;}
-.customRadioWrap .elementcaption {padding-bottom:8px;}
-
-.customRadioIconReplacement {
-    display:inline-block;
-	line-height:1px;
-	vertical-align:middle;
-	background:white;
-	padding:2px;
-	-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;
-	overflow:hidden;
-	border:1px solid #a8a7a7;
-	margin-top: -4px;
-}
-.customRadioWrap label.customRadioIconReplacement{margin-right:0;}
-.customRadioWrap.customRadioVisibilityFix label.customRadioIconReplacement{margin-left: -20px;}
-.customRadioIconReplacementInner{
-	display:inline-block;
-	width:16px;
-	height:16px;
-	background:#e7e7e7;
-	-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;
-	border:1px solid #a8a7a7;
-	cursor:pointer;
-}
-.customRadioWrap input[type='radio']:checked + .customRadioIconReplacement .customRadioIconReplacementInner{
-    background-color:#012f60;
-	border:1px solid #2d65a0;
-}
-.customRadioWrap input[type='radio']:checked + .customRadioIconReplacement{border-color: #a8a7a7;}

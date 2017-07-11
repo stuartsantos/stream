@@ -107,7 +107,7 @@ table {
 }
 /* general rules */
 * {
-    font-family: Arial, sans-serif;
+    font-family: 'Futura PT', Arial, sans-serif;
     /*font-weight: normal;*/
     /*font-style: normal;*/
 }
@@ -129,7 +129,7 @@ h1, h2, h3, h4 {
 h2.compl {
     margin-top: 70px!important;
 }
-body h1{font-size: 48px;font-family: Georgia, serif;font-style: italic;}
+body h1{font-size: 2.2em;font-family: Georgia, serif;font-style: italic;}
 body h2{font-size:1.4em;}
 body h3{font-size:1.3em;}
 body h4{font-size:1.2em;}
@@ -384,7 +384,7 @@ img {
 }
 
 .mTop {
-    margin-top: 28em;
+    margin-top: 35em;
 }
 
 .extra a {
@@ -459,7 +459,7 @@ p {
     padding: 0 21% 0 21%;
 }
 
-span.orange {
+.orange {
     color: #e36f1e;
 }
 
@@ -1774,7 +1774,6 @@ Framework Setup
 .siteWidth{margin:0 12px !important;}
 .siteWidth.phone {font-size: 16px;background: #ececec;margin: 0 auto !important;padding: .25em 30px;text-align: right;max-width: 880px;}
 .siteWidth.phone a {color: #555;text-decoration: none;}
-.siteWidth.phone a span {font-family: Arial;}
 @media screen and (min-width: 768px) {
     .siteWidth{max-width:2000px;margin:0 24px !important;position:relative;/* try to contain nested floats */}
     .contentWidth.siteWidth{max-width:1400px;}

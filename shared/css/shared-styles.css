@@ -533,8 +533,7 @@ a:hover {
 }*/
 
 label {
-    width: 100%;
-    text-align: left;
+    display:block;/*undo bootstrap default*/
     font-weight: normal;
     font-family: 'Futura PT', sans-serif;
 }

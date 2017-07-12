@@ -1765,6 +1765,7 @@ Main Nav
     width:100%;
     z-index:100;
     margin:0;
+	top:0;
 }
 
 *:focus {
@@ -1900,3 +1901,25 @@ Messages
 .warningbox ol {color: #a56a10;}
 .warningbox > ol > li{background:transparent url('/uploads/00001941/lidot_warning.png') no-repeat 0 .6em;color: #a56a10;}
 .uiErrorBox > ol > li{background:transparent url('/uploads/00001941/lidot_error.png') no-repeat 0 .6em;color: #D8000C;}
+
+/************************
+browser compatibility
+************************/
+.browser-error #header {height: auto;}
+.browser-error .browser-error-message{
+	display:block !important;
+	font-size: .8rem;
+	text-align: left;
+	padding: 12px;
+}
+.browser-error-message .messageBox{
+	padding: 12px 12px 12px 60px;
+	margin-bottom: 0;
+	border-radius: 0;
+	background:#FAF9C9 url('/uploads/00001941/error-desktop.png') no-repeat 10px 10px;
+}
+@media screen and (max-width: 767px) {
+	.browser-error .browser-error-message{
+		margin-top:80px;/*fit under main nav*/
+	}
+}

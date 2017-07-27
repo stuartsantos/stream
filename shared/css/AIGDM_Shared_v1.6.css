@@ -1617,7 +1617,7 @@ Framework Setup
 div.tableAsBlock > table, div.tableAsBlock > table > tbody, div.tableAsBlock > table > tbody > tr, div.tableAsBlock > table > tbody > tr > td{display:block;}
 td.require{color:#ff0000;}/* required asteric color */
 @media (min-width:768px){/*don't style phone #s by default on desktop sizes */
-.hasHrefPhoneNum{color:inherit !important;cursor:initial !important;text-decoration:none;}
+.hasHrefPhoneNum, .desktop-phone-links{color:inherit !important;cursor:initial !important;text-decoration:none;}
 }
 /***************************************
 bootstrap fixes

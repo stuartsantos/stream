@@ -1356,7 +1356,7 @@ CTA BUTTONS
 .CTA_buttonRed{background: #c41230 !important;}
 .CTA_buttonRed:hover{background: #d15852 !important;}
 /** altCTA BUTTONS **/
-.altCTA_button{display:block;border:2px solid #e57125 !important;color:#e57125 !important;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
+.altCTA_button{font-family: "Futura PT", helvetica, arial, sans-serif;display:block;border:2px solid #e57125 !important;color:#e57125 !important;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
 .altCTA_button:hover, .altCTA_button:visited{color:#e57125;background:#fff;text-decoration:none;}
 .altCTA_button.altCTA_buttonBlue{border-color:#0057b8 !important;color:#0057b8 !important;}
 .altCTA_button.altCTA_buttonBlue:hover{background:#fff;/*fix for non-compliant browsers*/background: rgba(0,87,184,0.45);color:#0057b8 !important;}

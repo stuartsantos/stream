@@ -296,12 +296,16 @@ Main Nav functionality
 **********************************************************/
 	$(document).ready(function() {
 		$('#navDrop > ul > li > a').click(function(e) {
-			tg.closeAllSubNav($(this));
+			if($(this).parent().hasClass("current") && $("#bodyID").hasClass("isDesktop")){//only close on desktop sizes
+				tg.closeAllNav();//close main nav re-clicks
+				return false;
+			}
 			if($(this).parent().hasClass("contains-sub")){
 				tg.toggleSubNav($(this));
 				$("#bodyID").addClass('openNav');
 				return false;
 			}
+			tg.closeAllSubNav($(this));
 		});
 		$('#btnMenu').click(function(e) {
 			tg.toggleMainNav($(this));
@@ -345,7 +349,8 @@ Main Nav functionality
 		var temp = $("#navDrop");
 		if(temp.is(":hidden") == true){// comes from menu button so show menu
 			$("#bodyID").addClass('openNav');
-			temp.slideDown("slow");
+			temp.css("display","block");
+			//temp.slideDown("slow");// causes desktop background to tween
 		}else {//comes from nav item so show its drop
 			tg.closeAllNav(e);
 		}
@@ -353,7 +358,8 @@ Main Nav functionality
 	}
 	tg.closeAllNav = function(e){
 		$("#bodyID").removeClass('openNav');
-		$("#navDrop").slideUp("slow", function() {$(this).removeAttr("style");});//remove style attr and allow default css to rule so resize doesn't impact desktop size
+		$("#navDrop").css("display","none").removeAttr("style");
+		//$("#navDrop").slideUp("slow", function() {$(this).removeAttr("style");});//remove style attr and allow default css to rule so resize doesn't impact desktop size// causes desktop background to tween
 		tg.closeAllSubNav(e);
 		return false;
 	}

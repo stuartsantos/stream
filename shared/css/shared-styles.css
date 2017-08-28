@@ -1901,8 +1901,9 @@ Main Nav
 #navDrop #navCloseLI A{padding: 32px 12px 32px 24px;color:#00a4e4;text-transform:uppercase;}
 #navDrop #navCloseLI A:hover{color:#fff;}
 #navDrop > ul > li > .submenu {border-top: 1px solid #4A4A49;}
-#navDrop #navClosePolicyOptions{background:#131313;padding:12px 24px;text-transform:uppercase;color:#fff;}
-#navDrop #navClosePolicyOptions A{padding-left:0;margin:0 0 12px 0;display:inline-block;}
+#navDrop .navContentOptions{background:#131313;padding:12px 24px;text-transform:uppercase;color:#fff;}
+#navDrop .navContentOptions A{padding-left:0;display:inline-block;}
+#navDrop .navContentOptions:hover{background:#131313;}
 #navDrop ul li.contains-sub.current > a:after{content:"\e113";color: inherit;}/*up arrow*/
 
 #navDrop > ul > li.contains-sub.current .contains-sub.current {border-bottom:1px solid #4A4A49;/*border-top:1px solid #4A4A49;*/}

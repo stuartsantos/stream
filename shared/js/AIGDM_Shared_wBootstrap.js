@@ -276,6 +276,17 @@ $(document).ready(function() {
 	});
 });
 /*********************************************************
+modal scroll fix
+**********************************************************/
+$(document).ready(function() {
+	try{
+		$('.modal').on('show.bs.modal', function (e) {tg.scrollTop = $(window).scrollTop();});// find/record scroll position b/4 opening
+		$('.modal').on('hidden.bs.modal', function (e) {$(window).scrollTop(tg.scrollTop);});// reset scroll position on close
+		$.fn.modal.Constructor.DEFAULTS.backdrop = 'static';//disable modal close on click background
+		$.fn.modal.Constructor.DEFAULTS.keyboard = false;//disable modal close on keyboard 'esc' key
+	}catch(err){}//incase bootstap js isn't loaded
+});
+/*********************************************************
 Left Rail
 **********************************************************/
 $(document).ready(function() {

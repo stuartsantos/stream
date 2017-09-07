@@ -880,7 +880,7 @@ label {
 .ui-accordion .ui-accordion-header {
     margin:0; /*removes jQuery default spacing*/
 }
-
+.ui-accordion .ui-accordion-header:focus{outline:none;}/*mac safari outline over text fix */
 .ui-accordion .ui-accordion-header a {
     padding: 0.5em 45px 0.5em 0; /* override the accordion header padding */
     position: relative;
@@ -910,8 +910,9 @@ label {
     padding:0;
 }
 .ui-accordion .ui-accordion-content {
-    padding: 0; /* this is the content of the expanded accordion */
+    padding: 0 0 12px 0; /* this is the content of the expanded accordion */
     height:auto !important;/*removes jQueryUI height issue */
+	margin-top:0 !important;/*fixes jQueryUI height issue on safari w :focus border */
 }
 
 .ui-icon-triangle-1-e, .ui-icon-triangle-1-s {

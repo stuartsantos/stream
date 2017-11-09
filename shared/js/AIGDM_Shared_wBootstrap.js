@@ -301,7 +301,31 @@ $(document).ready(function() {
 		return false;
 	});// v1.4.3 < jQuery < v1.7
 });
-
+/*********************************************************
+HTML 5 - LocalStorage get/save
+**********************************************************/
+tg.LocalStorageGetSet = function(storeVal,itemName,inputType){
+	if(typeof(Storage) !== void(0)){//browser compatibility
+		var temp=localStorage[storeVal];
+		if (temp){
+			if(inputType.toLowerCase() == "select"){$(itemName).val(temp).change();}//dropdown choice + run onchange
+			if(inputType.toLowerCase() == "radio"){$('input:radio[name='+itemName+']').filter('[value='+temp+']').prop("checked",true).trigger("change");}//radio selected
+			if(inputType.toLowerCase() == 'value'){return temp}//simply return value
+			else{$(itemName).val(temp);}//default text input
+		}
+	}
+	return false;
+}
+tg.LocalStorageSave = function(storeVal,itemName,inputType){
+	if(typeof(Storage) !== void(0)){//browser compatibility
+		if(inputType.toLowerCase() == "select"){var temp=$(itemName+" option:selected").val()}//dropdown choice
+		if(inputType.toLowerCase() == "radio"){var temp=$("input[name="+itemName+"]:checked").val()}//radio selected
+		if(inputType.toLowerCase() == 'value'){var temp=itemName}//passed in value to store
+		else{var temp=$(itemName).val();}//default to text input
+		if (temp && temp!="mm/dd/yyyy"){localStorage[storeVal]=temp;}
+	}
+	return false;
+}
 /*********************************************************
 Main Nav functionality
 **********************************************************/

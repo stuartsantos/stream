@@ -151,7 +151,6 @@ hr {
 strong {
     font-family: 'Futura PT', sans-serif;
 }
-
 legend {
     font-size: 1rem;
 }
@@ -297,17 +296,18 @@ td.require{color:#ff0000;}/* required asteric color */
     text-decoration: none !important;
     color:#fff;
 }
-.overlay h2 {
+.dark.overlay h2 {
     font-size: 1.3rem;
     color: #fff !important;
 }
 .light.overlay {
     background: rgba(255, 255, 255, 0.8);
-    color: #585958;
-    font-size: 1.1rem;
+    /*color: #585958;
+    font-size: 1.1rem;*/
     text-align: center;
 }
 .light.overlay hr{border-color: #bbb;}
+.opaque.light.overlay {background: #fff;}
 @media screen and (max-width: 767px) {
     .light.overlay {
         background: rgb(255,255,255);

@@ -2069,3 +2069,8 @@ browser compatibility
 		margin-top:80px;/*fit under main nav*/
 	}
 }
+/************************
+bootstrap carousel fixes
+************************/
+A.carousel-control {color:#fff;opacity:.6;font-size: inherit;}/*fix bootstrap font-size px call for accessibility*/
+A.carousel-control:hover, A.carousel-control:focus{color: #fff;opacity:1;}

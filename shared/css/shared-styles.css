@@ -941,8 +941,9 @@ ul.twocol{
         /* don't nudge the bluetop up over the image */
     }
 }
-.bluebacked, .bluebacked h1, .bluebacked h2, .bluebacked h3{color:white!important;}
-.bluebacked{background: #0a5c83;}
+.bluebacked h1, .bluebacked h2, .bluebacked h3{color:white!important;}
+.bluebacked {color:white;background: #0a5c83;}
+.bluebacked  .warning{color:#ff0000;}
 .bluebacked input, .bluebacked select, .bluebacked textarea, .bluebacked option {color:#231f20;}
 .bluebacked .require{
     display:none;

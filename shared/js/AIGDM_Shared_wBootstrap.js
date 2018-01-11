@@ -18,7 +18,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 **********************************************************/
 $(document).ready(function() {
 	$('body').attr("id","bodyID").append("<div id='mobileRespond'></div>").append("<div id='responsive'></div>");//setup body/responsive
-	try{if(session_vars.IsTest == "true"){$('#bodyID').addClass('isTest');}}catch(err){}//add testing var for custom css show/hide
+	try{if(session_vars.URLParameterShowVars == "true"){$('#bodyID').addClass('ShowVars');}}catch(err){}//add testing var for custom css show/hide
 	//setup header
 	$('#header').html('');//clear header
 	$("#M_H_DIV1").prependTo("#header");//move header into header location

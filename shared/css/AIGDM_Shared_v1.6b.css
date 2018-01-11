@@ -610,7 +610,7 @@ sub {top: 0.4em;}
 	top: -200vh;
 	overflow:hidden;
 }
-.isTest .showOnIsTest{/*show test data when specific variable is passed*/
+.ShowVars .showOnIsTest{/*show test data when specific variable is passed*/
 	position: relative;
 	width: auto;
 	height: auto;

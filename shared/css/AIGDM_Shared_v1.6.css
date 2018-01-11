@@ -1318,7 +1318,7 @@ input, select{border:1px solid #d6d6d6;padding:3px 6px;
 	top: -200vh;
 	overflow:hidden;
 }/*hide test data by default*/
-.isTest .showOnIsTest{
+.ShowVars .showOnIsTest{
 	position: relative;
 	width: auto;
 	height: auto;

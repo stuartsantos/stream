@@ -151,7 +151,6 @@ hr {
 strong {
     font-family: 'Futura PT', sans-serif;
 }
-
 legend {
     font-size: 1rem;
 }
@@ -297,17 +296,18 @@ td.require{color:#ff0000;}/* required asteric color */
     text-decoration: none !important;
     color:#fff;
 }
-.overlay h2 {
+.dark.overlay h2 {
     font-size: 1.3rem;
     color: #fff !important;
 }
 .light.overlay {
     background: rgba(255, 255, 255, 0.8);
-    color: #585958;
-    font-size: 1.1rem;
+    /*color: #585958;
+    font-size: 1.1rem;*/
     text-align: center;
 }
 .light.overlay hr{border-color: #bbb;}
+.opaque.light.overlay {background: #fff;}
 @media screen and (max-width: 767px) {
     .light.overlay {
         background: rgb(255,255,255);
@@ -941,8 +941,9 @@ ul.twocol{
         /* don't nudge the bluetop up over the image */
     }
 }
-.bluebacked, .bluebacked h1, .bluebacked h2, .bluebacked h3{color:white!important;}
-.bluebacked{background: #0a5c83;}
+.bluebacked h1, .bluebacked h2, .bluebacked h3{color:white!important;}
+.bluebacked {color:white;background: #0a5c83;}
+.bluebacked  .warning{color:#ff0000;}
 .bluebacked input, .bluebacked select, .bluebacked textarea, .bluebacked option {color:#231f20;}
 .bluebacked .require{
     display:none;
@@ -1215,6 +1216,7 @@ sub {top: 0.4em;}
 .desktopLeft, .desktopLeft td{text-align: left;}
 }
 .uppercase{text-transform:uppercase;}
+.text-capitalize-firstLetter:first-letter {text-transform: uppercase;}/* apply to block element ONLY */
 .tgHelpLink,.tgHelpLink A{color: #39940c;}
 .tgHelpLink:hover, .tgHelpLink a:hover,.tgHelpLink:visited, .tgHelpLink a:visited{color:#2f8107;}
 .tgHelpLink .glyphicon{color: #005a84;font-size:1.25rem;}
@@ -1436,7 +1438,7 @@ input, select{border:1px solid #d6d6d6;padding:3px 6px;
     top: -200vh;
     overflow:hidden;
 }/*hide test data by default*/
-.isTest .showOnIsTest{
+.ShowVars .showOnIsTest{
     position: relative;
     width: auto;
     height: auto;
@@ -2069,3 +2071,8 @@ browser compatibility
 		margin-top:80px;/*fit under main nav*/
 	}
 }
+/************************
+bootstrap carousel fixes
+************************/
+A.carousel-control {color:#fff;opacity:.6;font-size: inherit;}/*fix bootstrap font-size px call for accessibility*/
+A.carousel-control:hover, A.carousel-control:focus{color: #fff;opacity:1;}

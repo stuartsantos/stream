@@ -610,7 +610,7 @@ sub {top: 0.4em;}
 	top: -200vh;
 	overflow:hidden;
 }
-.isTest .showOnIsTest{/*show test data when specific variable is passed*/
+.ShowVars .showOnIsTest{/*show test data when specific variable is passed*/
 	position: relative;
 	width: auto;
 	height: auto;
@@ -623,6 +623,7 @@ sub {top: 0.4em;}
 .desktopLeft, .desktopLeft td{text-align: left;}
 }
 .uppercase{text-transform:uppercase;}
+.text-capitalize-firstLetter:first-letter {text-transform: uppercase;}/* apply to block element ONLY */
 .tgHelpLink,.tgHelpLink A{color: #39940c;}
 .tgHelpLink:hover, .tgHelpLink a:hover,.tgHelpLink:visited, .tgHelpLink a:visited{color:#2f8107;}
 .tgHelpLink .glyphicon{color: #005a84;font-size:1.25rem;}

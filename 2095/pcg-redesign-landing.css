@@ -135,7 +135,7 @@ body h3{font-size:1.3em;}
 body h4{font-size:1.2em;}
 body h5{font-size:1.1em;color:#525357;}
 h4 {
-    margin-top: 35px!important;
+    margin-top: 35px;
 }
 h4.compl {
     margin-top: 0 !important;
@@ -194,7 +194,7 @@ hr {
 }
 
 form .intro {
-    font-size: 24px;
+    font-size: 1.1em;
     line-height: 1.3;
 }
 
@@ -250,6 +250,10 @@ h4.panel-title a {
 
 .answer {
     margin-right: .5em;
+}
+
+.sectionTwo .panel-title {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 992px) {
@@ -384,7 +388,7 @@ img {
 }
 
 .mTop {
-    margin-top: 35em;
+    margin-top: 28em;
 }
 
 .extra a {
@@ -399,12 +403,12 @@ img {
 }
 
 p {
-    margin-bottom: 2em !important;
+    margin-bottom: 2em;
     line-height: 1.3;
 }
 
-.sectionTwo {
-    background: #ececec;
+p.mb-0 {
+    margin-bottom: 0;
 }
 
 .maWidth {
@@ -492,7 +496,7 @@ form span.required {
 .blue.button:hover {
     background: #0073ae;
 }
-.orange.button, .contactFlyout {
+.orange.button {
     background: #e36f1e; /* Old browsers */
     background: -moz-linear-gradient(top, #e36f1e 0%, #c4561b 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #e36f1e 0%,#c4561b 100%); /* Chrome10-25,Safari5.1-6 */
@@ -551,6 +555,7 @@ form span.required {
 .contactFlyout .orange.button {
     text-align: left;
     padding: 5px 0 0;
+    background: none;
 }
 .glyphicon {
     /* the default glyphicons are too high */
@@ -771,33 +776,46 @@ a:hover {
     pointer-events: none;
 }
 /* flyout menu for the contact form */
-.contactFlyout {
+.contactFlyoutWrapper{
     position: absolute;
     padding: 15px;
-    z-index: 100;
+    z-index: 9999;
     right: 0;
     color: #fff;
     cursor:pointer;
     top:88px;
+    background: #A9431E;
 }
+
 .contactFlyout.expanded {
     /*this is the expanded form*/
-    width: 22%;
-    right: 0;
-    display: none;
+	display:none;
+}
+.contactFlyout.expanded .contactFlyoutWrapper{
+    /*this is the expanded form*/
+	width: 22%;
     cursor:default;
+}
+.noHeroImage .contactFlyout .contactFlyoutWrapper {
+	top: 32px;/*navbar isn't over hero image*/
 }
 .contactFlyout .close {
     /* this is the button */
     padding: 10px;
     margin: -15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: initial;
 }
 .contactFlyout h2 {
-    font-size: 1.1em;
+    font-size: 2rem;
     font-weight: 800;
     color: #fff !important;
     padding: 0 !important;
     margin-top: 2px;
+}
+.contactFlyout p {
+    margin-bottom: 1em !important;
 }
 .gutter {
     padding: 0 8%;
@@ -1449,11 +1467,11 @@ label {
 }
 
 .call {
-    font-size: 20px;
+    font-size: .9em;
     font-family: Georgia, serif;
+    font-weight: bold;
     font-style: italic;
-    padding-bottom: 1em;
-    border-bottom: 1px solid;
+    padding-bottom: .5em;
 }
 
 .trInputRowSpacers > .answer{padding-top:8px;padding-bottom:8px;}

@@ -943,7 +943,7 @@ ul.twocol{
 }
 .bluebacked h1, .bluebacked h2, .bluebacked h3{color:white!important;}
 .bluebacked {color:white;background: #0a5c83;}
-.bluebacked  .warning{color:#ff0000;}
+.bluebacked  .warning{color:#ff6e6e;}
 .bluebacked input, .bluebacked select, .bluebacked textarea, .bluebacked option {color:#231f20;}
 .bluebacked .require{
     display:none;

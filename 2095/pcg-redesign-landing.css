@@ -106,7 +106,7 @@ table {
     font-style: normal
 }
 /* general rules */
-* {
+body {
     font-family: 'Futura PT', Arial, sans-serif;
     /*font-weight: normal;*/
     /*font-style: normal;*/
@@ -126,6 +126,19 @@ h1, h2, h3, h4 {
     color: #0073ae !important; /*got to beat bootstrap's css*/
     margin-bottom:12px;
 }
+
+h1.indented {
+    font-size: 1.5em;
+}
+
+.indent-1 {
+    text-indent: 2em;
+}
+
+.indent-2 {
+    text-indent: 4em;
+}
+
 h2.compl {
     margin-top: 70px!important;
 }
@@ -191,6 +204,10 @@ hr {
     border-top: 16px solid transparent;
     border-bottom: 16px solid transparent;
     border-left: 16px solid #fff;
+}
+
+.sectionOne form a {
+    color: #fff;
 }
 
 form .intro {
@@ -784,20 +801,20 @@ a:hover {
     color: #fff;
     cursor:pointer;
     top:88px;
-    background: #A9431E;
+    background: #e36f1e;
 }
 
 .contactFlyout.expanded {
     /*this is the expanded form*/
-	display:none;
+    display:none;
 }
 .contactFlyout.expanded .contactFlyoutWrapper{
     /*this is the expanded form*/
-	width: 22%;
+    width: 22%;
     cursor:default;
 }
 .noHeroImage .contactFlyout .contactFlyoutWrapper {
-	top: 32px;/*navbar isn't over hero image*/
+    top: 32px;/*navbar isn't over hero image*/
 }
 .contactFlyout .close {
     /* this is the button */
@@ -2029,20 +2046,20 @@ browser compatibility
 ************************/
 .browser-error #header {height: auto;}
 .browser-error .browser-error-message{
-	display:block !important;
-	font-size: .8em;
-	text-align: left;
-	padding: 12px;
+    display:block !important;
+    font-size: .8em;
+    text-align: left;
+    padding: 12px;
 }
 .browser-error-message .messageBox{
-	padding: 12px 12px 12px 60px;
-	margin-bottom: 0;
-	border-radius: 0;
-	background:#FAF9C9 url('/uploads/00001941/error-desktop.png') no-repeat 10px 10px;
+    padding: 12px 12px 12px 60px;
+    margin-bottom: 0;
+    border-radius: 0;
+    background:#FAF9C9 url('/uploads/00001941/error-desktop.png') no-repeat 10px 10px;
 }
 @media screen and (max-width: 767px) {
-	.browser-error .browser-error-message{
-		margin-top:58px;/*fit under main nav*/
-	}
+    .browser-error .browser-error-message{
+        margin-top:58px;/*fit under main nav*/
+    }
 }
 #nav{top:0;}

@@ -605,6 +605,9 @@ label {
 .contactForm .inerror {
     background: #ffeeee;/*e6eff2*/
 }
+.contactForm input.inerror, .contactForm select.inerror {
+    border: 1px solid red;
+}
 .contactForm .productField {
     display: block;
     width: 100%;

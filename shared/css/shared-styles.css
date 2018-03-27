@@ -571,6 +571,7 @@ a:hover {
     text-indent: -20px;
     margin-left: 18px;
 }
+.textCopy.blackBullets ul li::before, ul.bulleted.blackBullets li::before {color: #131313;}
 .textCopy a {
     color: #0057B8; /*AIG Medium Blue*/
     /*white-space: nowrap;*/
@@ -1006,7 +1007,7 @@ html.ltIE10 .showOnOnlyltIE10{display:block;}
 
 .button.orange{border:0; font-size: 1.1rem;}
 .inlineBlock{display:inline-block;width:auto;}
-.ui-datepicker{font-size: .75rem;}
+
 
 /* add arrows to flyout menus and selects*/
 .customSelect .productField {position: relative;display: block;width: 100%;}
@@ -1042,12 +1043,62 @@ label.error{color:#ff0000;}
 
 .ltIE12 .fixStreamIErequiredLineBreak > td.spacer > a {float:left;}
 /***************************************
+JQUI Calendar fixes
+***************************************/
+#ui-datepicker-div{display:none;}/*hide by default*/
+.input-group-addon-calendarWrap .input-group-addon, .input-group-addon-calendarWrap .form-control {border-radius: 0;}
+.input-group-addon-calendar {
+    background-image: url(/uploads/00002066/calendarIcon2.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    min-width: 40px;
+	cursor:pointer;
+}
+.input-group-addon-calendarWrap .form-group{margin-bottom:0;}
+.input-group-addon-calendarWrap input{
+    height: auto;
+    padding: 10px 12px;
+    font-size: inherit;
+    line-height: inherit;
+    color: #919295;
+}
+.form-control.hasDatepicker{background:#fff !important;cursor:pointer;}/*style fix for readonly prop */
+
+.ui-datepicker .ui-datepicker-row-break {font-size:1rem;}/*fixes conflict w JQUI calendars */
+.ui-datepicker-calendar > tbody > tr > tf{width:14.28%;}/* IE11 fix */
+.isMobile #ui-datepicker-div{left:0 !important;right:0;margin:0 10px;width:auto;}/*resize datepicker calendar for mobile */
+#ui-datepicker-div > .ui-datepicker-header{background:#012f60;}
+#ui-datepicker-div.ui-datepicker {font-size: 1rem;}
+#ui-datepicker-div{
+	border: 1px solid #cccccc;
+	background: #f6f6f6;
+    padding: 6px 6px 0 6px;
+}
+#ui-datepicker-div.ui-widget-content .ui-state-default {
+	border: 1px solid #cccccc;
+	background: #fff;
+
+}
+#ui-datepicker-div .ui-state-default.ui-state-active{
+    border: 1px solid #fed22f;
+    background: #ffe45c;
+}
+.ui-datepicker{font-size: .75rem;}
+/***************************************
 Responsive Tables
 ***************************************/
 /*-- divTable --*/
 .divTable{display:table;width:100%;}
 .divTableRow{display:table-row;}
 .divTableCell{display:table-cell;}
+.tableLayoutFixed {
+  table-layout: fixed;
+  width: 100%;
+}
+.tableLayoutFixed td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @media (max-width: 767px) {
     .isResponsive.divTable, .isResponsive.divTable > .divTableRow, .isResponsive.divTable > .divTableRow > .divTableCell{display:block;width:100%;}
     .divTable > .divTableRow.divTable-header{display:none;}
@@ -2108,3 +2159,24 @@ bootstrap carousel fixes
 ************************/
 A.carousel-control {color:#fff;opacity:.6;font-size: inherit;}/*fix bootstrap font-size px call for accessibility*/
 A.carousel-control:hover, A.carousel-control:focus{color: #fff;opacity:1;}
+/***************************************
+Print Styles
+***************************************/   
+@media print { 
+    #bodyID .showOnIsTest, #btnPhone, #footer .socialMedia, #bodyID .substituteFooter .socialMedia, #bodyID .masthead .forNoMainCTA, .substituteContactFlyoutMessage { display: none !important; } 
+    #footer, #bodyID .substituteFooter{color:#000; font-size:.75rem !important;}
+    #nav, #navWrap{position:relative !important;}
+	#header:before{
+		content:"AIG";
+		font-weight:bold;
+        font-size:1.3rem;
+		width:100%;
+		padding:12px;
+		border:1px solid #000 !important;
+		clear:all;
+		display:block;
+		text-align:center;
+		margin:12px auto;
+	}
+    #bodyID .masthead .mastheadImage{height:auto;}
+}

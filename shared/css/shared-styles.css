@@ -1847,7 +1847,7 @@ bootstrap fixes
 .tg-noCorner-all > .input-group-addon, .tg-noCorner-all > .form-control{border-radius: 0;box-shadow:none;}
 .list-group.ulNoDot li{padding:0;margin-bottom:-1px;}
 .tg-horizontal-form-group > .form-group{float:left;margin-right:-1px;margin-bottom:-1px;}
-.tg-horizontal-form-group:after {content: "";display: table;clear: both;}
+/*.tg-horizontal-form-group:after {content: "";display: table;clear: both;} breaks mac/iOS safari w weird right padding */
 .tg-vertical-form-group label{cursor:pointer;}
 .tg-horizontal-form-group label{cursor:pointer;}
 .form-group {margin-bottom: 24px;}

@@ -1271,7 +1271,7 @@ sub {top: 0.4em;}
 .normal{font-weight:normal !important;}
 .italicize{font-style:italic;}
 .vTop, .vTop td{vertical-align:top;}
-.vMid, .vMid td{vertical-align:middle;}
+.vMid, .vMid td, .vMid .divTableCell{vertical-align:middle;}
 .center, .center td{text-align: center;}
 .marginCenter{margin-left:auto;margin-right:auto;}
 .right, .right td{text-align: right;}

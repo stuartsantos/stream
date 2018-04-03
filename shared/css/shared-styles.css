@@ -1756,7 +1756,7 @@ CUSTOM TOOLS
 ***************************************/
 /*-- customSlider --*/
 #customSlider{overflow:hidden !important;white-space: nowrap;position:relative;}
-#customSlider .customSliderCell{white-space: normal;padding:12px 48px;color:#919295;font-size:.85rem;}
+#customSlider .customSliderCell{white-space: normal;padding:12px 48px;color:#919295;font-size:.85rem;vertical-align: top;}
 #customSlider.atMinPos .customSliderLeftBtn, #customSlider.atMaxPos .customSliderRightBtn{display:none;}
 .ltIE10 .customSliderWrap > .divTable{width:100% !important;}/*fix IE vw bug */
 .ltIE10 #customSlider .customSliderBtn {display:none;}

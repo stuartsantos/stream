@@ -1442,10 +1442,11 @@ CTA BUTTONS
 .CTA_buttonRed{background: #c41230 !important;}
 .CTA_buttonRed:hover{background: #d15852 !important;}
 
-.CTA_button.disabled, .CTA_button.disabled:hover{
+#bodyID .CTA_button.disabled, #bodyID .CTA_button.disabled:hover{
     cursor:default;
     opacity:0.6;
     background: #e36f1e !important;/* (AIG Orange) */
+	color: #fff !important;
 }
 /** altCTA BUTTONS **/
 .altCTA_button{font-family: "Futura PT", helvetica, arial, sans-serif;display:block;border:2px solid #e57125 !important;color:#e57125 !important;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
@@ -1534,6 +1535,12 @@ input[type=checkbox] {transform: scale(1.3,1.3);width:20px !important;height:20p
 .ltIE12 input[type=checkbox] {transform: scale(1.2,1.2);width:15px !important;height:15px !important;}
 .ltIE10 input[type=checkbox] {transform: scale(1,1);}
 .ltIE11 .streamCheckboxInput > td:nth-of-type(3){width:100%;}
+#bodyID input.disabled, #bodyID select.disabled{
+    background: #f0f0f0 !important;
+    border-color: #d6d6d6 !important;
+    color: #9a9a9a !important;
+    cursor:default !important;
+}
 
 .responsiveStreamInput > table{width:100%;}
 .responsiveStreamInput td.require{width:10px;}

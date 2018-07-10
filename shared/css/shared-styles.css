@@ -1454,6 +1454,12 @@ CTA BUTTONS
 .altCTA_button.altCTA_buttonBlue:hover{background:#fff;/*fix for non-compliant browsers*/background: rgba(0,87,184,0.45);color:#0057b8 !important;}
 .altCTA_button.altCTA_buttonWhite{border-color:#fff !important;color:#fff !important;background:#1f1f1f;/*fix for non-compliant browsers*/background: rgba(255, 255, 255, 0.05);}
 .altCTA_button.altCTA_buttonWhite:hover{background:#000;/*fix for non-compliant browsers*/background: rgba(255,255,255,0.35);color:#fff !important;}
+#bodyID .altCTA_button.disabled, #bodyID .altCTA_button.disabled:hover{
+    cursor:default;
+    opacity:0.6;
+    background: #fff !important;
+	color: #e57125 !important;
+}
 /** dropCTA BUTTONS **/
 #bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:#0057b8;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
 #bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:#002554;text-decoration:none;}

@@ -134,6 +134,9 @@ body h6{font-size: 1rem;}
 h4 {
     margin-top: 35px!important;
 }
+h3.moduleTitle {
+    height: 40px;
+}
 h4.compl {
     margin-top: 0 !important;
     color: #000 !important;

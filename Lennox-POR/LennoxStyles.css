@@ -1,0 +1,174 @@
+/* *****************************
+	maroon = ab1d40
+	med maroon = b02e46 
+	dark maroon = 820725
+	light gray = bcbdbf
+	med gray = 5b5657
+	black = 231e1f
+
+*/
+/* Language ***************************** */
+.FR_lang_block, .FR_lang_inline {display:none !important;}/* default hide FR language */
+
+.isFR_lang .FR_lang_block {display:block !important;}
+.isFR_lang .FR_lang_inline {display:inline !important;}
+.isFR_lang .ENG_lang_block, .isFR_lang .ENG_lang_inline{display:none !important;}
+
+.isENG_lang.isCA_reg .ENG_US{display: none;}
+.isENG_lang.isUS_reg .ENG_CA{display: none;}
+
+.imgFlag{
+	margin: 0 8px;
+	vertical-align: middle;
+	width: 16px;
+	height: 11px;
+	display: inline-block;
+	background: transparent url(/uploads/00001941/country_icons.gif) no-repeat;
+}
+.fr {background-position: 0 -11px;}
+@media (max-width: 767px) {
+  .mainNavPhoneArea a:last-of-type .imgFlag{margin-right:0;}
+}
+/* Common ***************************** */
+body {color: #231e1f;}
+body a {color: #820725;}
+body a:hover {color: #820725;}
+h1, h2, h3, h4 {color: #ab1d40 !important;}
+.solid.dark {background: #231e1f;}
+
+#modalDialogs input[type="button"], .CTA_button {background: #820725 !important;}
+.CTA_button:hover{background: #ab1d40 !important;}
+#bodyID .CTA_button.disabled, #bodyID .CTA_button.disabled:hover{background: #ab1d40 !important;}
+.altCTA_button.altCTA_buttonMaroon {
+    border-color: #ab1d40 !important;
+    color: #ab1d40 !important;
+}
+.altCTA_button.altCTA_buttonMaroon:hover {
+    background: #fff;
+    background: rgba(171,29,64,0.45);
+    color: #ab1d40 !important;
+}
+.hasGlyphiconCircle .glyphicon::before {background: #ab1d40;}
+
+.textCopy ul li::before, ul.bulleted li::before {
+	content: '\25A0';
+	color: #ab1d40;
+	font-size: .85rem;
+	vertical-align: text-top;
+}
+.colorMaroon, A.colorMaroon {color: #ab1d40;}
+.colorDarkMaroon, A.colorDarkMaroon {color: #820725;}
+.colorBlack, A.colorBlack {color: #231e1f;}
+.bkgMaroon {background: #ab1d40;}
+.bkgDarkMaroon {background: #820725;}
+.bkgMedGrey {background: #bcbdbf;}
+
+/* Modals ***************************** */
+.modal .modal-header {background-color: #ab1d40;}
+.modal .modal-header.hasGlyphiconCircle .glyphicon::before {background: #fff;color:#ab1d40;}
+
+/* Main Nav ***************************** */
+#nav {color: #ab1d40;}
+#navWrap {
+    background: #fff;
+    background: rgba(255,255,255,0.85);
+	border-bottom: 1px solid #ab1d40;
+}
+#btnMenu, #btnPhone {color: #ab1d40;}
+.mainNavPhoneArea {
+	display: inline-block;
+	position: absolute;
+	z-index: 100;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	right: 10px;
+	margin: 0;
+	text-align:right;
+}
+.mainNavPhoneArea .mainPhoneNum{
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 1.2em;
+	vertical-align: middle;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+.languageBar {margin-top:6px;}
+.AccountLink {
+	display: inline-block;
+	position: absolute;
+	z-index: 100;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	left: 10px;
+	margin: 0;
+	text-align: right;
+	text-decoration:none;
+}
+.logo {width: 60px;}
+@media (min-width: 768px) {
+	.logo {width: auto;}
+}
+
+/* Home Tabs ***************************** */
+.customTabsBorderWrap {
+    border-top: 1px solid #bcbdbf;
+    border-bottom: 1px solid #bcbdbf;
+}
+.customTabsWrap .customTabsButtonsWrap .FlexTable-row a {color: #231e1f;}
+.customTabsWrap .customTabsButtonsWrap a.current, .customTabsWrap > .customTabsButtonsWrap a:hover {background: #bcbdbf;color: #fff;}
+.customTabsWrap .customTabsButtonsWrap .FlexTable-row a {border-left: 1px solid #bcbdbf;}
+.customTabsWrap .customTabsButtonsWrap a:last-child {border-right: 1px solid #bcbdbf;}
+@media (max-width: 767px) {
+    .customTabsWrap .customTabsButtonsWrap .FlexTable-row a{border-bottom:1px solid #bcbdbf;}
+}
+
+/* Home Table ***************************** */
+#AvgCostTable .FlexTable-row > .FlexTable-row-item {background: #bcbdbf;}
+#AvgCostTable .FlexTable-row > .FlexTable-row-item:first-child {background: #231e1f;}
+#AvgCostTable .FlexTable-row.FlexTable-header > .FlexTable-row-item {background: #ab1d40;}
+
+/* Progress Bar ***************************** */
+.navigator {color: #ab1d40 !important;}
+.navigator .circles > div {border: 3px solid #bcbdbf;background: #fff;}
+
+.navigator > .circles > .current {background: #bcbdbf;color:#fff;}
+.navigator > .circles > .current > div {color:#ab1d40 !important;}
+
+/* Section ***************************** */
+.sectionTitle {background: #ab1d40;}
+.sectionContent {border: 1px solid #ab1d40;}
+.tg-flipswitch > .form-group.active {background: #820725;}
+.bestValue {color: #231e1f;}
+
+/* styledTable ***************************** */
+.styledTable{border-color: #bcbdbf;}
+.divTable.styledTable > .divTableRow.divTable-header > .divTableCell {background-color: #b02e46;}
+.styledTable tr > td, .divTable.styledTable > .divTableRow > .divTableCell{ border-color: #bcbdbf;}
+.customStyledTable > thead > tr, .divTable.customStyledTable > .divTableRow.divTable-header > .divTableCell, .divTable.styledTable > .divTableRow.divTable-header > .divTableCell:first-child{background-color: #bcbdbf;}
+.styledTable > thead > tr > td:first-child, .styledTable > tbody > tr > td:first-child, .divTable.styledTable > .divTableRow > .divTableCell:first-child {background: #231e1f;}
+
+/* customSlider ***************************** */
+.customSliderBtns .glyphicon {
+    border-color: #231e1f;
+    color: #ab1d40;
+}
+.customSliderBtns .glyphicon:hover {
+    border-color: #5b5657;
+    color: #820725;
+}
+#customSlider .customSliderCell {color: #231e1f;}
+
+/* select-a-plan ***************************** */
+.costRepairIcons {
+    background-image: url(/uploads/00002004/Lennox-coverage_icons.png);
+}
+.benefit-icons {
+    background: transparent url('/uploads/00002004/Lennox-dealer-benefit-icons.png') no-repeat;
+}
+

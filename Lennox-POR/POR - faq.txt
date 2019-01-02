@@ -1,0 +1,428 @@
+<a href="tel: 18000000000" class="hasHrefPhoneNum TelephoneNumberALT" alt="Call Us"><span class="isPhoneNum TelephoneNumberALT">800 000 0000</span></a>
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. test
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> test
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+**************************************************************************
+CONSUMER
+**************************************************************************
+<h1>Point of Registration FAQ's</h1>
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Who does the customer call for service?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> The customer contacts AIG for service at <a href="tel: 18000000000" class="hasHrefPhoneNum TelephoneNumberALT" alt="Call Us"><span class="isPhoneNum TelephoneNumberALT">800 000 0000</span></a> option 1.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Who does the customer contact for payment/contract reprints? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> The customer contacts AIG Direct Marketing at <a href="tel: 18000000000" class="hasHrefPhoneNum TelephoneNumberALT" alt="Call Us"><span class="isPhoneNum TelephoneNumberALT">800 000 0000</span></a> Option 3, 4 or 5.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Who do I contact for repairs? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Contact AIG & we will dispatch the installing dealer for service.  If the installing dealer is unable to perform service, AIG will dispatch another contractor to perform the service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Mechanical and electrical failures contained within the equipment, including compressors and heat exchangers are covered by the extended warranty.  Coverage includes labor for covered repairs.  Parts are covered under the Manufacturer’s Parts Warranty.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Once coverage is purchased, how long will it take to receive my certificate of coverage?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Depending on the method you choose during the purchase process, you will receive your official contract with detailed Terms & Conditions in approximately 7-10 business days for mailed option or 2-3 business days for the emailed option.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Does the equipment need to be inspected before it can be covered? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> No, inspection of the product is not required.  However, the product must be in good working condition and eligible for service based upon the program’s Terms & Conditions.  Pre-existing conditions are excluded from coverage.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Why am I being charged sales tax?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> An AIG Labor Protection Plan is a taxable service and considered a service contract.  Sales tax percentages vary by state.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is not covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> The extended warranty does not cover: repairs due to damage or incorrect installation of equipment; non-electrical/mechanical items such as ducts work or drain lines; required maintenance; overtime charges for a covered mechanical repair; *see terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Are there coverage limits?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> There is no limit to the number of claims.  However, the limit of liability is reached when the repairs equal the replacement cost of the product during the term of the agreement.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can the agreement be transferred in the case of a homeowner selling their home?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, for a $25 fee the agreement may be transferred by submitting a written request within 90 days of the property closing date.  See terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. When will the coverage begin?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Coverage will begin after a 30 (1 Year or monthly policies) or 90 day wait period (3 Year policies), depending on the term and type of payment method selected.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+**************************************************************************
+CARRIER DEALER
+**************************************************************************
+<h1>Point of Registration FAQ's</h1>
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Who does the customer call for service? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> If the policy is purchased from AIG by the dealer, the customer contacts the dealer for service directly.  If the customer purchased the policy direct from AIG and listed the installing contractor, the customer contacts AIG for service and we dispatch the installing contractor.  If the installing contractor is unknown, we would locate a local authorized Carrier/Bryant/Payne dealer to perform service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Mechanical and electrical failures contained within the equipment, including compressors and heat exchangers are covered by the extended warranty.  Coverage includes labor for covered repairs.  Parts are covered under the OEM Parts Warranty.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is not covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> The extended warranty does not cover: repairs due to damage or incorrect installation of equipment; non-electrical/mechanical items such as ducts work or drain lines; required maintenance; overtime charges for a covered mechanical repair; *see terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. How long does it take for my customer to receive their certificate of coverage, if they purchased the labor plan directly from AIG?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Depending on the method they choose during the purchase process, they will receive their official contract with detailed Terms & Conditions in approximately 7-10 business days for mailed option or 2-3 business days for the emailed option. 
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Does the equipment need to be inspected before it can be covered? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> No, inspection of the product is not required.  However, the product must be in good working condition and eligible for service based upon the program’s Terms & Conditions.  Pre-existing conditions are excluded from coverage.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Are there claim coverage limits?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> There is no limit to the number of claims.  However, the limit of liability is reached when the repairs equal the replacement cost of the product during the term of the agreement.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can the agreement be transferred in the case of a homeowner selling their home?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, for a $25 fee the agreement may be transferred by submitting a written request within 90 days of the property closing date.  See terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. When will the coverage begin?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Dealer purchased coverage will begin after a 30 day wait period.  If the labor plan is purchased by the customer direct from AIG, the 1 year and monthly terms have a 30 day wait period, while the 3 year terms have a 90 day wait period.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can I, as the contractor, be invoiced?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> As part of our programs, we do require payment as contracts are created & purchased, but can accept Credit Card, Debit Card, Paypal, AmExpress or Echeck as payment methods.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. If my customer purchases a labor plan while registering their equipment, am I notified as their installing contractor?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, if the registration is properly tied to you as the installing contractor, you will be notified via email and/or phone.  If that customer ever has a service need, we will contact you for service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. If my customer purchases a labor plan while registering their equipment and I am called to perform service, what labor reimbursement will I receive as payment?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Under our customer point of registration offerings, we have built all options based upon our $125 labor flat rate schedule.  We do pay claims through our flat rate structure, but the reimbursement payouts for the customer point of registration offerings are derivatives of the $125 labor rate.  This payout structure also includes a $95 trip/diagnostic fee and a $35 part allowance.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+
+**************************************************************************
+RHEEM/RUUD DEALER
+**************************************************************************
+<h1>Point of Registration FAQ's</h1>
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Who does the customer call for service? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> If the policy is purchased from AIG by the dealer, the customer contacts the dealer for service directly.  If the customer purchased the policy direct from AIG and listed the installing contractor, the customer contacts AIG for service and we dispatch the installing contractor.  If the installing contractor is unknown, we would locate a local authorized Rheem/Ruud dealer to perform service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Mechanical and electrical failures contained within the equipment, including compressors and heat exchangers are covered by the extended warranty.  Coverage includes labor for covered repairs.  Parts are covered under the OEM Parts Warranty.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is not covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> The extended warranty does not cover: repairs due to damage or incorrect installation of equipment; non-electrical/mechanical items such as ducts work or drain lines; required maintenance; overtime charges for a covered mechanical repair; *see terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. How long does it take for my customer to receive their certificate of coverage, if they purchased the labor plan directly from AIG?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Depending on the method they choose during the purchase process, they will receive their official contract with detailed Terms & Conditions in approximately 7-10 business days for mailed option or 2-3 business days for the emailed option. 
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Does the equipment need to be inspected before it can be covered? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> No, inspection of the product is not required.  However, the product must be in good working condition and eligible for service based upon the program’s Terms & Conditions.  Pre-existing conditions are excluded from coverage.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Are there claim coverage limits?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> There is no limit to the number of claims.  However, the limit of liability is reached when the repairs equal the replacement cost of the product during the term of the agreement.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can the agreement be transferred in the case of a homeowner selling their home?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, for a $25 fee the agreement may be transferred by submitting a written request within 90 days of the property closing date.  See terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. When will the coverage begin?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Dealer purchased coverage will begin after a 30 day wait period.  If the labor plan is purchased by the customer direct from AIG, the 1 year and monthly terms have a 30 day wait period, while the 3 year terms have a 90 day wait period.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can I, as the contractor, be invoiced?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> As part of our programs, we do require payment as contracts are created & purchased, but can accept Credit Card, Debit Card, Paypal, AmExpress or Echeck as payment methods.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. If my customer purchases a labor plan while registering their equipment, am I notified as their installing contractor?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, if the registration is properly tied to you as the installing contractor, you will be notified via email and/or phone.  If that customer ever has a service need, we will contact you for service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. If my customer purchases a labor plan while registering their equipment and I am called to perform service, what labor reimbursement will I receive as payment?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Under our customer point of registration offerings, we have built all options based upon our $125 labor flat rate schedule.  We do pay claims through our flat rate structure, but the reimbursement payouts for the customer point of registration offerings are derivatives of the $125 labor rate.  This payout structure also includes a $95 trip/diagnostic fee and a $35 part allowance.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+
+**************************************************************************
+NOORTEK DEALER
+**************************************************************************
+<h1>Point of Registration FAQ's</h1>
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Who does the customer call for service? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> If the policy is purchased from AIG by the dealer, the customer contacts the dealer for service directly.  If the customer purchased the policy direct from AIG and listed the installing contractor, the customer contacts AIG for service and we dispatch the installing contractor.  If the installing contractor is unknown, we would locate a local authorized Nortek dealer to perform service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Mechanical and electrical failures contained within the equipment, including compressors and heat exchangers are covered by the extended warranty.  Coverage includes labor for covered repairs.  Parts are covered under the OEM Parts 
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. What is not covered?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> The extended warranty does not cover: repairs due to damage or incorrect installation of equipment; non-electrical/mechanical items such as ducts work or drain lines; required maintenance; overtime charges for a covered mechanical repair; *see terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. How long does it take for my customer to receive their certificate of coverage, if they purchased the labor plan directly from AIG?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Depending on the method they choose during the purchase process, they will receive their official contract with detailed Terms & Conditions in approximately 7-10 business days for mailed option or 2-3 business days for the emailed option. 
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Does the equipment need to be inspected before it can be covered? 
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> No, inspection of the product is not required.  However, the product must be in good working condition and eligible for service based upon the program’s Terms & Conditions.  Pre-existing conditions are excluded from coverage.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Are there claim coverage limits?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> There is no limit to the number of claims.  However, the limit of liability is reached when the repairs equal the replacement cost of the product during the term of the agreement.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can the agreement be transferred in the case of a homeowner selling their home?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, for a $25 fee the agreement may be transferred by submitting a written request within 90 days of the property closing date.  See terms and conditions for specific details.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. When will the coverage begin?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Dealer purchased coverage will begin after a 30 day wait period.  If the labor plan is purchased by the customer direct from AIG, the 1 year and monthly terms have a 30 day wait period, while the 3 year terms have a 90 day wait period.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. Can I, as the contractor, be invoiced?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> As part of our programs, we do require payment as contracts are created & purchased, but can accept Credit Card, Debit Card, Paypal, AmExpress or Echeck as payment methods.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. If my customer purchases a labor plan while registering their equipment, am I notified as their installing contractor?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Yes, if the registration is properly tied to you as the installing contractor, you will be notified via email and/or phone.  If that customer ever has a service need, we will contact you for service.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->
+
+<div data-role="collapsible" class="tg-collapsible">
+    <h4 class="tg-collapsible-heading collapsed hasGlyphicon glyphiconPosLeft hasGlyphiconCircle" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
+		<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>Q. If my customer purchases a labor plan while registering their equipment and I am called to perform service, what labor reimbursement will I receive as payment?
+	</h4>
+    <div class="tg-collapsible-content collapse">
+		<strong>A.</strong> Under our customer point of registration offerings, we have built all options based upon our $125 labor flat rate schedule.  We do pay claims through our flat rate structure, but the reimbursement payouts for the customer point of registration offerings are derivatives of the $125 labor rate.  This payout structure also includes a $95 trip/diagnostic fee and a $35 part allowance.
+    </div><!-- /.tg-collapsible-content -->
+</div><!-- /.tg-collapsible -->

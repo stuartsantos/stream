@@ -1,0 +1,86 @@
+
+
+Campaign Codes  
+Consumer Campaign Code: WPCCPR1802
+Dealer Campaign code: WPDCPD1802
+
+if(session_vars.Brand.toLowerCase() == "rheem"){$('#CampaignCode').val("WPRHPR1609");}
+else if(session_vars.Brand.toLowerCase() == "ruud"){$('#CampaignCode').val("WPRUPR1609");}
+else if(session_vars.Brand.toLowerCase() == "nortek"){$('#CampaignCode').val("WPCNPR1705");}
+
+
+Promo Codes (no promo for AM, use Priority code/invitation #)
+1PORCC for Consumer
+1PORCD for Dealer
+
+MCM Code  
+Carrier Consumer POR: PORCARRIER
+Carrier Dealer: PORCARRIER
+
+CMI Codes  
+Carrier Consumer code: CC1802P01
+Carrier Dealer Code: DC1802P01
+
+
+//********************************************************
+Select-a-Plan
+HVACCMICode >> rename to "CMICode", delete "CMICode" input on Select-a-Plan page, delete js code reference
+(
+	([Cmpid] IS "SPC-RheemPOR-HVAC") ? "RH1609P00" :
+	(([Cmpid] IS "SPC-RuudPOR-HVAC") ? "RU1609P00" :
+	(([Channel] IS "POR" AND [Brand] IS "Rheem") ? "RH1609PDF" :
+	(([Channel] IS "POR" AND [Brand] IS "Ruud") ? "RU1609PDF" :
+	(([Channel] IS "POR" AND ([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne") AND [IsDealerEval] IS "Y") ? "DC1802P01" :
+	(([Channel] IS "POR" AND ([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne")) ? "CC1802P01" :
+	(([Channel] IS "POR" AND [Brand] IS "Nortek" AND [IsDealerEval] IS "Y") ? "DN1705P01" :
+	(([Channel] IS "POR" AND [Brand] IS "Nortek") ? "CN1705P01" :
+	(([Channel] IS "POR" AND [Brand] IS "TBA") ? "TBA_TBA" :
+	
+	[CMICode].""))))))))/* use passed in value */
+)
+//********************************************************
+Select-a-Plan
+HVACMCMCode >> rename to "MCMCode", delete "MCMCode" input on Select-a-Plan page, delete js code reference
+(
+	([Cmpid] IS "SPC-RheemPOR-HVAC") ? "PORRHEEM" :
+	(([Cmpid] IS "SPC-RuudPOR-HVAC") ? "PORRUUD" :
+	(([Brand] IS "Rheem") ? "PORRHEEMDF" :
+	(([Brand] IS "Ruud") ? "PORRUUDDF" :
+	(([Brand] IS "Nortek" AND [IsDealerEval] IS "Y") ? "HVACDEALNORTEK" :
+	(([Brand] IS "Nortek") ? "HVACNORTEK" :
+	(([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne") ? "PORCARRIER" :
+	(([Brand] IS "TBA") ? "TBA_TBA" :
+
+	"UnknownBrandID")))))))/* use passed in value */
+)
+//********************************************************
+Select-a-Plan
+HVACPromoCode >> rename to "PromoCode", delete "PromoCode" input on Select-a-Plan page, delete js code reference
+(
+	([Cmpid] IS "SPC-RheemPOR-HVAC") ? "1PORRH" :
+	(([Cmpid] IS "SPC-RuudPOR-HVAC") ? "1PORRU" :
+	(([Channel] IS "POR" AND [Brand] IS "Rheem") ? "PORRHDF" :
+	(([Channel] IS "POR" AND [Brand] IS "Ruud") ? "PORRUDF" :
+	(([Channel] IS "POR" AND [Brand] IS "Nortek" AND [IsDealerEval] IS "Y") ? "NDPOR" :
+	(([Channel] IS "POR" AND [Brand] IS "Nortek") ? "NCPOR" :
+	(([Channel] IS "POR" AND ([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne") AND [IsDealerEval] IS "Y") ? "1PORCD" :
+	(([Channel] IS "POR" AND ([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne")) ? "1PORCC" :
+	(([Brand] IS "TBA") ? "TBA_TBA" :
+
+	[InvitationNumber].""))))))))/* use passed in InvitationNumber value as PriorityCode on AM */
+)
+//********************************************************
+Select-a-Plan
+create "CampaignCode" as Eval, delete "CampaignCode" input on Select-a-Plan page, delete js code reference
+(
+	([Channel] IS "POR" AND [Brand] IS "Rheem") ? "WPRHPR1609" :
+	(([Channel] IS "POR" AND [Brand] IS "Ruud") ? "WPRUPR1609" :
+	(([Channel] IS "POR" AND [Brand] IS "Nortek") ? "WPCNPR1705" :
+	(([Channel] IS "POR" AND ([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne") AND [IsDealerEval] IS "Y") ? "WPDCPD1802" :
+	(([Channel] IS "POR" AND ([Brand] IS "Carrier" OR [Brand] IS "Bryant" OR [Brand] IS "Payne")) ? "WPCCPR1802" :
+	(([Channel] IS "POR" AND [Brand] IS "TBA") ? "TBA_TBA" :
+
+	[CampaignCode]."")))))/* use passed in value */
+)
+
+

@@ -1,0 +1,48 @@
+/* Language setup ***************************** */
+LanguageGetSet = function(toLang){
+	if(toLang){tg.LocalStorageSave("Language", toLang.toUpperCase(), "value");}//save passed in value
+	else if(tg.LocalStorageGetSet("Language", null, "value")){toLang=tg.LocalStorageGetSet("Language", null, "value");}//not passed in, use cache?
+	else{toLang = "en";tg.LocalStorageSave("Language", "en", "value");}//set to ENG default language
+
+    if(toLang.toLowerCase() == "fr"){$("html").addClass("isFR_lang").removeClass("isENG_lang");}
+    else{$("html").addClass("isENG_lang").removeClass("isFR_lang");}
+
+	if(session_vars.Region.toLowerCase() == "ca"){$("html").addClass("isCA_reg").removeClass("isUS_reg");}
+    else{$("html").addClass("isUS_reg").removeClass("isCA_reg");}
+	
+	if(session_vars.Region.toLowerCase() == "ca" && toLang.toLowerCase() == "fr"){$("#LanguageFlag").val('cf');}
+	else if(session_vars.Region.toLowerCase() == "ca" && toLang.toLowerCase() == "en"){$("#LanguageFlag").val('ce');}
+	else if(toLang.toLowerCase() == "fr"){$("#LanguageFlag").val('uf');}
+	else {$("#LanguageFlag").val('ue');}
+	
+	return false;
+};
+
+
+
+/* Language ***************************** */
+.FR_lang_block, .FR_lang_inline {display:none !important;}/* default hide FR language */
+
+.isFR_lang .FR_lang_block {display:block !important;}
+.isFR_lang .FR_lang_inline {display:inline !important;}
+.isFR_lang .ENG_lang_block, .isFR_lang .ENG_lang_inline{display:none !important;}
+
+.isENG_lang.isCA_reg .ENG_US{display: none;}
+.isENG_lang.isUS_reg .ENG_CA{display: none;}
+
+
+/* Language HTML ***************************** */
+<span class="ENG_lang_inline">English Text</span>
+<span class="FR_lang_inline">French Text</span>
+
+
+<span class="ENG_lang_inline">
+	test test test
+	<span class="ENG_US">US English Text</span>
+	<span class="ENG_CA">CA English Text</span>
+	test test test test test
+</span>
+<span class="FR_lang_inline">French Text</span>
+
+
+

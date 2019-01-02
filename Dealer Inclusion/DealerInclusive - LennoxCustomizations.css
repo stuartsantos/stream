@@ -1,0 +1,218 @@
+/* placing any styles/comments here prevents default stream.css from loading w conflicting styles */
+/* place any custom CSS for this SPECIFIC journey below: */
+.form-group input.form-control{
+    height: auto;
+    padding:10px;
+    line-height: inherit;
+    font-size: inherit;
+    color: #333;
+}
+#ui-datepicker-div{z-index: 2000 !important;}/* hidden under modal otherwise */
+.removeValue > .glyphicon{
+    font-size: 1.8em;
+    opacity: .7;
+    top: 0;
+}
+
+/***************************************
+DataTable Styles
+***************************************/
+#bodyID table.dataTable td, #bodyID table.dataTable th{vertical-align:middle;text-align:center;padding:8px 15px 8px 10px;}
+
+#bodyID table.dataTable td.spacer, #bodyID table.dataTable th.spacer {padding:8px 0;}
+#bodyID table.dataTable td.CheckboxWrap, #bodyID table.dataTable th.CheckboxWrap {padding:8px 6px;}
+
+#bodyID table.dataTable.collapsed td.CheckboxWrap, #bodyID table.dataTable.collapsed th.CheckboxWrap {padding:8px 10px 8px 10px;}
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::before, table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child::before{position: static !important;margin: 0 6px;}
+
+#bodyID .dataTables_wrapper .dataTables_filter input {
+    margin-left: 0 !important;
+}
+
+#bodyID table.dataTable tbody td.lname, #bodyID table.dataTable thead th.lname{text-align:left;}/*left align name*/
+#bodyID table.dataTable.responsive > tbody > tr > td::before {
+    font-weight: bold;
+    font-size: .95rem;
+    line-height: 16px;
+}
+#bodyID .dtr-details{display: table;width:100%;}
+#bodyID .dtr-details li{display: table-row;}
+#bodyID .dtr-details li span{
+    display: table-cell;
+    text-align:left;
+    width:50%;
+    border-bottom: 1px solid #ddd;
+    font-size:.75rem;
+    padding: 6px 0;
+}
+#bodyID .dtr-details li:last-of-type span{
+    border-bottom: 0;
+}
+#bodyID .dtr-details li span.dtr-data {text-align:right;}
+.dataTables_length select, .dataTables_filter input{width:auto;padding:4px 8px;}
+@media (max-width: 767px) {
+    .dataTables_filter input{width:100%;}
+}
+
+#bodyID .input-group-addon, #bodyID .input-group-btn {
+    width: auto;/*Chrome/Safari/IE11 hack fix for input groups taking 100% width */
+}
+#bodyID .form-group.full-width .input-group-addon, #bodyID .form-group.full-width .input-group-btn {
+    width: 1%;/*Chrome/Safari/IE11 hack fix for input groups taking 100% width */
+}
+
+#table_Cancel_Wrap #table_Cancel_filter, #table_Pay_Wrap #table_Pay_filter{display:none;}
+/***************************************/
+#bodyID .sectionContent {color: inherit;}
+.uppercaseErr .uppercaseLI, .lowercaseErr .lowercaseLI, .specialCharErr .specialCharLI, .numbersErr .numbersLI, .minErr .minLI, .maxErr .maxLI{color:#ff0000 !important;}
+ul.uppercaseErr .uppercaseLI:before, ul.lowercaseErr .lowercaseLI:before, ul.specialCharErr .specialCharLI:before, ul.numbersErr .numbersLI:before, ul.minErr .minLI:before, ul.maxErr .maxLI:before{color:#ff0000 !important;}
+
+/***************************************/
+.footerLinks a, .sideNav a{
+    text-decoration:none;
+}
+.footerLinks a:hover, .footerLinks a:focus, .sideNav a:hover, .sideNav a:focus{
+    text-decoration:underline !important;
+}
+/***************************************
+Header
+***************************************/
+#LoginWrap{
+    text-align:left;
+    padding: 6px 0 6px 15px;
+    vertical-align: middle;
+    font-size: .75rem;
+    overflow: hidden;
+}
+@media (max-width: 425px) {
+    #AgentIcon{display:none;}
+}
+
+.ltIE12 #LoginWrap{top: 8px;}/*IE < 12 fix*/
+
+.logoTD{width:100px;}
+@media screen and (min-width: 768px) {
+	.logoTD{width:120px;}
+}
+#bodyID #btnPhone {
+    position: initial;
+    top: auto;
+    left: auto;
+    transform: initial;
+    -webkit-transform: initial;
+    padding: 6px 15px 6px 0;
+}
+
+/***************************************
+Home page
+***************************************/
+/* manufacturerLogo */
+.manufacturerLogo{max-width:150px;}
+.RuudLogo{margin-top:-18px;}
+.RheemLogo{/*filter: drop-shadow(2px 2px 6px #222);*/}
+.manufacturerLogoCTA h1, .manufacturerLogoCTA h2, .manufacturerLogoCTA h3{color:#fff !important;} /*make text white */
+@media (min-width: 768px) {
+    .manufacturerLogo{max-width:180px;}
+}
+.mastheadImage{background-repeat:no-repeat !important;background-position: left top !important;}
+.mastheadImage.DealerInclusionCTA{background-position: left top !important;}
+@media (min-width: 1600px) {
+    .mastheadImage.DealerInclusionCTA{background-position:  left top !important;/*background-size: auto !important;*/}
+}
+/***************************************/
+.benefit-icons{
+    width:50px;
+    height:50px;
+    margin:0 auto 12px auto;
+    background: transparent url('/uploads/00002004/HVAC-dealer-benefit-icons.png') no-repeat;
+    background-position: 0 0;
+}
+.benefit-icons.differentiation{background-position: 0 -136px;}
+.benefit-icons.satisfaction{background-position: 0 -206px;}
+.benefit-icons.retention{background-position: 0 -276px;}
+.benefit-icons.profitability{background-position: 0 -347px;}
+.benefit-icons.majorBenefits{background-position: 0 -65px;}
+
+/** enrollment *************************/
+.autopayWrap {margin-left:13px;}
+.autopayWrap div.questionprompt{margin-left:35px !important;}
+/***************************************
+Custom radio/checkboxes
+***************************************/
+#bodyID input[type=checkbox], #bodyID input[type=radio] {width:auto !important;margin:0 !important;}/*undo generic input/select 100% */
+input[type=checkbox].hasCustomCheckboxSprite,input[type=radio].hasCustomRadioSprite {
+-webkit-transform: scale(.5,.5);/*make smaller so they hide */
+}
+/* Custom Checkbox button */
+/*input[type="checkbox"].hasCustomCheckboxSprite {visibility:hidden;}can't hide, breaks validation */
+input[type="checkbox"].hasCustomCheckboxSprite + label.customCheckboxSprite {
+    font-size:1rem;
+   	cursor: pointer;
+	border:2px solid #ccc;
+	background:#fff;
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-1px 4px 0 -15px;
+    vertical-align:middle;
+	position: relative;
+}
+.ios input[type="checkbox"].hasCustomCheckboxSprite + label.customCheckboxSprite {margin-left:-17px;}
+input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite{background-color: #fff;}/* Checked state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite:before {
+	font-family: 'Glyphicons Halflings';
+	content: "\e013";
+	color: #222;
+	margin: -2px 0 0 0;
+	position: absolute;
+}
+@-moz-document url-prefix() {/* FireFox fix */
+	input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite:before {margin: -3px 0 0 0;}
+}
+.internetexplorer input[type="checkbox"].hasCustomCheckboxSprite:checked + label.customCheckboxSprite:before {margin: -8px 0 0 0;}/* IE fix */
+input[type="checkbox"].hasCustomCheckboxSprite:focus + label.customCheckboxSprite{border-color: #012f60;}/* focus state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:checked:focus + label.customCheckboxSprite{background-color: #012f60;border-color: #ccc;}/* Checked+focus state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:checked:focus + label.customCheckboxSprite:before {color: #fff;}/* Checked+focus state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:disabled+ label.customCheckboxSprite{background-color: #ccc;cursor: default;}/* disabled state for checkbox */
+input[type="checkbox"].hasCustomCheckboxSprite:disabled+ label.customCheckboxSprite:before{color: #666;}/* disabled state for checkbox */
+/* Custom Radio button */
+/*input[type="radio"].hasCustomRadioSprite {visibility:hidden;} can't hide, breaks validation */
+input[type="radio"].hasCustomRadioSprite + label.customRadioSprite {
+    font-size:1rem;
+   	cursor: pointer;
+	border:2px solid #012f60;
+	background:#fff;
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-2px 4px 0 -17px;
+    vertical-align:middle;
+	-moz-border-radius:  50%;
+    border-radius:  50%;
+	position: relative;
+}
+input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite{background-color: #012f60;border-color: #fff;}/* Checked state for radio */
+input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite:before {
+	/*! margin: 3% 0 0% -34%; */
+	content: '\2022';
+	font-size: 2.1rem;
+	line-height: 1rem;
+	/*! position: absolute; */
+	color: #012f60;
+	/*! left: 50%; */
+	/*! border-color: #fff; */
+	/*! width: 100%; */
+	/*! height: 100%; */
+	display: inline-block;
+	margin: 1px 0 0 2px;
+}
+@-moz-document url-prefix() {/* FireFox fix */
+	/*input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite:before {margin: 0 2px;}*/
+}
+.internetexplorer input[type="radio"].hasCustomRadioSprite:checked + label.customRadioSprite:before {margin: 9px 1px;}/* IE fix */
+input[type="radio"].hasCustomRadioSprite:focus + label.customRadioSprite{border-color: #012f60}/* focus state for checkbox */
+input[type="radio"].hasCustomRadioSprite:checked:focus + label.customRadioSprite{border-color: #fff;}/* Checked+focus state for checkbox */
+input[type="radio"].hasCustomRadioSprite:checked:focus + label.customRadioSprite:before {}/* Checked+focus state for checkbox */
+input[type="radio"].hasCustomRadioSprite:disabled+ label.customRadioSprite{background-color: #ccc;cursor: default;}/* disabled state for radio */
+input[type="radio"].hasCustomRadioSprite:disabled+ label.customRadioSprite:before{color: #666;}/* disabled state for checkbox */
+input[type="radio"].hasCustomRadioSprite.hasError + label.customRadioSprite, input[type="checkbox"].hasCustomCheckboxSprite.hasError + label.customCheckboxSprite{border-color:#ff0000;}/*highlight errors*/

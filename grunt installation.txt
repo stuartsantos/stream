@@ -1,0 +1,54 @@
+/uploads/00001941/AIGDM_Shared_wBootstrap.js
+	bootstrap
+	Actual 
+	equalheight 
+	Framework 
+	orientationchange 
+	
+
+/uploads/00001941/bootstrap.min.css
+/uploads/00001941/shared-styles.css
+
+**************************
+
+//install nodeJS and NPM (comes w nodejs)
+
+//install from anywhere in the cmd prompt:
+npm install -g grunt-cli
+
+//create Grunt project: 
+//navigate to project folder, then run:
+npm install grunt --save-dev
+
+//create project in Sublime Text
+
+//create gruntfile.js
+//add module data to gruntfile.js
+
+//install any plugins
+npm install grunt-contrib-uglify --save-dev
+npm install grunt-contrib-watch --save-dev
+npm install grunt-sass --save-dev
+
+//add configuration to gruntfile.js
+grunt.initConfig({
+	...
+	uglify{...}
+	...
+}
+
+//load plugin  to gruntfile.js
+grunt.loadNpmTasks('grunt-contrib-uglify');
+
+//register the task  to gruntfile.js
+    grunt.registerTask('default', ['uglify:dev']);
+    grunt.registerTask('prod', ['uglify:prod']);
+	
+**************************
+to run manually
+**************************
+grunt watch
+-or -
+grunt
+-or -
+grunt prod

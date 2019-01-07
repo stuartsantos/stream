@@ -1,0 +1,1350 @@
+/*!
+
+main.css...
+*/
+
+@import '../components/_reset.scss';
+@import '../components/_fonts.scss';
+
+/***************************************
+GENERAL RULES
+***************************************/
+html {font-size: 110%; /* !omportant got to override scaffolding */}
+body {
+    font-size: inherit; /*!important;  got to override scaffolding */
+    /*line-height: 1; */
+    -ms-overflow-style: scrollbar;
+    font-family: 'Futura PT Book', sans-serif;
+}
+/* textual modifiers */
+body a{text-decoration:underline; color: $color-prim-dark;/*AIG Medium Blue*/}
+body a:hover{text-decoration:none;color: $color-prim-darker;/*AIG Dark Blue*/}
+em {
+    font-style: italic;
+}
+h1, h2, h3, h4 {
+    color: $color-prim-dark !important; /*got to beat bootstrap's css*/
+    margin-bottom:12px;
+}
+h2.compl {
+    margin-top: 70px!important;
+}
+body h1{font-size:1.5rem; font-family: 'Futura PT', sans-serif;}
+body h2{font-size:1.4rem;}
+body h3{font-size:1.3rem;}
+body h4{font-size:1.2rem;}
+body h5{font-size:1.1rem;color:#525357;}
+body h6{font-size: 1rem;}
+h4 {
+    margin-top: 35px!important;
+}
+h3.moduleTitle {
+    height: 40px;
+}
+h4.compl {
+    margin-top: 0 !important;
+    color: #000 !important;
+    margin-bottom: 1em;
+}
+
+.bordered h4 {
+    margin-top: 0!important;
+}
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+strong {
+    font-family: 'Futura PT', sans-serif;
+}
+legend {
+    font-size: 1rem;
+}
+/* override bootstrap theme
+.row {
+    margin-bottom: 20px;
+}
+.row .row {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+ */
+[class*="col-"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.noBSColPad{padding-right:0 !important;padding-left:0 !important;}/* undo bootstrap default */
+/* special bootstrap rows and cols used for condensed layout of contact form */
+.contactForm .row, .contactForm .row [class*="col-"] {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.contactForm .row:last-of-type {
+    margin-bottom: 20px; /* put space after the last form row */
+}
+*:focus {outline-offset: 1px !important;}
+ .desktopNav *:focus, #nav *:focus, .dark *:focus {outline: 1px solid #fff;}
+/***************************************
+Framework Setup
+***************************************/
+
+#bodyID .container-fluid{padding-right:0;padding-left:0;}/*undo Andy's bootstrap customization*/
+.container-fluid .row{margin-right:0;margin-left:0;}/*undo Andy's bootstrap customization*/
+@media (min-width:768px){html .container{width:auto;}}
+#mobileRespond{background-repeat:no-repeat;}/* sets the mobile/desktop functionality for site */
+@media screen and (min-width: 768px) {#mobileRespond{background-repeat:repeat;}}
+.siteWidth{margin:0 12px !important;}
+@media screen and (min-width: 768px) {
+    .siteWidth,
+	#div_MemberInfo_Main > .solid.grey,
+	#div_MemberInfo_Main > .elementcontainer.optional > .fullwidthelement > .resizable > .solid.white,
+	#div_MemberInfo_Main > .elementcontainer.optional > .fullwidthelement > .resizable > .solid.grey,
+	#div_MemberInfo_Main > .solid.grey > .elementcontainer.optional > .fullwidthelement > .resizable > .solid.white,
+	.substituteFooter > .solid.dark > .container,
+	.masthead  > .container,
+	.masthead  > .elementcontainer.optional > .fullwidthelement > .resizable > .light.overlay  > .container{max-width:1140px;margin:0 24px !important;position:relative;/* try to contain nested floats */}
+    
+	.contentWidth.siteWidth{max-width:1140px;}
+}
+@media screen and (min-width: 1141px) {.contentWidth.siteWidth{margin:0 auto !important;}}
+@media screen and (min-width: 1141px) {
+	.siteWidth,
+	#div_MemberInfo_Main > .solid.grey,
+	#div_MemberInfo_Main > .elementcontainer.optional > .fullwidthelement > .resizable > .solid.white,
+	#div_MemberInfo_Main > .elementcontainer.optional > .fullwidthelement > .resizable > .solid.grey,
+	#div_MemberInfo_Main > .solid.grey > .elementcontainer.optional > .fullwidthelement > .resizable > .solid.white,
+	.substituteFooter > .solid.dark > .container,
+	.masthead  > .container,
+	.masthead  > .elementcontainer.optional > .fullwidthelement > .resizable > .light.overlay  > .container {margin:0 auto !important;}
+}
+div.tableAsBlock > table, div.tableAsBlock > table > tbody, div.tableAsBlock > table > tbody > tr, div.tableAsBlock > table > tbody > tr > td{display:block;}
+td.require{color:#ff0000;}/* required asteric color */
+@media (min-width:768px){/*don't style phone #s by default on desktop sizes */
+.hasHrefPhoneNum, .desktop-phone-links{color:inherit !important;cursor:initial !important;text-decoration:none;}
+}
+/* *****************************************************************************/*
+/* page backgrounds */
+
+
+.mastheadImage {
+    background-size: cover!important;
+    width: 100%;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    position: relative;
+    height: 369px;
+}
+.forLandingPage.mastheadImage {
+       position: absolute;
+       height: 100%;
+}
+.hasMainCTAImage.siteWidth{margin:0 auto !important;}
+@media screen and (max-width: 767px) {
+    .mastheadImage {
+        /*background-size: 1508px 1200px !important;
+        background-position: -100% -100% !important;*/
+        height: 250px;
+        position: relative;
+    }
+}
+.masthead {
+    background-size: cover;
+    background-position: 50% 70%;
+    width: 100%;
+    position: relative;
+    font-size: 1.2rem;
+}
+.beachHouse .mastheadImage {
+    position: absolute;
+    height: 100%;
+}
+.beachHouse .row {
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 992px) {.masthead.hasMainCTAImage {min-height:400px;}}
+@media screen and (min-width: 1200px) {.masthead.hasMainCTAImage {min-height:500px;}}
+/* *****************************************************************************/*
+.verticalSpace {height: 0;}
+/*@media screen and (min-width: 768px) {.verticalSpace {height: 200px;}}maintain a bit of vertical space. Used with the masthead */
+.verticalSpace.forBluetopped {height: 0;}
+@media screen and (min-width: 768px) {.verticalSpace.forBluetopped {height: 0;}}
+.verticalSpace.forLandingPage, .verticalSpace.forLandingPage.noBlackBox{height: 80px;}
+@media screen and (min-width: 768px) {
+    .verticalSpace.forLandingPage{height: 100px;}
+    .verticalSpace.forLandingPage.noBlackBox{height: 400px;}
+}
+.verticalSpace.forNoMainCTA {height: 100px;}
+@media screen and (min-width: 768px) {}
+/* *****************************************************************************/*
+
+
+
+/* the form used on the landing page */
+.dark.overlay {
+    background: #000;/*fix for non-compliant browsers*/
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 20px;
+    color: #fff;
+    margin-bottom: 1px;/*creates space for the click to chat divider*/
+}
+.dark.overlay.nopadding .row {
+    margin-top: 0;
+}
+.dark.overlay .tel {
+    font-size: 1.3rem;
+    margin: 0 0 12px;
+}
+
+.dark.overlay a {
+    text-decoration: none !important;
+    color:#fff;
+}
+.dark.overlay h2 {
+    font-size: 1.3rem;
+    color: #fff !important;
+}
+.light.overlay {
+    background: rgba(255, 255, 255, 0.8);
+    /*color: #585958;
+    font-size: 1.1rem;*/
+    text-align: center;
+}
+.light.overlay hr{border-color: #bbb;}
+.opaque.light.overlay {background: #fff;}
+@media screen and (max-width: 767px) {
+    .light.overlay {
+        background: rgb(255,255,255);
+    }
+    /*.dark.overlay {margin-top:160px;}*/
+}
+.solid.dark {
+    background: $color-grey-darker;
+    color: #fff;
+}
+.solid.dark a {
+    color: #fff;
+}
+.solid.dark .grey {
+    color: #a7a7a7;
+}
+.solid.grey {
+    /*background: #f0f0f0;*/
+    /*padding: 24px 0;*/
+}
+@media screen and (max-width: 767px) {
+    .solid.grey {
+        padding: 0;
+    }
+}
+.solid.white {
+    background: #fff;
+}
+/* overrides used to modify cols, rows, buttons, etc.*/
+.fullwidth {
+    display: block!important;
+    width: 100% !important;
+}
+.nopadding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.noxpadding {
+    padding-left: 0 !important;
+}
+.bordered {
+    border: 1px solid #ccc;
+}
+.containsLRSides {
+    display: table;
+}
+.leftSide {
+    float: none!important;
+    display: table-cell;
+    background: url('/uploads/00001941/videocallout.png');
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.rightSide {
+    float: none!important;
+    display: table-cell;
+}
+.narrow { /*used on the contact form */
+    padding: 0 21% 0 21%;
+}
+/* buttons */
+.button {
+    /*display: block;*/
+    display:inline-block;
+    padding: 12px 18px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    /*width: 100%;*/
+    color: #fff;
+    font-family: "Futura PT", helvetica, arial, sans-serif;
+    white-space: normal;/*input type=button nowrap fix*/
+    font-weight: bold;
+}
+.button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.blue.button {
+    background: $color-prim-dark;
+}
+.blue.button:hover {
+    background: $color-prim-darker;
+}
+.orange.button {
+    background: $color-orange-base;/*AIG Orange*/
+}
+.orange.button:hover {
+    background: $color-orange-darker;/*AIG Dark Orange*/
+}
+.orange.button, .orange.button:hover {
+    color: #fff;
+    /*width: auto;
+    display: inline;*/
+}
+.blue.button:after, .blue.button:after {
+    content: '';
+}
+.contactFlyout .orange.button {
+    display: block;
+}
+.textCopy .skeleton.blue.button {
+    display: inline-block;
+}
+.skeleton.blue.button {
+    border: 2px solid $color-prim-dark;
+    color: $color-prim-dark;
+    background: #fff;
+}
+.skeleton.blue.button:hover {
+    border: 2px solid $color-prim-darker;
+    color: $color-prim-darker;
+}
+.card .skeleton.blue.button {
+    position: absolute;
+    bottom: 30px;
+    width: 81%;
+}
+.menuFooter .skeleton.blue.button {
+    display: block;
+    background: none;
+    border: 2px solid #fff;
+    position: initial;
+    margin: 15px 0 0;
+}
+.menuFooter {
+    padding: 15px 15px 0;
+}
+.footerDisclaimer {
+    font-size: .85rem;
+}/* size adjust to disclaimer text */
+@media screen and (max-width: 767px) {
+    .hasPinned .footerDisclaimer {padding-bottom:80px;}/*push mobile footer up for .pinned scrolling footer */
+    .footerLinks a{display:inline-block;padding: 6px 12px;}
+}
+.contactFlyout .orange.button {
+    text-align: left;
+    padding: 5px 0 0;
+    background: $color-prim-dark;
+}
+.glyphicon {
+    /* the default glyphicons are too high */
+    font-weight: 200 !important; /*this doesn't work*/
+    top: 3px;
+}
+.page {
+    padding: 20px 60px !important;
+    /*min-height: 400px !important;*/
+    margin: 0 15px;
+}
+.page h3, .page p {
+    text-align: left;
+}
+img.stamp {
+    margin: auto;
+    max-height: 100px;
+}
+.gutter img {
+    width: 100%;
+}
+p.disclaimer {
+    margin: 0;
+    text-align: left;
+}
+.product.card {
+    background: #fff;
+    padding: 15px 15px 50px 15px;
+}
+@media screen and (max-width: 767px) {.card{height:auto !important;}}/*overwrite js function */
+/* ways to modify text that's shown on screen */
+.caps {
+    text-transform: uppercase;
+}
+.right {
+    text-align: right;
+}
+.centered {
+    text-align: center;
+}
+.left {
+    text-align: left !important;
+}
+.smaller {
+    font-size: .85rem;
+}
+
+a {
+    text-decoration: underline;
+}
+
+a.button {
+    text-decoration: none !important;
+}
+
+.skeleton.button.blue, .fullwidth.orange.button {
+    text-decoration: none !important;
+}
+a:hover {
+    text-decoration: none !important;
+}
+
+.menuFooter {
+    background: #1890cd;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+}
+.socialMedia a {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    background: url('/uploads/00001941/icons_social_new.png') no-repeat;
+    background-size: 231px;
+    /* border: 1px solid white; */
+    margin-left: 10px;
+}
+.socialMedia a.twitter {
+    background-position: -6px -3px;
+}
+.socialMedia a.facebook {
+    background-position: -47px -3px;
+}
+.socialMedia a.linkedin {
+    background-position: -88px -3px;
+}
+.socialMedia a.google {
+    background-position: -128px -4px;
+}
+.socialMedia a.youtube {
+    background-position: -169px -4px;
+    width: 54px;
+}
+.pinned {
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-top: 1px solid #e2e2e2;
+    -webkit-box-shadow: 0 -4px 12px -3px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 0 -4px 12px -3px rgba(0, 0, 0, 0.21);
+    box-shadow: 0 -4px 12px -3px rgba(0, 0, 0, 0.21);
+    z-index: 100;
+}
+.pinned.not-fixed {
+    position: static !important;
+}
+.pinned  h2{font-size:1.2rem;margin-top:0;}
+.textCopy ul li:before, ul.bulleted li:before {
+    content: '\2022'; /* Insert content that looks like bullets */
+    padding-right: 5px;
+    color: $color-prim-dark;
+    margin-left: -4px;
+}
+.textCopy ul li, ul.bulleted li {
+    /*list-style-position: inside;*/
+    text-indent: -20px;
+    margin-left: 18px;
+}
+.textCopy.blackBullets ul li::before, ul.bulleted.blackBullets li::before {color: $color-grey-darkest;}
+.textCopy a {
+    color: $color-prim-dark; /*AIG Medium Blue*/
+    /*white-space: nowrap;*/
+}
+.textCopy a:hover {
+    color: $color-prim-darker;/*AIG Dark Blue*/
+}
+/* put an arrow after the link */
+/*.textCopy a:after {
+    
+    font-size: 10px;
+    margin-left: 3px;
+    content: "\e072";
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}*/
+
+label {
+    display:block;/*undo bootstrap default*/
+    font-weight: normal;
+    font-family: 'Futura PT', sans-serif;
+}
+
+.contactForm .require, .contactForm .spacer {
+    display: none; /*hide the asterisks*/
+}
+.contactForm .warning {
+    color: $color-prim-base;
+    margin-top: 6px;
+}
+.contactForm .inerror {
+    background: #ffeeee;/*e6eff2*/
+}
+.contactForm input.inerror, .contactForm select.inerror {
+    border: 1px solid red;
+}
+.contactForm .productField {
+    display: block;
+    width: 100%;
+}
+/*.contactForm input, .contactForm select {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #DDD;
+    border-radius: 0;
+}*/
+.contactForm .answer br {
+    display: none; /* removes the line break for the validator */
+}
+.contactForm .answer {
+    padding-bottom: 10px;
+}
+.showFlyout:after {
+    content: "\e258";
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+}
+
+/* flyout menu for the contact form */
+.contactFlyoutWrapper{
+    position: absolute;
+    padding: 15px;
+    z-index: 10;
+    right: 0;
+    color: #fff;
+    cursor:pointer;
+    top:88px;
+    background: $color-prim-dark;
+}
+.contactFlyout.expanded {
+    /*this is the expanded form*/
+	display:none;
+}
+.contactFlyout.expanded .contactFlyoutWrapper{
+    /*this is the expanded form*/
+	width: 22%;
+    cursor:default;
+}
+.noHeroImage .contactFlyout .contactFlyoutWrapper {
+	top: -12px;/*navbar isn't over hero image*/
+}
+.contactFlyout .close {
+    /* this is the button */
+    padding: 10px;
+    margin: -15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: initial;
+}
+.contactFlyout h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff !important;
+    padding: 0 !important;
+    margin-top: 2px;
+}
+.gutter {
+    /*padding: 0 8%;*/
+}
+.customArticleCOB {
+    padding: 10px;
+}
+
+.customArticleCOB h3 {
+    padding:10px;
+    margin-bottom: 0;
+}
+
+.leftRail {
+    margin-top: 15px;
+}
+.leftRail ul li {
+    border-bottom: 1px dotted #CCC;
+    padding: 10px;
+}
+.leftRail ul li:last-of-type {
+    border-bottom: none;
+}
+.leftRail ul li a {
+    color: inherit;
+}
+.leftRail ul li a:hover {
+    color: $color-prim-dark;
+}
+.leftRail ul li.active a{
+    color: $color-prim-dark;
+    text-decoration:none;
+    cursor:default;
+}
+.leftRail > span > ul > li > a {display:none;}
+@media screen and (max-width: 767px) {
+    .narrow {
+        padding: 0 !important;
+    }
+    .leftSide {
+        float: none;
+        display: block;
+        min-height: 200px!important;
+    }
+    .rightSide {
+        float: none;
+        display: block;
+    }
+    .gutter {
+        padding: 0 2%;
+    }
+    .solid.dark {
+        text-align: center;
+    }
+    .solid.dark .container .row .right.socialMedia {
+        text-align: center !important;
+    }
+    /* overlay menu */
+    .leftRail {
+        text-align: left;
+        z-index: 2;
+    }
+    .leftRail > span > ul > li > a:after {}
+    .leftRail ul {
+        border: 1px solid #CCC;
+        width: 100%;
+        display: inline-table;
+        position: relative;
+    }
+    .leftRail ul:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .leftRail ul li {
+        float: left;
+        width: 100%;
+        padding: 10px;
+    }
+    .leftRail ul li h3, .customArticleCOB {
+        padding: 0;
+        margin:0;
+    }
+    .leftRail ul li a {
+        
+        width: 100%;
+        text-align: left;
+    }
+    .leftRail ul li:hover {
+        background: #FAFAFA;
+    }
+    .leftRail .open ul{
+        display: block;
+        z-index: 2;
+    }
+    .leftRail .open, .leftRail .open:hover{background:#eee;}
+    .leftRail > span > ul > li > a {
+        display:block
+    }
+    .leftRail > span > ul > li > a:after {
+        content: '\e259';
+        font-family: 'Glyphicons Halflings';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        float: right;
+    }
+    .leftRail ul ul {
+        display: none;
+        background: #FAFAFA;
+        padding: 0;
+        border-width:0;
+        border-top-width:1px;
+        width: 100%;
+    }
+    .leftRail ul ul li a {
+        color: #666;
+        display: block;
+    }
+    .leftRail li {
+        color: $color-prim-dark;
+    }
+    .customArticleCOB {
+        margin-top: 1em;
+    }
+}
+@media screen and (max-width: 480px) {
+    .light.overlay {
+        background: #fff; /*mobile doesn't get transparency*/
+    }
+    .gutter {
+        padding: 0;
+    }
+}
+#mask {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.6);
+}
+/* fix mask issues and give it color overlay */
+#modalDialogs.window,
+#dlgDynamic.window {
+    position: fixed !important;
+    top: 6.25vw !important;
+    right: 2vw !important;
+    left: 25vw !important;
+    width: 50vw !important;
+}
+
+@media screen and (max-width: 767px) {
+    #modalDialogs.window,
+    #dlgDynamic.window {
+        width: 100% !important;
+        left: 0 !important;
+    }
+}
+#modalDialogs #dlgDynamic.customModalDisplay{
+    top:20px;
+    position: absolute !important;
+}
+.modal-close{cursor:pointer;}
+/* override the default accordion styles */
+.ui-widget {font-family: 'Futura PT Book', sans-serif;}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited,
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: $color-prim-dark;
+    text-decoration:none!important;
+    font-weight: normal;
+}
+.ui-state-active a:link{
+    color:#333333; /* the active accordion is grey captioned*/
+    font-weight:600; /* and bold */
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    background:none; /*removes default grey */
+    border:none; /* removes border*/
+    border-top:1px dotted #ccc;/*adds in AIG border rule */
+}
+.ui-accordion .ui-accordion-header {
+    margin:0; /*removes jQuery default spacing*/
+}
+.ui-accordion .ui-accordion-header:focus{outline:none;}/*mac safari outline over text fix */
+.ui-accordion .ui-accordion-header a {
+    padding: 0.5em 45px 0.5em 0; /* override the accordion header padding */
+    position: relative;
+}
+
+.ui-accordion  .ui-accordion-header a:after { /* accordions have a down arrow */
+    content: "\e259";
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ui-accordion  .ui-accordion-header.ui-state-active a:after{ /* the open accordion has an up arrow */
+    content: "\e260";
+    color: $color-prim-dark; /*and its always blue*/
+    font-weight:200; /*and never bold */
+}
+
+.ui-widget-content { /* this is the expanded accordion */
+    background:none;
+    border:none;
+    padding:0;
+}
+.ui-accordion .ui-accordion-content {
+    padding: 0 0 12px 0; /* this is the content of the expanded accordion */
+    height:auto !important;/*removes jQueryUI height issue */
+	margin-top:0 !important;/*fixes jQueryUI height issue on safari w :focus border */
+}
+
+.ui-icon-triangle-1-e, .ui-icon-triangle-1-s {
+    display:none; /*don't show jQuery arrow image*/
+}
+.accordion{
+    border-bottom:1px dotted #ccc; /*last accordion leaf has border bottom also*/
+}
+ul.twocol{
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+/* end accordion */
+
+/* variations for template 6 */
+.bluetopped {
+    /*margin-top: -200px;
+    margin-bottom:-20px;*/
+    /* nudge the bluetopped content up over the image */
+    border-top: 4px solid rgb(0, 164, 228);
+}
+@media screen and (max-width: 767px) {
+    .bluetopped {
+        margin-top:0px;
+        /* don't nudge the bluetop up over the image */
+    }
+}
+.bluebacked h1, .bluebacked h2, .bluebacked h3{color:white!important;}
+.bluebacked {color:white;background: #0a5c83;}
+.bluebacked  .warning{color:#ff6e6e;}
+.bluebacked input, .bluebacked select, .bluebacked textarea, .bluebacked option {color:#231f20;}
+.bluebacked .require{
+    display:none;
+}
+.bluebacked.contactForm .orange.button{
+    /*display:block;
+    width:100%!important;*/
+
+}
+
+/* For dropdowns vertically higher than viewport */
+.correct-dropdown-size {
+    position: absolute;
+    height: 280px;
+    overflow-y: hidden;
+}
+
+.submenu-ul-container {
+    position: relative;
+    left: 100%;
+    top: 100px
+}
+
+@media screen and (max-width: 767px) {
+    .submenu-ul-container {
+        position: static !important;
+        display: block;
+        left: 0;
+        top: 0;
+    }
+    .submenu-ul-container ul {
+        z-index: 9;
+    }
+}
+.submenu.arrow {
+    position: absolute;
+    top: 100%;
+    height: 25px;
+    width: 25px;
+    z-index: 10;
+    top:  255px;
+}
+
+.submenu-ul-container .submenu.arrow {
+    display: none !important;
+}
+
+.absolute-nav .submenu.arrow {
+    display: block !important;
+}
+
+.absolute-nav {
+    position: initial !important;
+}
+
+.arrow:before,
+.arrow:after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    width: 50%;
+    padding-bottom: inherit;
+    background-color: inherit;
+}
+.arrow:before {
+    right: 50%;
+    -ms-transform-origin: 100% 100%;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -ms-transform: skewX(45deg);
+    -webkit-transform: skewX(45deg);
+    transform: skewX(45deg);
+}
+/* ********************************************************** */
+/* Rohde Custom styles */
+.showOnOnlyltIE10{display:none;}
+html.ltIE10 .showOnOnlyltIE10{display:block;}
+.placeholderTitle{font-weight:bold;}
+.bluebacked .placeholderTitle{color:#fff;}
+
+.button.orange{border:0; font-size: 1.1rem;}
+.inlineBlock{display:inline-block;width:auto;}
+
+
+/* add arrows to flyout menus and selects*/
+.customSelect .productField {position: relative;display: block;width: 100%;}
+.customSelect .productField select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+}
+.customSelect .productField:after {
+    content: '\e252';
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: .8rem;
+    top: .8rem;
+    pointer-events: none;
+    color: #bbb;
+    font-size: .7rem;
+}
+/* Error colors/borders/backgrounds */
+.hasError{border:1px solid red !important;}
+input.hasError, select.hasError, .hasError > .tg-flipswitch > .form-group{background-color:#ffeeee !important;color:#ff0000 !important;}
+.hasError > .tg-flipswitch > .form-group .form-control, .content-inerror.customSelect .productField:after {color: #ff0000 !important;}
+.hasError.form-control::-moz-placeholder{color: #ff0000 !important;}/*bug where each needs to be on own rule*/
+.hasError.form-control::placeholder {color: #ff0000 !important;}/*bug where each needs to be on own rule*/
+label.error{color:#ff0000;}
+.bluebacked label.error{color:#ff6e6e;}
+
+
+.ltIE12 .fixStreamIErequiredLineBreak > td.spacer > a {float:left;}
+/***************************************
+JQUI Calendar fixes
+***************************************/
+@import '../components/_jqui-calendar-fixes.scss';
+
+/***************************************
+Responsive Tables
+***************************************/
+/*-- divTable --*/
+.divTable{display:table;width:100%;}
+.divTableRow{display:table-row;}
+.divTableCell{display:table-cell;}
+.tableLayoutFixed {
+  table-layout: fixed;
+  width: 100%;
+}
+.tableLayoutFixed td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 767px) {
+    .isResponsive.divTable, .isResponsive.divTable > .divTableRow, .isResponsive.divTable > .divTableRow > .divTableCell{display:block;width:100%;}
+    .divTable > .divTableRow.divTable-header{display:none;}
+    .isResponsive.divTable.hasDataHeader > .divTableRow > .divTableCell:before {
+        content: attr(data-header);
+        width: 50%;
+        float:left;
+        padding:6px;
+        text-align:left;
+        margin:-6px;
+    }
+    .isResponsive.divTable.hasDataHeader > .divTableRow > .divTableCell{
+        width: 100%;
+        float:left;
+        text-align:center;
+        padding:6px;
+        vertical-align:middle;
+    }
+    .divTable::after, .divTable > .divTableRow::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+/*****************************************
+Default table Styles
+*****************************************/
+.styledTable{width:100%;border-right:1px solid #dedfde;}
+.styledTable tr > td, .divTable.styledTable > .divTableRow > .divTableCell{padding:6px;border:1px solid #dedfde;border-top:0;border-right:0;text-align:center;}
+.styledTable > tbody > tr:nth-of-type(even), .divTable.styledTable > .divTableRow:nth-of-type(even){background-color: #fff;}
+.styledTable > tbody > tr:nth-of-type(odd), .divTable.styledTable > .divTableRow:nth-of-type(odd){background-color: #ececec;}
+.styledTable > thead > tr > td:first-child, .styledTable > tbody > tr > td:first-child, .divTable.styledTable > .divTableRow > .divTableCell:first-child{background:$color-grey-base;color:#fff;text-align:left;}
+.styledTable > thead > tr, .divTable.styledTable > .divTableRow.divTable-header > .divTableCell {background-color: $color-prim-base;color:#fff;font-weight:bold;}
+@media (max-width: 767px) {
+    .isResponsive.divTable.styledTable{border-bottom:1px solid #dedfde;border-right:0;}
+    .isResponsive.divTable.styledTable > .divTableRow > .divTableCell:before {
+        border-right:1px solid #dedfde;
+    }
+    .isResponsive.divTable.styledTable > .divTableRow > .divTableCell{
+        border:1px solid #dedfde;
+        border-bottom:0;
+    }
+    .isResponsive.divTable.styledTable > .divTableRow > .divTableCell:first-child{
+        text-align:left;
+        background-color: $color-prim-base;
+        color:#fff;
+    }
+    .isResponsive.divTable.styledTable > .divTableRow > .divTableCell:first-child:before{display:none;}
+}
+/*****************************************
+Custom table Styles
+*****************************************/
+.customStyledTable > thead > tr, .divTable.customStyledTable > .divTableRow.divTable-header > .divTableCell {background-color: #dddddd;color:#000;}
+.styledTable > tbody > tr:nth-of-type(odd), .divTable.styledTable > .divTableRow:nth-of-type(odd){background-color: #fff;}
+@media (max-width: 767px) {
+    .isResponsive.divTable.styledTable > .divTableRow > .divTableCell:first-child{
+        background-color: $color-grey-base;
+    }
+}
+/************************
+UTILITIES
+************************/
+@import '../components/_utilities.scss';
+
+/* ********************************************************** */
+#mask{position:absolute;top:0;background:#fff;background: rgba(255, 255, 255, 0.6);z-index:9999;width:100% !important;height:100% !important;bottom:0;}
+#modalDialogs #dlgDynamic.window{position:fixed;top:40px !important;right:2%;left:2% !important;width:auto !important;height:auto;-webkit-box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.75);-moz-box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.75);box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.75);}
+
+.toggleCTA_button{text-decoration:none;display:block;border:0;color:#fff;background:#1ca3dc;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
+.toggleCTA_button:hover{color:#fff;background:#0a5c98;text-decoration:none;}
+.toggleCTA_button:visited{color:#fff;}
+/** toggleNav BUTTONS **/
+.toggle_NavContent{background:$color-prim-base;width:100%;display:none;}
+.toggle_NavContent a{display:block;color:#fff;text-align:left;text-decoration:none;padding:8px 12px;width:100%;}
+.toggle_NavContent a:hover{color:#fff;background:#0a5c98;text-decoration:underline;}
+@media (max-width: 767px) {
+    .toggle_NavContent{border-top:1px solid #fff;}
+}
+@media (min-width: 768px) {
+    .toggle_NavContent{position:absolute;z-index:1;margin-right:24px;}
+}
+body{position: relative;}/*fix for mask height? */
+/***************************************
+CTA BUTTONS
+***************************************/
+@import '../components/_cta-buttons.scss';
+
+/** Inputs and InputRows *****************************************************************/
+.elementcontainer > div > label {font-weight: normal;margin-bottom:0;display:inline;}
+
+.trDisplayInputAsRow td{display:block;}
+.trDisplayInputAsRow td.require{float:left;}
+.ltIE10 .trDisplayInputAsRow > td{float:left;}/*IE9 fix for td not compatibile w display block*/
+.ltIE10 .trDisplayInputAsRow > td.answer{width:100%;clear:both;}
+
+/*.trinput100 > div {padding: 3px 0;}*/
+.trinput100 > div.answer {padding: 0px 0 8px 0;}
+.trinput100 input{width:100%;}
+.inputLeft input {text-align:left !important;}
+input, select, textarea{
+	border:1px solid #d6d6d6;
+    border-radius: 0;
+    outline: medium none;
+    padding: 10px;
+    width: 100%;
+    font-family: 'Futura PT Book', sans-serif;
+}
+.shortInputBox div.answer{max-width:350px;}
+.trInputRowSpacers > .answer{padding-top:8px;padding-bottom:8px;}
+.hasErrorIndicators .require{color:#ff0000; float:left;padding-right:4px;}
+.trDisplayInputAsRow div.require{float:left;padding-right:4px;}
+.hasErrorIndicators .warning{color:#f48585;}
+.hasErrorIndicators h1,.hasErrorIndicators h2,.hasErrorIndicators h3,.hasErrorIndicators h4{margin-top:0 !important;}
+.testInputVariables input{background:#f0f0f0;border:1px solid #d6d6d6;text-align:center;color:#9a9a9a;}
+.showOnIsTest{display:block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -200vw;
+    top: -200vh;
+    overflow:hidden;
+}/*hide test data by default*/
+.ShowVars .showOnIsTest{
+    position: relative;
+    width: auto;
+    height: auto;
+    left: auto;
+    top: auto;
+    overflow:visible;
+}/*show test data when specific variable is passed*/
+
+.streamCheckboxInput > td{vertical-align:top;}
+.streamCheckboxInput > td:nth-of-type(1){width:0;}
+input[type=checkbox] {transform: scale(1.3,1.3);width:20px !important;height:20px !important;padding:0 !important;margin:0 8px 0 4px !important;vertical-align: middle;}
+.ltIE12 input[type=checkbox] {transform: scale(1.2,1.2);width:15px !important;height:15px !important;}
+.ltIE10 input[type=checkbox] {transform: scale(1,1);}
+.ltIE11 .streamCheckboxInput > td:nth-of-type(3){width:100%;}
+#bodyID input.disabled, #bodyID select.disabled{
+    background: #f0f0f0 !important;
+    border-color: #d6d6d6 !important;
+    color: #9a9a9a !important;
+    cursor:default !important;
+}
+
+.responsiveStreamInput > table{width:100%;}
+.responsiveStreamInput td.require{width:10px;}
+.responsiveStreamInput td{vertical-align:top;padding-bottom:12px;}
+@media (max-width: 767px) {
+    .responsiveStreamInput{display: block;}
+    .responsiveStreamInput > td.require{display: block;float:left;}
+    .responsiveStreamInput > td.spacer{display: block;}
+    .responsiveStreamInput > td.answer {display: block;margin-bottom:12px;}
+}
+@media (min-width: 768px) {
+    .responsiveStreamInput td.answer{text-align:right;} 
+}
+@media screen and (min-width: 768px) {
+    .tableFloatTRMGR {width:75%;max-width: 500px;}
+}
+.BigCheckbox > div > span.productField {float:left;}
+.BigCheckbox > div > div.questionprompt{margin-left:50px;}
+/** sections and sectionTitles *****************************************************************/
+.sectionTitle{background:$color-prim-base;color:#fff;padding: 8px;font-weight:bold;font-size:1.2rem;position:relative;}
+.sectionContent{border:1px solid $color-prim-base;padding: 24px;color:#919295;}
+.sectionTitle > .glyphicon{
+    right:12px;
+    position:absolute;
+    top:50% !important;
+    -ms-transform: translateY(-50%);/* IE */transform: translateY(-50%) !important; -webkit-transform: translateY(-50%);/* Safari and Chrome */
+}
+
+/*****************************************
+responsive FlexTable
+*****************************************/
+@import '../components/_flex-tables.scss';
+
+/***************************************
+CUSTOM TOOLS
+***************************************/
+/*-- customSlider --*/
+#customSlider{overflow:hidden !important;white-space: nowrap;position:relative;}
+#customSlider .customSliderCell{white-space: normal;padding:12px 48px;color:#919295;font-size:.85rem;vertical-align: top;}
+#customSlider.atMinPos .customSliderLeftBtn, #customSlider.atMaxPos .customSliderRightBtn{display:none;}
+.ltIE10 .customSliderWrap > .divTable{width:100% !important;}/*fix IE vw bug */
+.ltIE10 #customSlider .customSliderBtn {display:none;}
+@media (max-width: 767px) {
+.ltIE10 .customSliderWrap > .divTable > .divTableRow > .customSliderCell{display:block;width:100% !important;}/*fix IE flex bug */
+}
+.customSliderBtns{}
+.customSliderBtn{position:absolute;top:0;bottom:0;padding:0 4px;height: 100%;}
+#customSlider .customSliderLeftBtn{left:0;}
+#customSlider .customSliderRightBtn{right:0;}
+.customSliderBtn .glyphicon{
+    padding: 4px 6px;
+    border:2px solid #babcbe;
+    color:#4dc8e9;
+    line-height:1em;
+    top: 50%;
+    -ms-transform: translateY(-50%);/* IE */transform: translateY(-50%);-webkit-transform: translateY(-50%);/* Safari and Chrome */
+    background-color: rgba(255, 255, 255, 0.6);background: rgba(255, 255, 255, 0.6);
+    vertical-align:middle;
+}
+.customSliderBtn .glyphicon:hover{color:$color-prim-base;border-color:#919295;background-color:#e7e7e8;}
+.roundIcon {
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    display:inline-block;
+}
+/*-- customTabs --*/
+.customTabsButtonsWrap .FlexTable-row-item, .responsiveFlexTable{border:0;}
+.customTabsBorderWrap{border-top:1px solid $color-prim-base;border-bottom:1px solid $color-prim-base;}
+.customTabsWrap .customTabsButtonsWrap .FlexTable-row a{background: #fff;color:$color-prim-base;text-decoration:none;text-transform:uppercase;font-weight:bold;}
+@media (max-width: 767px) {
+    .customTabsWrap .customTabsButtonsWrap .FlexTable-row a{border-bottom:1px solid $color-prim-base;}
+    .customTabsWrap .customTabsButtonsWrap .FlexTable-row a:last-child{border-bottom-width:0;}
+    .customTabsBorderWrap .siteWidth{margin:0 !important;padding:0;}
+}
+@media (min-width: 768px) {
+    .customTabsWrap .customTabsButtonsWrap .FlexTable-row a{border-left:1px solid $color-prim-base;}
+    .customTabsWrap .customTabsButtonsWrap a:last-child{border-right:1px solid $color-prim-base;}
+}
+.customTabsWrap .customTabsButtonsWrap a.current, .customTabsWrap > .customTabsButtonsWrap a:hover{color: #fff;background:$color-prim-base;}
+
+.customTabsButtonsWrap .FlexTable-row-item::before{display: none;}
+.customTabsWrap .customTabsContentWrap .customTab{display:none;}
+
+/***************************************
+bootstrap fixes
+***************************************/
+/* icon styles */
+#bodyID .hasGlyphicon {display:inline-table;}
+#bodyID .hasGlyphicon .glyphicon:hover:before {text-decoration:none;}
+#bodyID .glyphicon:before {font-size:.85em;}
+#bodyID .hasGlyphicon.glyphiconPosRight .glyphicon{padding: 0 5px 0 0;}
+#bodyID .hasGlyphicon.glyphiconPosLeft .glyphicon{padding: 0 15px 0 0;}
+.hasGlyphicon .glyphicon{width:30px;display: table-cell;vertical-align: middle;top:-3px;}
+.CTA_button.CTA_buttonSmall.hasGlyphicon .glyphicon{top:-2px;}
+.android.chrome .hasGlyphicon .glyphicon, .ios.ios7 .hasGlyphicon .glyphicon{top:-6px;}/* chrome mobile + iOS7 only*/
+.android.chrome .CTA_button.CTA_buttonSmall.hasGlyphicon .glyphicon, .ios.ios7 .CTA_button.CTA_buttonSmall.hasGlyphicon .glyphicon{top:-4px;}/* chrome mobile + iOS7 only*/
+.ios .CTA_button.CTA_buttonSmall.hasGlyphicon .glyphicon{top:0;}/* iOS only*/
+
+.hasGlyphicon .glyphicon:before{text-align:center;display:inline-block;vertical-align: middle;width:0;}
+.hasGlyphicon .glyphicon:after{margin-right:-20px;}
+
+.hasGlyphiconCircle.hasGlyphicon .glyphicon:before{padding:4px;width:100%;height:100%;/*padding:5px 4px 0 4px;width:30px;height:30px;*/}
+.hasGlyphiconCircle.hasGlyphicon .glyphicon.glyphicon-chevron-down:before{padding-top:4px;}
+.webkit .hasGlyphiconCircle.hasGlyphicon .glyphicon.glyphicon-chevron-down:before{padding-top:3px;padding-left:5px;}/* webkit mobile */
+.hasGlyphiconCircle.hasGlyphicon .glyphicon.glyphicon-remove-sign:before{padding-left:4px;}
+.hasGlyphiconCircle .glyphicon:before{border-radius: 15px;overflow:hidden;background:#2bb4e8;color:#fff;padding: .2em .4em;}
+.ltIE12 .hasGlyphiconCircle.hasGlyphicon .glyphicon:before{display: block;}/* IE11 fix */
+
+/* collapsible styles */
+.tg-collapsible-heading, .tg-collapsible-heading.collapsed:hover{border-collapse: separate;width:100%;text-align:left;cursor:pointer;margin-bottom:0;padding:12px;background:#2fb6e9;color:#fff !important;}/* open state */
+.tg-collapsible-heading .glyphicon:before, .tg-collapsible-heading.collapsed:hover .glyphicon:before{background:#fff;color:#2bb4e8;}/* open state */
+.tg-collapsible-heading.collapsed{background:#d5edf9;color:#2fb6e9 !important;}/* closed state */
+.tg-collapsible-heading.collapsed .glyphicon:before{background:#2bb4e8;color:#fff;}/* closed state */
+.tg-collapsible-heading.collapsed .glyphicon.glyphicon-chevron-down:before{padding-top:6px;content: "\e114";}/* down */
+.webkit .tg-collapsible-heading.collapsed .glyphicon.glyphicon-chevron-down:before{padding-top:5px;}/* webkit mobile down */
+.tg-collapsible-heading .glyphicon.glyphicon-chevron-down:before{content: "\e113";}/* up */
+.tg-collapsible-content {background:#f2fafd;padding:12px;border-top:1px solid #98d5ec;}
+.tg-collapsible-accordion .panel{border-bottom:1px solid #2fb6e9;}
+.tg-collapsible-accordion .panel:last-child{border-bottom:0;}
+
+/* inline <select> styles */
+.form-inline .input-group > select.form-control{width:auto;}
+.tg-horizontal-form-group.form-inline .input-group > select.form-control {border-right-width:0;}
+.tg-horizontal-form-group.form-inline .input-group > select.form-control:last-child {border-right-width:1px;}
+
+/* radio styles */
+.tg-noCorner-all > .input-group-addon, .tg-noCorner-all > .form-control{border-radius: 0;box-shadow:none;}
+.list-group.ulNoDot li{padding:0;margin-bottom:-1px;}
+.tg-horizontal-form-group > .form-group{float:left;margin-right:-1px;margin-bottom:-1px;}
+/*.tg-horizontal-form-group:after {content: "";display: table;clear: both;} breaks mac/iOS safari w weird right padding */
+.tg-vertical-form-group label{cursor:pointer;}
+.tg-horizontal-form-group label{cursor:pointer;}
+.form-group {margin-bottom: 24px;}
+
+/* flipswitch styles */
+.tg-flipswitch{display:table;border:1px solid #ccc;border-collapse:separate;}
+.tg-flipswitch > .form-group:last-child{}
+.tg-flipswitch > .form-group{float:none;margin-bottom:0;display:table-cell !important;border-left:1px solid #ccc;background:#eee;}
+.tg-flipswitch .form-control{float:none;border:0;box-shadow:none;background:transparent;padding: 6px 24px;text-align:center;font-weight:bold;}
+.tg-flipswitch > .form-group:first-child{border:0;}
+.tg-flipswitch > .form-group.active{background:#005a84;color:#fff;}
+.tg-flipswitch > .form-group.active .form-control{color:#fff;}
+.tg-flipswitch > .tgHide{display:block;}
+/* model styles */
+#bodyID.modal-open {padding-right: 0 !important;overflow: auto;}/*FF fix, enable scroll for modals*/
+.modal{padding-right:0 !important;position:absolute !important;}
+.modal-footer{text-align:center;}
+.modal-footer a{margin:0 auto;}
+
+.modal .modal-header{
+    background-color:#2fb6e9;
+    color:#fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width:100%;
+}
+.modal .modal-header .modal-title{color:#fff !important;margin:0 !important;}
+.glyphicon.modal-close{cursor:pointer;font-size:1.2em;}
+.glyphicon.modal-close:before{background-color:#fff;opacity:.7;color:#2fb6e9;}
+.glyphicon:hover.modal-close:before{opacity:1;}
+
+.modal.errorModal .modal-header{
+    background-color:#ff0000;
+    color:#fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.modal.errorModal .glyphicon.modal-close:before{color:#ff0000;}
+/***************************************
+Main Nav
+***************************************/
+@import '../components/_nav.scss';
+
+/************************
+EMPLOYEE cmpid styles
+************************/
+.cmpidEMPLOYEE .bluebacked {background-color:#46156a;}
+.cmpidEMPLOYEE .solid .container  h1, .cmpidEMPLOYEE .solid .container h2 {color:#46156a !important;}
+
+/*****************************************
+Messages
+*****************************************/
+.messageBox {
+    padding: 12px 12px 12px 60px;
+    margin-bottom:12px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    min-height:58px;
+    color:#000;
+}
+.messageBox ul,.messageBox ol{margin-left:6px;}
+.messageBox > ul > li,.messageBox > ol > li{padding-left:18px;}
+.successbox {color: #4F8A10;border:1px solid #4F8A10;background:#EDFCED url('/uploads/00001941/success.png') no-repeat 8px 8px;}
+.uiErrorBox {border:1px solid #D8000C;background:#FDD5CE url('/uploads/00001941/error.png') no-repeat 8px 8px;}
+.uiErrorBox strong{color: #D8000C;}
+.warningbox {border:1px solid #a56a10;background:#FAF9C9 url('/uploads/00001941/warning.png') no-repeat 8px 8px;}
+.warningbox strong{color: #a56a10;}
+.warningbox ol {color: #a56a10;}
+.warningbox > ol > li{background:transparent url('/uploads/00001941/lidot_warning.png') no-repeat 0 .6em;color: #a56a10;}
+.uiErrorBox > ol > li{background:transparent url('/uploads/00001941/lidot_error.png') no-repeat 0 .6em;color: #D8000C;}
+#bodyID .uiErrorBox h1, #bodyID .uiErrorBox h2, #bodyID .uiErrorBox h3 {color: #D8000C !important;}
+#bodyID .uiErrorBox h4, #bodyID .uiErrorBox h5 {color: $color-prim-dark  !important;}
+/************************
+browser compatibility
+************************/
+.browser-error #header {height: auto;}
+.browser-error .browser-error-message{
+	display:block !important;
+	font-size: .8rem;
+	text-align: left;
+	padding: 12px;
+}
+.browser-error-message .messageBox{
+	padding: 12px 12px 12px 60px;
+	margin-bottom: 0;
+	border-radius: 0;
+	background:#FAF9C9 url('/uploads/00001941/error-desktop.png') no-repeat 10px 10px;
+}
+@media screen and (max-width: 767px) {
+	.browser-error .browser-error-message{
+		margin-top:80px;/*fit under main nav*/
+	}
+}
+/************************
+bootstrap carousel fixes
+************************/
+A.carousel-control {color:#fff;opacity:.6;font-size: inherit;}/*fix bootstrap font-size px call for accessibility*/
+A.carousel-control:hover, A.carousel-control:focus{color: #fff;opacity:1;}
+/***************************************
+Print Styles
+***************************************/   
+@import '../components/_print.scss';
+
+/***************************************
+BOOTSTRAP XXS sizes @ 480px
+***************************************/   
+@import '../components/_bootstrap-xxs.scss';

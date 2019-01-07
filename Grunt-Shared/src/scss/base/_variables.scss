@@ -1,0 +1,199 @@
+@charset 'utf-8';
+$mq-responsive: true;
+
+/* ***************************************
+Custom Functions
+*************************************** */
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/* ***************************************
+AIG Color Pallet
+*************************************** */
+//Blues
+$AIG_DarkBlue: #002554;
+$AIG_MediumBlue: #0057b8;
+$AIG_Blue: #00a4e4;
+$AIG_LightBlue: #DDF2FB;
+
+//Yellows
+//$AIG_DarkYellow: #;
+$AIG_Yellow: #FFF6CB;
+//$AIG_LightYellow: #;
+
+//Oranges
+$AIG_DarkOrange: #a9431E;
+$AIG_Orange: #e36f1e;
+//$AIG_LightOrange: #;
+
+//Green
+$AIG_DarkGreen: #95b45b;
+$AIG_Green: #78a22f;
+//$AIG_LightGreen: #;
+
+//Reds
+$AIG_DarkRed: #d15852;
+$AIG_Red: #c41230;
+//$AIG_LightRed: #;
+
+//Maroons
+$AIG_DarkMaroon: #c0548b;
+$AIG_Maroon: #b0006e;
+//$AIG_LightMaroon: #;
+
+//Blacks
+$AIG_Black: #131313;
+
+//Greys
+$AIG_DarkGrey2: #282828;
+$AIG_DarkGrey1: #4A4A49;
+$AIG_Grey: #76777B;
+$AIG_LightGrey1: #d1d0de;
+$AIG_LightGrey2: #D0D0D0;
+
+//Whites
+$white: #fff;
+
+/* ***************************************
+Functional color variables
+*************************************** */
+$color-prim-darker: $AIG_DarkBlue;
+$color-prim-dark: $AIG_MediumBlue;
+$color-prim-base: $AIG_Blue;
+$color-prim-light: $AIG_LightBlue;
+
+//$color-sec-darker: $;
+//$color-sec-dark: $;
+//$color-sec-base: $;
+//$color-sec-light: $;
+//$color-sec-lighter: $;
+
+//$color-yellow-darker: $AIG_DarkYellow;
+$color-yellow-base: $AIG_Yellow;
+//$color-yellow-lighter: $AIG_LightYellow;
+
+$color-red-darker: $AIG_DarkRed;
+$color-red-base: $AIG_Red;
+//$color-red-lighter: $AIG_LightRed;
+
+$color-maroon-darker: $AIG_DarkMaroon;
+$color-maroon-base: $AIG_Maroon;
+//$color-maroon-lighter: $AIG_LightMaroon;
+
+$color-orange-darker: $AIG_DarkOrange;
+$color-orange-base: $AIG_Orange;
+//$color-orange-lighter: $AIG_LightOrange;
+
+$color-green-darker: $AIG_DarkGreen;
+$color-green-base: $AIG_Green;
+//$color-green-lighter: $AIG_LightGreen;
+
+$color-grey-darkest: $AIG_Black;
+$color-grey-darker: $AIG_DarkGrey2;
+$color-grey-dark: $AIG_DarkGrey1;
+$color-grey-base: $AIG_Grey;
+$color-grey-light: $AIG_LightGrey1;
+$color-grey-lighter: $AIG_LightGrey2;
+
+$color-text-white: $white;
+
+/* ***************************************
+Font Stacks
+*************************************** */
+$stack-AIG-fonts: 'Futura PT', sans-serif;
+$stack-ALT-fonts: Arial, Helvetica, sans-serif;
+
+$font-prim: $stack-AIG-fonts;
+$font-sec: $stack-ALT-fonts;
+
+$font-base: 16;/*in px, no suffix*/
+$font-base-increment: 0.0625;
+$font-base-start: 1+($font-base-increment*($font-base - 16));
+
+$font-size-l-xl: $font-base-start + ($font-base-increment*(8))+rem;/*~24px = 1.5rem*/
+$font-size-l-lg: $font-base-start + ($font-base-increment*(6))+rem;/*~22px = 1.375rem*/
+$font-size-l-md: $font-base-start + ($font-base-increment*(4))+rem;/*~20px = 1.25rem*/
+$font-size-l-sm: $font-base-start + ($font-base-increment*(2))+rem;/*~18px = 1.125rem*/
+$font-size-l-xs: $font-base-start + ($font-base-increment*(1))+rem;/*~17px = 1.0625rem*/
+$font-size-base: $font-base-start+rem;/*~16px = 1rem*/
+$font-size-s-xl: $font-base-start - ($font-base-increment*(1))+rem;/*~15px = 0.9375rem*/
+$font-size-s-lg: $font-base-start - ($font-base-increment*(2))+rem;/*~14px = 0.875rem*/
+$font-size-s-md: $font-base-start - ($font-base-increment*(3))+rem;/*~13px = 0.8125rem*/
+$font-size-s-sm: $font-base-start - ($font-base-increment*(4))+rem;/*~12px = 0.75rem*/
+$font-size-s-xs: $font-base-start - ($font-base-increment*(6))+rem;/*~10px = 0.625rem*/
+
+/*
+html {
+	font-size: 100%;//override scaffolding w ~16px
+	-webkit-text-size-adjust: 100%;//Prevent iOS text size adjust on orientation change without disabling user zoom
+	-ms-text-size-adjust: 100%;
+}
+body {
+	font-family: "$stack-AIG-fonts;
+    font-size: $font-size-base;//override bootstrap, set to default of 16px
+}
+*/
+/* ***************************************
+Misc Variables
+*************************************** */
+$unit-base: 6;
+
+$unit-xs: $unit-base+px;//6px
+$unit-sm: $unit-base*(2)+px;//12px
+$unit-md: $unit-base*(4)+px;//24px
+$unit-lg: $unit-base*(8)+px;//48px
+$unit-xl: $unit-base*(16)+px;//96px
+
+$br-xs: $unit-xs;
+$br-sm: $unit-sm;/* Default Border Radius */
+$br-md: $unit-md;
+$br-lg: $unit-lg;
+$br-xl: $unit-xl;
+
+/* ***************************************
+Breakpoints
+*************************************** */
+$mq-breakpoints: (
+  'xs': 0px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px
+);
+
+/*
+.foo {
+    @include mq($from: sm, $until: md) {
+        background: red;
+    }
+    @include mq($from: md) {
+        background: green;
+    }
+}
+//Will compile to:
+@media (min-width: 36em) and (max-width: 47.99em) {
+  .foo {
+    background: red;
+  }
+}
+@media (min-width: 48em) {
+  .foo {
+    background: green;
+  }
+}
+*/

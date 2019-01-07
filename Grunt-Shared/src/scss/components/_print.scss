@@ -1,0 +1,21 @@
+/***************************************
+Print Styles
+***************************************/   
+@media print { 
+    #bodyID .showOnIsTest, #btnPhone, #footer .socialMedia, #bodyID .substituteFooter .socialMedia, #bodyID .masthead .forNoMainCTA, .substituteContactFlyoutMessage { display: none !important; } 
+    #footer, #bodyID .substituteFooter{color:#000; font-size:.75rem !important;}
+    #nav, #navWrap{position:relative !important;}
+	#header:before{
+		content:"AIG";
+		font-weight:bold;
+        font-size:1.3rem;
+		width:100%;
+		padding:12px;
+		border:1px solid #000 !important;
+		clear:all;
+		display:block;
+		text-align:center;
+		margin:12px auto;
+	}
+    #bodyID .masthead .mastheadImage{height:auto;}
+}

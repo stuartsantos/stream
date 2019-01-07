@@ -1,0 +1,39 @@
+#ui-datepicker-div{display:none;}/*hide by default*/
+.input-group-addon-calendarWrap .input-group-addon, .input-group-addon-calendarWrap .form-control {border-radius: 0;}
+.input-group-addon-calendar {
+    background-image: url(/uploads/00002066/calendarIcon2.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    min-width: 40px;
+	cursor:pointer;
+}
+.input-group-addon-calendarWrap .form-group{margin-bottom:0;}
+.input-group-addon-calendarWrap input{
+    height: auto;
+    padding: 10px 12px;
+    font-size: inherit;
+    line-height: inherit;
+    color: #919295;
+}
+.form-control.hasDatepicker{background:#fff !important;cursor:pointer;}/*style fix for readonly prop */
+
+.ui-datepicker .ui-datepicker-row-break {font-size:1rem;}/*fixes conflict w JQUI calendars */
+.ui-datepicker-calendar > tbody > tr > tf{width:14.28%;}/* IE11 fix */
+.isMobile #ui-datepicker-div{left:0 !important;right:0;margin:0 10px;width:auto;}/*resize datepicker calendar for mobile */
+#ui-datepicker-div > .ui-datepicker-header{background:#012f60;}
+#ui-datepicker-div.ui-datepicker {font-size: 1rem;}
+#ui-datepicker-div{
+	border: 1px solid #cccccc;
+	background: #f6f6f6;
+    padding: 6px 6px 0 6px;
+}
+#ui-datepicker-div.ui-widget-content .ui-state-default {
+	border: 1px solid #cccccc;
+	background: #fff;
+
+}
+#ui-datepicker-div .ui-state-default.ui-state-active{
+    border: 1px solid #fed22f;
+    background: #ffe45c;
+}
+.ui-datepicker{font-size: .75rem;}

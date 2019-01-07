@@ -1,0 +1,24 @@
+{
+  "name": "stream-aig-shared",
+  "version": "0.0.1",
+  "description": "Stream site, AIG branded, shared",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohde",
+  "license": "ISC",
+  "devDependencies": {
+    "eyeglass": "^2.0.0",
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sas": "^1.2.0",
+    "grunt-sass": "^3.0.2",
+    "node-sass": "*"
+  },
+  "dependencies": {
+    "sass-mq": "^5.0.0"
+  }
+}

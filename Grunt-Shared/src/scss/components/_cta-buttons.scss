@@ -1,0 +1,77 @@
+#modalDialogs input[type=button], .CTA_button{
+    font-size: 1.2rem !important;
+    display:block;
+    text-align:center;
+    padding: 6px 24px !important;
+    text-decoration:none;
+    text-transform:uppercase;
+    color:#fff !important;
+    font-weight: bold;
+    vertical-align:middle;
+    background: $color-orange-base !important;/* (AIG Orange) */
+    cursor:pointer;
+    border:0 !important;
+    white-space:normal;
+    margin:0;
+    height:auto !important;/*chome mobile nav fix*/
+    width:100%;
+    font-family: "Futura PT", helvetica, arial, sans-serif;
+}
+.CTA_button:hover{background: $color-orange-darker !important;text-decoration:none;}/* (AIG Dark Orange) */
+.CTA_buttonBlue{background: $color-prim-dark !important;}
+.CTA_buttonBlue:hover{background: $color-prim-base !important;}
+.CTA_buttonGreen{background: $color-green-base !important;}
+.CTA_buttonGreen:hover{background: $color-green-darker !important;}
+.CTA_buttonMaroon{background: $color-maroon-base !important;}
+.CTA_buttonMaroon:hover{background: $color-maroon-darker !important;}
+.CTA_buttonRed{background: $color-red-base !important;}
+.CTA_buttonRed:hover{background: $color-red-darker !important;}
+
+#bodyID .CTA_button.disabled, #bodyID .CTA_button.disabled:hover{
+    cursor:default;
+    opacity:0.6;
+    background: $color-orange-base !important;/* (AIG Orange) */
+	color: #fff !important;
+}
+/** altCTA BUTTONS **/
+.altCTA_button{font-family: "Futura PT", helvetica, arial, sans-serif;display:block;border:2px solid #e57125 !important;color:#e57125 !important;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
+.altCTA_button:hover, .altCTA_button:visited{color:#e57125;background:#fff;text-decoration:none;}
+.altCTA_button.altCTA_buttonBlue{border-color:$color-prim-dark !important;color:$color-prim-dark !important;}
+.altCTA_button.altCTA_buttonBlue:hover{background:#fff;/*fix for non-compliant browsers*/background: rgba(0,87,184,0.45);color:$color-prim-dark !important;}
+.altCTA_button.altCTA_buttonWhite{border-color:#fff !important;color:#fff !important;background:#1f1f1f;/*fix for non-compliant browsers*/background: rgba(255, 255, 255, 0.05);}
+.altCTA_button.altCTA_buttonWhite:hover{background:#000;/*fix for non-compliant browsers*/background: rgba(255,255,255,0.35);color:#fff !important;}
+#bodyID .altCTA_button.disabled, #bodyID .altCTA_button.disabled:hover{
+    cursor:default;
+    opacity:0.6;
+    background: #fff !important;
+	color: #e57125 !important;/* (AIG Orange) */
+}
+/** dropCTA BUTTONS **/
+#bodyID .toggleCTA_button{display:block;border:0;color:#fff;background:$color-prim-dark;padding:6px 12px !important;font-weight:bold;text-align:center;text-transform:uppercase;text-decoration:none;vertical-align:middle;cursor:pointer;height:auto !important;/*chome mobile nav fix*/width:100%;}
+#bodyID .toggleCTA_button:hover, #bodyID .toggleCTA_button.closed:hover{color:#fff;background:$color-prim-darker;text-decoration:none;}
+#bodyID .toggleCTA_button.closed{background:#1ca3dc;}
+#bodyID .toggleCTA_button:visited{color:#fff;}
+/** toggleNav BUTTONS **/
+.toggle_NavContent{background:$color-prim-dark;width:100%;display:none;border-top:1px solid #fff;}
+#bodyID .toggle_NavContent a{display:block;color:#fff;text-align:left;text-decoration:none;padding:8px 12px;}
+#bodyID .toggle_NavContent a:hover{color:#fff;background:$color-prim-darker;text-decoration:underline;}
+/** config BUTTONS **/
+.altCTA_button.inline, .CTA_button.inline{width:auto;display:inline-block;}
+.center > .altCTA_button.inline, .center > .CTA_button.inline{margin-right:auto;margin-left:auto;}
+.CTA_button.CTA_buttonSmall, .altCTA_button.CTA_buttonSmall{font-size: .85rem !important;padding: 6px 10px !important;}
+.CTA_button.CTA_buttonSmall.hasTGicon, .altCTA_button.CTA_buttonSmall.hasTGicon{line-height:1.6em;}
+.CTA_button .smallest, .altCTA_button .smallest{font-size:.55rem;margin-top:-4px;}
+/** CTA Container#1 â€“ LARGE (home page) *****************************************************************/
+.DZ_C_mainCTAmodule{
+    background:#000;
+    background: rgba(0, 0, 0, 0.7);
+    padding:12px;
+    color:#fff;
+    font-size:.9rem;
+}
+.DZ_C_mainCTAmodule h3, .DZ_C_mainCTAmodule h4{color:#fff !important;border-color:#fff;margin-top: 0 !important;font-size:1.4rem;}
+.DZ_C_mainCTAmodule h4{font-size:1.3rem;}
+.DZ_C_mainCTAmodule input[type=text], .DZ_C_mainCTAmodule input[type=number], .DZ_C_mainCTAmodule input[type=tel], .DZ_C_mainCTAmodule input[type=email]{color: #231f20;}
+.DZ_C_mainCTAmodule .hasErrorIndicators .require{color:#df897d;}
+.DZ_C_mainCTAmodule .hasErrorIndicators .warning{color:$color-red-darker;}
+.DZ_C_mainCTAmodule .colorWhite:hover{color:#d6d6d6;}

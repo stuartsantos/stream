@@ -1,6 +1,18 @@
 //CONFIRM PAGE
 var poBoxREG = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)[-. \/\\]*[\ \.\-]+[-]?((box|bin)|b|(#|num)?\d+))|(p(ost)? *(o(ff(ice)?)?)? +((box|bin)|b)? *\d+)|(p *-?\/?(o)? *-?box)|post office box)|(\bPOB\b)).)*$/igm);
-
+	//*************************************************
+	convertDateAndStrip = function(oldDate){
+		var date = new Date(oldDate.replace(/-/g, '\/'));
+		var year = date.getFullYear();
+		if(year < 2000){year=year+100;}
+		var month = (1 + date.getMonth()).toString();
+		month = month.length > 1 ? month : '0' + month;
+		var day = date.getDate().toString();
+		day = day.length > 1 ? day : '0' + day;
+		
+		if(isNaN(year) || isNaN(month) || isNaN(day)){return " ";}
+		else{return year+month+day;}
+	}
 	//*************************************************
 	UpdateDisplayCustAddress = function() {
 		$(".substituteCustFirstName").text($('#CustFirstName').val());
@@ -80,6 +92,7 @@ var poBoxREG = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)
 		if($('#productSummaryNum'+i).length){
 			$('#productSummaryNum'+i).removeClass("tgHide").slideDown();//make visible instead of create
 			$('#CovProduct'+i+'PurchaseDate').val(session_vars.CovProduct1PurchaseDate).change();//hardcode to 1st covered product date, can't disable otherwise breaks
+			$('#CovProduct'+i+'PurchaseDateEval').val(convertDateAndStrip(session_vars.CovProduct1PurchaseDate)).change();//hardcode to 1st covered product date and covert date format, can't disable otherwise breaks
 		}else{//doesn't exist yet
 			$("#productSummaryNum").clone().attr('id','productSummaryNum'+i).removeClass("tgHide").appendTo("#ShowOptional");
 			tg.EditOptional(i);//now make editable
@@ -168,8 +181,11 @@ var poBoxREG = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)
 		$('#productSummaryNum'+i+' .CovBrand > span.item, #productSummaryNum'+i+' .CovDescrip > span.item, #productSummaryNum'+i+' .CovDate > span.item, #productSummaryNum'+i+' .CovModel > span.item, #productSummaryNum'+i+' .CovSerial > span.item').text("");
 		
 		$('<input type="text" id="CovProduct'+i+'Brand" name="CovProduct'+i+'Brand" class="known valid" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'Yes\')" /><span id="spanCovProduct'+i+'BrandWarning" class="warning">Brand is required</span>').insertAfter('#productSummaryNum'+i+' .CovBrand');
-		$('<select id="CovProduct'+i+'Description" name="CovProduct'+i+'Description" class="known valid" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'Yes\')"><option class="dropdownPlaceholder">-- Please Select --</option><option value="Thermostat">Thermostat</option><option value="Indoor Coil">Indoor Coil</option></select><span id="spanCovProduct'+i+'DescriptionWarning" class="warning">Product description is required</span>').insertAfter('#productSummaryNum'+i+' .CovDescrip');
-		$('<div id="CovProduct'+i+'PurchaseDateALT" class="bkgLightGrey border1" style="padding:10px;"></div><input type="text" id="CovProduct'+i+'PurchaseDate" name="CovProduct'+i+'PurchaseDate" class="disabled known valid tgHide" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'No\')" />').insertAfter('#productSummaryNum'+i+' .CovDate');
+		if(session_vars.Brand.toLowerCase() == "lennox"){
+			var tempIDname = "Evaporator Coil";
+		}else{var tempIDname = "Indoor Coil";}
+		$('<select id="CovProduct'+i+'Description" name="CovProduct'+i+'Description" class="known valid" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'Yes\')"><option class="dropdownPlaceholder">-- Please Select --</option><option value="Thermostat">Thermostat</option><option value="'+tempIDname+'">'+tempIDname+'</option></select><span id="spanCovProduct'+i+'DescriptionWarning" class="warning">Product description is required</span>').insertAfter('#productSummaryNum'+i+' .CovDescrip');
+		$('<div id="CovProduct'+i+'PurchaseDateALT" class="bkgLightGrey border1" style="padding:10px;"></div><input type="text" id="CovProduct'+i+'PurchaseDate" name="CovProduct'+i+'PurchaseDate" class="disabled known valid tgHide" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'No\')" /><input type="text" id="CovProduct'+i+'PurchaseDateEval" name="CovProduct'+i+'PurchaseDateEval" class="disabled known valid tgHide" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'No\')" />').insertAfter('#productSummaryNum'+i+' .CovDate');
 		$('<input type="text" id="CovProduct'+i+'ModelNum" name="CovProduct'+i+'ModelNum" class="known valid" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'Yes\')" /><br/><span id="spanCovProduct'+i+'ModelNumWarning" class="warning">Model number is required</span>').insertAfter('#productSummaryNum'+i+' .CovModel');
 		$('<input type="text" id="CovProduct'+i+'Serial" name="CovProduct'+i+'Serial" class="known valid" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'No\')" />').insertAfter('#productSummaryNum'+i+' .CovSerial');
 		$('<input type="text" id="CovProduct'+i+'ID" name="CovProduct'+i+'ID" class="known valid" onchange="updatevisibilityrules(this);ajaxSend(this,0,false);" onblur="flagblank(this,\'Yes\')" /><br/><span id="spanCovProduct'+i+'IDWarning" class="warning">ID number is required</span>').insertAfter('#productSummaryNum'+i+' .CovID');
@@ -182,6 +198,7 @@ var poBoxREG = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)
 			$('#CovProduct'+i+'Description').val(eval('session_vars.CovProduct'+i+'Description'));
 		}
 		$('#CovProduct'+i+'PurchaseDate').val(session_vars.CovProduct1PurchaseDate).change();//hardcode to 1st covered product date, can't disable otherwise breaks
+		$('#CovProduct'+i+'PurchaseDateEval').val(convertDateAndStrip(session_vars.CovProduct1PurchaseDate)).change();//hardcode to 1st covered product date and change format, can't disable otherwise breaks
 		$('#CovProduct'+i+'PurchaseDateALT').html(session_vars.CovProduct1PurchaseDate);
 		if(eval('session_vars.CovProduct'+i+'ModelNum') !== undefined){
 			$('#CovProduct'+i+'ModelNum').val(eval('session_vars.CovProduct'+i+'ModelNum'));
@@ -201,11 +218,12 @@ var poBoxREG = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)
 		if(!$("#productSummaryNum"+i+" input").length){//check to see if editable first, if not then make editable for stream to save clear request
 			tg.EditOptional(i);
 		}
-		$("#CovProduct"+i+"Brand, #CovProduct"+i+"Description, #CovProduct"+i+"PurchaseDate, #CovProduct"+i+"ModelNum, #CovProduct"+i+"Serial, #CovProduct"+i+"ID").val("").change();//force clear the item
+		$("#CovProduct"+i+"Brand, #CovProduct"+i+"Description, #CovProduct"+i+"PurchaseDate, #CovProduct"+i+"PurchaseDateEval, #CovProduct"+i+"ModelNum, #CovProduct"+i+"Serial, #CovProduct"+i+"ID").val("").change();//force clear the item
 		$("#CovProduct"+i+"Description option:nth-child(1)").prop('selected', true).change();//force clear the <select>
 		eval('session_vars.CovProduct'+i+'Brand=""');
 		eval('session_vars.CovProduct'+i+'Description=""');
 		eval('session_vars.CovProduct'+i+'PurchaseDate=""');
+		eval('session_vars.CovProduct'+i+'PurchaseDateEval=""');
 		eval('session_vars.CovProduct'+i+'ModelNum=""');
 		eval('session_vars.CovProduct'+i+'Serial=""');
 		eval('session_vars.CovProduct'+i+'ID=""');
@@ -356,11 +374,14 @@ $('#ContractRetailPrice, #HSTTaxAmount, #GSTTaxAmount, #PSTTaxAmount, #QSTTaxAmo
 		}
 		for(i=1;i<=5;i++){
 			if($("#CovProduct"+i+"Description").is(":visible")) {
-				if($("#CovProduct"+i+"Description").val() == "Thermostat"){
-					$("#CovProduct"+i+"ID").val(965);
-				}else if($("#CovProduct"+i+"Description").val() == "Indoor Coil"){
-					$("#CovProduct"+i+"ID").val(02426);
-				}else if($("#CovProduct"+i+"Description").val() == "-- Please Select --"){//is on page but description is empty so clear it
+				var temp = $("#CovProduct"+i+"Description").val();
+				if(temp == "Thermostat"){
+					$("#CovProduct"+i+"ID").val("965");
+				}else if(temp == "Indoor Coil"){
+					$("#CovProduct"+i+"ID").val("02426");
+				}else if(temp == "Evaporator Coil"){
+					$("#CovProduct"+i+"ID").val("1018");
+				}else if(temp == "-- Please Select --"){//is on page but description is empty so clear it
 					$("#CovProduct"+i+"ID").val("");
 				}
 			}else if($("#CovProduct"+i+"Description").is(":hidden")){//is on page but hidden so clear it

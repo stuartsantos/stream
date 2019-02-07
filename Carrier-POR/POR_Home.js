@@ -7,23 +7,16 @@ $(document).ready(function() {
 	//correct the history so back button works
 	history.replaceState(null, null, location.protocol+'//'+session_vars.CurrentHost+'/index.php?Page=Landing-Page');
 //***************************************************
-	//remove Stream's inerror so it isn't flagged when submitting
-	$('#DealerModal, #DealerLoginZip').on('hidden.bs.modal', function () {
-		$('#DealerLoginID').removeClass('inerror').attr("onblur","flagblank(this,'No','minmaxlength','1', '8')").blur();
-		$('#DealerLoginID').removeClass('inerror').attr("onblur","flagblank(this,'No','minmaxlength','5', '9')").blur();
-	}).on('show.bs.modal', function () {
-		$('#DealerLoginZip').attr("onblur","flagblank(this,'Yes','minmaxlength','1', '8')").blur();
-		$('#DealerLoginZip').attr("onblur","flagblank(this,'Yes','minmaxlength','5', '9')").blur();
-	});
-
 	//Dealer input button initialization
 	$("#IsDealer").val('N');//default to no for salesFile, let Careington update on success for dealer
 	$("#DealerLoginID").appendTo("#DealerLoginIDWrap");//move into modal
 	$("#DealerLoginZip").appendTo("#DealerLoginZipWrap");//move into modal
 	$("#CustPhone").val($("#CustPhone").val().replace(/\D/g,'')).change();//strip non-numeric #s for Careington
-	
+
 	tg.APIGetDealerResultsErrCount = 0;
-	tg.APItimeOutWatch = 35000;
+	tg.APItimeOutWatch = 20000;
+	
+//******************************************************************************************************
 //******************************************************************************************************
 	tg.flagError = function(element){
 		$(element).addClass('hasError');
@@ -35,18 +28,12 @@ $(document).ready(function() {
 	  event.preventDefault();//don't submit, but let onclick take over
 	  return;
 	});
-	//*************************************************** //set focus on dealer ID
-	$('#DealerModal').on('shown.bs.modal', function() {
-		try{$('#DealerLoginID').focus();}
-		catch(err){}//IE has issues w hidden inputs
-	});
-//******************************************************************************************************
+	//***************************************************
 	tg.APIGetDealer = function(){
 		console.log('tg.APIGetDealer');
 		$('#APIResultsErrorType').val("GetDealer");
 		tg.PORerrorShow('#POR-API-DealerBtn', "wait");
 		var err = 0;
-		
 		$('#DealerLoginID').val($('#DealerLoginID').val().replace(/\s/g, ''));
 		if($('#DealerLoginID').val().length < 5){
 			err++;
@@ -55,8 +42,7 @@ $(document).ready(function() {
 		}else{$('#DealerLoginIDError').slideUp();}//hide error messages
 		
 		$('#DealerLoginZip').val($('#DealerLoginZip').val().replace(/\s/g, ''));
-		var temp = $('#DealerLoginZip').val();
-		if(temp.length > 7 || temp.length < 5){;
+		if($('#DealerLoginZip').val().length !== 5 || isNaN($('#DealerLoginZip').val())){
 			err++;
 			$('#DealerLoginZipError').slideDown();
 			tg.flagError('#DealerLoginZip');
@@ -91,7 +77,6 @@ $(document).ready(function() {
 			$('#PORdealerErrorMSGBox').slideUp();
 			
 			$('#DealerID').val(tg.GetDealerResults.Dealer.AigDealerId);//set DealerID
-			$('#ClientDealerID').val(tg.GetDealerResults.Dealer.ClientDealerId);//set ClientDealerId
 			$('#DealerName').val(tg.GetDealerResults.Dealer.DealerName);//set DealerName
 			$('#DealerAddress1').val(tg.GetDealerResults.Dealer.DealerAddressLine1);//set DealerAddress1
 			$('#DealerAddress2').val(tg.GetDealerResults.Dealer.DealerAddressLine2);//set DealerAddress2
@@ -125,7 +110,7 @@ $(document).ready(function() {
 			}
 		}
 	});// /#APIGetDealerResults.change
-//******************************************************************************************************
+//***************************************************
 	tg.APItimedOut = function(item){
 		console.log('tg.APItimedOut | item='+item);
 		clearTimeout(tg.APItimeOutWatch);//stop APItimedOut
@@ -176,29 +161,19 @@ $(document).ready(function() {
 		tg.APIGetDealer();
 		return false;
 	});
-//******************************************************************************************************
+//***************************************************
 	tg.triggerAPIGetHVACPackage = function(item){
 		console.log('tg.triggerAPIGetHVACPackage');
 		
 		try{
 			if(tg.GetDealerResults.ReturnInformation.ReturnInfoCode == "1000" && tg.GetDealerResults.Dealer.IsActive.toLowerCase() == "true"){
-				$('#IsDealer').val("Y").change();//set IsDealer flag
+				$('#IsDealer').val("Y");//set IsDealer flag
 			}else{
-				$('#IsDealer').val("N").change();
+				$('#IsDealer').val("N");
 			}//set IsDealer flag
 		}catch(err){
-			$('#IsDealer').val("N").change();//set IsDealer flag
+			$('#IsDealer').val("N");//set IsDealer flag
 		}
-		try{
-			if($('#IsDealer').val().toUpperCase() == "Y"){
-				$('#OEMInvoice').val(session_vars.ContractorDealerInvoice).change();
-			}else{
-				$('#OEMInvoice').val('').change();//must be blank for consumers
-			}
-		}catch(err){
-			$('#OEMInvoice').val('').change();//must be blank for consumers
-		}
-		
 		
 		var temp;
 		//attempt to covert dates FROM yyyy-mm-dd TO mm-dd-yyyy
@@ -232,22 +207,12 @@ $(document).ready(function() {
 			$('#APIResultsReturnInfoDesc').val("JSON.parse(APIGetHVACPackage error = "+err);//store error code for email
 			tg.SendPOREmailError();
 		}
-		if(tg.GetHVACPackageResults.CoveredProducts && tg.GetHVACPackageResults.CoveredProducts.length <= 0 && tg.GetHVACPackageResults.ReturnInfo.ReturnInfoCode == "1000"){//careington passes but no covered products
-			console.log('APIGetHVACPackage error: '+session_vars.APIGetHVACPackageResults);
-			$('#APIResultsErrorCode').val(tg.GetHVACPackageResults.ReturnInfo.ReturnInfoCode);//store error code for email
-			$('#APIResultsReturnInfoDesc').val("CoveredProducts is empty");//store error code for email
-
-			//send email error
-			console.log('need to send APIGetHVACPackageResults error email...');
-			tg.PORerrorShow('#POR-API-GetHVACBtn', "disabled");
-			tg.SendPOREmailError();
-			
-		}else if(tg.GetHVACPackageResults.ReturnInfo.ReturnInfoCode == "1000"){//successful APIGetHVACPackage
+		if(tg.GetHVACPackageResults.ReturnInfo.ReturnInfoCode == "1000"){//successful APIGetHVACPackage
 			tg.PORerrorShow('#POR-API-GetHVACBtn, #POR-API-DealerBtn');//re-enable button
 			$('#APIResultsErrorType, #APIResultsErrorCode, #APIResultsReturnInfoDesc').val("");//reset errorCode/errorType
 			tg.SetGetHVACPackageValues();
 			tg.check4PO_Box('#CustAddress1, #CustAddress2', '#POBoxFlag');//check for PO Box address
-			$('#btnNext').click();//submit page to save variables
+			$('.btnNext').click();//submit page to save variables
 		}else{
 			console.log('APIGetHVACPackage error: '+session_vars.APIGetHVACPackageResults);
 			$('#APIResultsErrorCode').val(tg.GetHVACPackageResults.ReturnInfo.ReturnInfoCode);//store error code for email
@@ -265,7 +230,7 @@ $(document).ready(function() {
 			}			
 		}// /GetHVACPackageResults
 	});// /#APIGetHVACPackageResults.change
-//******************************************************************************************************
+//***************************************************
 	tg.SendPOREmailError = function(errorType, errorCode){
 		$('#PORerrorSubmit').click();//submit page to save variables and then redirect user to POR-error page
 		return false;
@@ -290,6 +255,12 @@ $(document).ready(function() {
 		return false;
 	};
 //******************************************************************************************************
+//******************************************************************************************************
+	
+	
+	
+	
+//***************************************************
 	$('#trPORContent .btnCareington').bind('mousedown keydown, ',function(){
 		  doPorPreFlightChecks();
 	});
@@ -355,20 +326,6 @@ myConvertDate = function(oldDate,toFormat,separator){
 	else if(toFormat=="YYMMDD"){	return (year.substring(2, 3) + separator + month + separator + day);}
 	else{return (month + separator + day + separator + year);}
 };
-//******************************************************************************************************
-	//check to see if has PO Box address
-	tg.check4PO_Box = function(CheckElement, FlagElement){
-		var r = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)[-. \/\\]*[\ \.\-]+[-]?((box|bin)|b|(#|num)?\d+))|(p(ost)? *(o(ff(ice)?)?)? +((box|bin)|b)? *\d+)|(p *-?\/?(o)? *-?box)|post office box)|(\bPOB\b)).)*$/igm);
-
-		$(CheckElement).each(function(e){
-			if($(this).val().match(r) == null) {
-				console.log('found PO Box item in = '+$(this).attr('id'));
-				$(CheckElement).val('');
-				$(FlagElement).val('true');
-			}
-		});
-		return false;
-	};
 
 //***************************************************
 	$('#trPORContent .btnCareington.readyCareington').addClass('CTA_button').wrap("<div class='tgHide'></div>");//stylize Stream button
@@ -376,11 +333,11 @@ myConvertDate = function(oldDate,toFormat,separator){
 	
 	//update partner logo
 	try{
-		if(session_vars.Brand != "AIG" && session_vars.Brand != "Lennox"){
+		if(session_vars.Brand != "AIG"){
 			var img = $('<img>');
 			img.attr('src', '/uploads/00002004/'+session_vars.Brand+'Logo.png').attr('class', 'manufacturerLogo '+session_vars.Brand+'Logo').attr('alt', session_vars.Brand+' Logo');
 			img.appendTo('#manufacturerLogoWrap');
-		}		
+		}
 	}catch(err){}
 //***************************************************
 	tg.setPORcarriedValues = function(){
@@ -394,6 +351,7 @@ myConvertDate = function(oldDate,toFormat,separator){
 		$('#CustZip').val(session_vars.HomeOwnerZipCode);
 		$('#CustEmail').val(session_vars.HomeOwnerEmailAddress);
 		try{$('#CustPhone').val(session_vars.HomeOwnerPhoneNumber.replace(/\D/g,''));}catch(err){}
+		//$('#CustPhone').val(session_vars.HomeOwnerPhoneNumber.replace(/\D/g,''));
 		try{if(session_vars.HVACMfg){$('#HVACMfg').val(session_vars.HVACMfg);}}catch(err){}
 
 		if($('#TempState').val().length == 2){$('#CustState').val(convert_state($('#TempState').val(),'name'));//Careington requires fullname
@@ -432,7 +390,9 @@ myConvertDate = function(oldDate,toFormat,separator){
 		try{$('#RecProduct5PurchaseDate').val(session_vars.Product5InstallDate);}catch(err){}
 		try{$('#RecProduct5Brand').val(session_vars.Product5Brand);}catch(err){}
 		
-		tg.UpdateResultsCustomerInfo();//update values to stip spec chars
+		//update values to strip spec chars/nums
+		tg.RemoveNumbers('#CustFirstName, #CustLastName, #CustCity');
+		tg.RemoveSpecialChars('.ResultsCustomerInfo input[type="text"], #CustLastName', '.ResultsCustomerInfo .skip input[type="text"]');
 	};
 
 //*******************************************************
@@ -458,6 +418,20 @@ myConvertDate = function(oldDate,toFormat,separator){
 	$('.customTabsWrap .customTabsButtonsWrap a:first-child').trigger( 'click' );//initialize first tab on EACH .customTabsWrap
 
 });//end document.ready
+//******************************************************************************************************
+	//check to see if has PO Box address
+	tg.check4PO_Box = function(CheckElement, FlagElement){
+		var r = new RegExp(/^(?![\d#]\ \w+)?^((?!^ *((^(?![\d#]).*p[ \.]*\ ?(o|0)[-. \/\\]*[\ \.\-]+[-]?((box|bin)|b|(#|num)?\d+))|(p(ost)? *(o(ff(ice)?)?)? +((box|bin)|b)? *\d+)|(p *-?\/?(o)? *-?box)|post office box)|(\bPOB\b)).)*$/igm);
+
+		$(CheckElement).each(function(e){
+			if($(this).val().match(r) == null) {
+				console.log('found PO Box item in = '+$(this).attr('id'));
+				$(CheckElement).val('');
+				$(FlagElement).val('true');
+			}
+		});
+		return false;
+	};
 //***************************************************
 matchCoveredProducts = function(){
 	// Loop thru all returned Serial Nums from GetHVACPackage API
@@ -489,6 +463,43 @@ $('#CovProduct'+mfgProductIndex +'PurchaseDate').val(myConvertDate($('#CovProduc
 		}
 
 	}
+}
+//*******************************************************
+function convert_state(name, to) {
+    var name = name.toUpperCase();
+    var states = new Array(                         {'name':'Alabama', 'abbrev':'AL'},          {'name':'Alaska', 'abbrev':'AK'},
+        {'name':'Arizona', 'abbrev':'AZ'},          {'name':'Arkansas', 'abbrev':'AR'},         {'name':'California', 'abbrev':'CA'},
+        {'name':'Colorado', 'abbrev':'CO'},         {'name':'Connecticut', 'abbrev':'CT'},      {'name':'Delaware', 'abbrev':'DE'}, {'name':'District of Columbia', 'abbrev':'DC'},
+        {'name':'Florida', 'abbrev':'FL'},          {'name':'Georgia', 'abbrev':'GA'},          {'name':'Hawaii', 'abbrev':'HI'},
+        {'name':'Idaho', 'abbrev':'ID'},            {'name':'Illinois', 'abbrev':'IL'},         {'name':'Indiana', 'abbrev':'IN'},
+        {'name':'Iowa', 'abbrev':'IA'},             {'name':'Kansas', 'abbrev':'KS'},           {'name':'Kentucky', 'abbrev':'KY'},
+        {'name':'Louisiana', 'abbrev':'LA'},        {'name':'Maine', 'abbrev':'ME'},            {'name':'Maryland', 'abbrev':'MD'},
+        {'name':'Massachusetts', 'abbrev':'MA'},    {'name':'Michigan', 'abbrev':'MI'},         {'name':'Minnesota', 'abbrev':'MN'},
+        {'name':'Mississippi', 'abbrev':'MS'},      {'name':'Missouri', 'abbrev':'MO'},         {'name':'Montana', 'abbrev':'MT'},
+        {'name':'Nebraska', 'abbrev':'NE'},         {'name':'Nevada', 'abbrev':'NV'},           {'name':'New Hampshire', 'abbrev':'NH'},
+        {'name':'New Jersey', 'abbrev':'NJ'},       {'name':'New Mexico', 'abbrev':'NM'},       {'name':'New York', 'abbrev':'NY'},
+        {'name':'North Carolina', 'abbrev':'NC'},   {'name':'North Dakota', 'abbrev':'ND'},     {'name':'Ohio', 'abbrev':'OH'},
+        {'name':'Oklahoma', 'abbrev':'OK'},         {'name':'Oregon', 'abbrev':'OR'},           {'name':'Pennsylvania', 'abbrev':'PA'},
+        {'name':'Rhode Island', 'abbrev':'RI'},     {'name':'South Carolina', 'abbrev':'SC'},   {'name':'South Dakota', 'abbrev':'SD'},
+        {'name':'Tennessee', 'abbrev':'TN'},        {'name':'Texas', 'abbrev':'TX'},            {'name':'Utah', 'abbrev':'UT'},
+        {'name':'Vermont', 'abbrev':'VT'},          {'name':'Virginia', 'abbrev':'VA'},         {'name':'Washington', 'abbrev':'WA'},
+        {'name':'West Virginia', 'abbrev':'WV'},    {'name':'Wisconsin', 'abbrev':'WI'},        {'name':'Wyoming', 'abbrev':'WY'}
+        );
+    var returnthis = false;
+    $.each(states, function(index, value){
+        if (to == 'name') {
+            if (value.abbrev == name){
+                returnthis = value.name;
+                return false;
+            }
+        } else if (to == 'abbrev') {
+            if (value.name.toUpperCase() == name){
+                returnthis = value.abbrev;
+                return false;
+            }
+        }
+    });
+    return returnthis;
 }
 //***************************************************
 function getCookie(cname) {
@@ -523,15 +534,4 @@ $(window).bind('beforeunload', function(eventObject) {
         eventObject.returnValue = returnValue;
         return returnValue;
     }
-}); 
-//******************************************************************************************************
-	tg.UpdateResultsCustomerInfo = function(){
-		//strip any non char/num for careington
-		console.log('updating consumer values...');
-		$('#CustFirstName, #CustLastName, #CustCity').each(function(e) {
-			$(this).val($(this).val().replace(/[0-9]/g, '')).change();//remove #s
-		});
-		$('.ResultsCustomerInfo input[type="text"], #CustLastName').not('.ResultsCustomerInfo .skip input[type="text"]').each(function(e) {
-			$(this).val($(this).val().replace(/[&+()\/\\]/g,'-').replace(/[^\w\s-]/gi, '').replace(/-{2,}/g,'-')).change();
-		});
-	};
+});

@@ -1,12 +1,3 @@
-/* *****************************
-	maroon = ab1d40
-	dark maroon = 820725
-	med maroon = b02e46 
-	light gray = bcbdbf
-	black = 231e1f
-
-*/
-
 @-ms-viewport{width: auto !important;}/*remove IE10/11 scrollbars over page*/
 *{font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif !important;}
 .container {
@@ -27,7 +18,7 @@
 	margin:0 auto !important;
 }
 .container > div.span10 > div.headerarea > #NonWhirlpool{
-	background:#fff;
+	background:#01a6e4;
 
 }
 .container > div.span10 > div.headerarea > #NonWhirlpool > .logo{
@@ -35,15 +26,14 @@
 padding:45px 0;
 	margin:0 auto !important;
 	float:none;
-	background:#fff url(https://www.aiginsurance.com/uploads/00002004/LennoxLogo.png) no-repeat center center;
+	background:#01a6e4 url(https://www.aiginsurance.com/uploads/00001941/aiglogo.png) no-repeat center center;
 	width:100%;
-	border-bottom: 1px solid #ab1d40;
 }
 @media screen and (max-width: 767px) {
 	.container > div.span10 > div.headerarea > #NonWhirlpool > .logo{
 		background-size: 55px;
 		padding:0;
-		height:66px
+		height:46px
 	}
 }
 
@@ -51,7 +41,7 @@ padding:45px 0;
 	max-width:1166px;
 	margin:60px 18px 0 18px !important;
 	padding: 24px;
-	background: #231e1f;
+	background: #76777b;
 	color:#fff;
 	line-height:normal;
 }
@@ -67,7 +57,6 @@ padding:45px 0;
 	padding:0 18px !important;
 }
 
-
 .headerarea > div:nth-child(1){
 	margin-bottom:20px;
 	height:auto !important;
@@ -76,7 +65,6 @@ padding:45px 0;
 #lblProduct{color:#5e514e;}
 .bannerarea{background:#fff;color:#333333;padding: 20px;height:auto;}
 .headerarea > div:nth-child(4){height:auto !important;}
-
 /** Payment boxes ****************************************************/
 
 .paymentinfobox:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2){display:none !important;}
@@ -95,7 +83,7 @@ div.container > div.span10 > div:nth-child(3){
 
 }
 .pull-left.paymentinfobox{
-	background: #bcbdbf !important;
+	background: #cecaca !important;
 	height: auto !important;
 	margin-bottom: 24px !important;
 }
@@ -134,17 +122,15 @@ div.container > div.span10 > div:nth-child(6){
     float: none;
     margin: 0 auto;
     max-width: 1166px;
-    /*position: relative !important; */
+    position: relative !important;
     width: 100%;
 }
-div.container > div.span10 > div:nth-child(6).col-md-3{
-    position: relative !important;/* fix AMEX icon placement*/
-}
+
 .salestaxerroimg {
     margin-left: 4px;
     vertical-align: middle;
 }
-#amex-express-checkout{position:absolute;top: 48px;left: 400px;}
+#amex-express-checkout{position:absolute;top:50px;left:375px;}
 
 .paymentfield{width:100%;padding:6px 12px;height:auto;font-size:1.2em;}
 select{
@@ -165,6 +151,13 @@ select{
 }
 select:disabled{cursor:default;}
 select > option{height:auto;}/* font-size:1.2em;padding:6px 12px; */
+#pnlCreditCard select{width:45%;}/* fix expiry width*/
+@media screen and (min-width: 455px) and (max-width: 767px) {
+	#pnlCreditCard select{width:47%;}/* fix expiry width*/
+}
+@media screen and (min-width: 768px) {
+	#pnlCreditCard select{width:46%;}/* fix expiry width*/
+}
 input[type=text]{
 	width:100%;
 	-webkit-appearance:none;
@@ -192,45 +185,45 @@ input[type=radio] {
 		width:25px !important;
 	}
 }
-@media screen and (min-width: 455px) and (max-width: 767px) {
-	#pnlCreditCard select{width:47%;}/* fix expiry width*/
-}
-@media screen and (min-width: 768px) {
-	#pnlCreditCard select{width:46%;}/* fix expiry width*/
-}
+
 
 #pnlCreditCard > div{position:relative !important;margin:0 !important;}
 /*#UpdatePanel1 > .content:nth-child(1) > div:nth-child(10){display:none;}*/
 #UpdatePanel1 > .content:nth-child(1) div[style*="height: 68px"]{display:none;}
-#UpdatePanel1 > .content:nth-child(1)  > h2{color:#231e1f;font-size:1.4em;margin:18px 0 18px 0 !important;clear: both;}
+#UpdatePanel1 > .content:nth-child(1)  > h2{color:#1f77b0;font-size:1.4em;margin:18px 0 18px 0 !important;clear: both;}
 @media screen and (min-width: 768px) {
 	#UpdatePanel1 > .content{max-width: 375px;}
 }
 #rdoPymntOption{width:100% !important;}
 #rdoPymntOption td{width:50%;}
-
+#UpdatePanel1 > div:nth-child(7){float:none;}
 #rdbActType > tbody >tr > td{width:50%;}
-@media screen and (max-width: 767px) {
-	#UpdatePanel1 > .content > div:nth-child(8){float:none !important;}
-}
-#btnCancel{background:transparent url(https://www.aiginsurance.com/uploads/00001941/CareingtonButton-Lennox-Cancel.png) no-repeat center center;width: 126px;height:51px;margin-right:24px;cursor:pointer;color:#ab1d40;border:1px solid #ab1d40;}
-#btnCancel:hover{background:#820725 url(https://www.aiginsurance.com/uploads/00001941/CareingtonButton-Cancel_hover.png) no-repeat center center;color:transparent;border-color: #820725;}
-#btnSubmit{background:#820725 url(https://www.aiginsurance.com/uploads/00001941/CareingtonButton-Continue.png) no-repeat center center;width:168px; height:51px;margin-left:0;cursor:pointer;border:2px solid #820725;color:transparent;}
-#btnSubmit:hover{background-color:#ab1d40;border:2px solid #ab1d40;}
+
+
+
+#btnCancel{background:transparent url(https://www.aiginsurance.com/uploads/00001941/CareingtonButton-Cancel.png) no-repeat center center;width: 126px;height:51px;margin-right:24px;cursor:pointer;color:#01a6e4;border:1px solid #00a4e4;}
+#btnCancel:hover{background:#00a4e4 url(https://www.aiginsurance.com/uploads/00001941/CareingtonButton-Cancel_hover.png) no-repeat center center;color:transparent;}
+#btnSubmit{background:#e36f1e url(https://www.aiginsurance.com/uploads/00001941/CareingtonButton-Continue.png) no-repeat center center;width:168px; height:51px;margin-left:0;cursor:pointer;border:2px solid #e36f1e;color:transparent;}
+#btnSubmit:hover{background-color:#d64f11;border:2px solid #d64f11;}
 #btnSubmit:disabled, #btnCancel:disabled{cursor:default;opacity:.7;}
 
 @media screen and (max-width: 767px) {
 	#UpdatePanel1 > .content > div:nth-child(9){
-		padding-bottom:40px !important;
+		padding-bottom:140px !important;
+		position: relative;
 		float:none !important;
 	}
 	#btnSubmit{
 		width:100%;
 		margin: 0 !important;
+		position:absolute;
+		bottom:100px;
 	}
 	#btnCancel{
 		width:100%;
-		margin:0 0 40px 0 !important;
+		margin:0 !important;
+		position:absolute;
+		bottom:20px;
 	}
 }
 
@@ -244,7 +237,7 @@ input[type=radio] {
 	max-width:1200px;
 	margin:0 auto;
 }
-#footer{background: #231e1f;border-top:0;padding-top:0 !important;max-width:100% !important;margin:0 !important;}
+#footer{background: #282828;border-top:0;padding-top:0 !important;max-width:100% !important;margin:0 !important;}
 
 .security_sealimg {
     float: none;
@@ -286,10 +279,7 @@ input[type=radio] {
 	select {width:100%;margin-bottom:15px;}
 	#UpdatePanel1{padding-right:18px;}
 	#UpdatePanel1 > .content:nth-child(1) > div:nth-child(9){float:none !important;}
-	#UpdatePanel1 > .content:nth-child(1) > div:nth-child(9) > div:nth-child(2){
-		
-		
-	}
+	#UpdatePanel1 > .content:nth-child(1) > div:nth-child(9) > div:nth-child(2){display:none;}
 
 	#btnCancel, #btnSubmit{display:block;float:none;margin: 0 auto 36px auto;}
 	.security_sealimg {background-position:50% 0;}
@@ -337,7 +327,6 @@ input[type=radio] {
 
 /** Call # **/
 #divCustSvcPhone{clear:both;}
-#divCustSvcPhone  > div {height: auto !important;}
 #divCustSvcPhone  > div:nth-child(1), #divCustSvcPhone  > div:nth-child(3){height:auto !important;}
 .CTAtext .CTAtext {
     left: 0;
@@ -349,7 +338,7 @@ input[type=radio] {
     text-align: right;
     top: 17px;
 	padding: 18px 20px;
-	color: #ab1d40;
+	color: #fff;
 }
 .CTAtext {
     font-family: Futura Std Medium;
@@ -358,20 +347,17 @@ input[type=radio] {
 	color:#fff;
 }
 .CTAtext .CTAtext a[href^="tel"]{/* iOS auto format fix */
-    color:#ab1d40;
+    color:#fff;
     text-decoration:none;
 }
 @media screen and (max-width: 767px) {
 	.CTAtext .CTAtext {
 		text-align: center;
-		top: 68px;
+		padding: 50px 20px 18px 20px;
+		color:#1f77b0;
 	}
 	.CTAtext .CTAtext a[href^="tel"]{/* iOS auto format fix */
-		color:#ab1d40;
+		color:#1f77b0;
 		text-decoration:none;
 	}
 }
-
-/*#trHST > td:nth-child(1), #trGST > td:nth-child(1), #trPST > td:nth-child(1), #trQST > td:nth-child(1) {padding-left:24px;} indent sub taxes?*/
-.pull-left.paymentinfobox > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2){display:none;}/* hide genric sales tax */
-.pull-left.paymentinfobox > table > tr > td:nth-child(2) > table > tr:nth-child(2){display:none;}/* same as above for non autocorrecting browsers */

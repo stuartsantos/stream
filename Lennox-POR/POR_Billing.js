@@ -167,6 +167,7 @@ $(document).ready(function() {
 		}
 	}catch(err){}
 	//*************************************************
+    if (window.logging){console.log(window.logging + "Changing Receive Contract value to Email, and invoking change");}
 	if(session_vars.IsDealerEval == "Y" || session_vars.Brand.toLowerCase() == "lennox"){
 		$('#ReceiveContract').val("Mail").change();
 	}else if($('#ReceiveContract').val() == "-- Please Select --"){

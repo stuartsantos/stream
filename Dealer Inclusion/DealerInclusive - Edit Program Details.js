@@ -1,12 +1,19 @@
 //** EDIT PROGRAM DETAILS
 $('.TermSelectionModal').attr('id','TermSelectionModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 $('.TierSelectionModal').attr('id','TierSelectionModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
+$('.RncExclusionModal').attr('id','RncExclusionModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 $('.InstallationBeginOnModal').attr('id','InstallationBeginOnModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 $('.InstallationEndOnModal').attr('id','InstallationEndOnModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 
 //***************************************************
 $(document).ready(function() {
-
+    
+    //Careington requires that 'No Exclusions' have a value of Y with an option of "No", and Exclude Residential New Construction have a value of N with an option of "Yes"
+    $("#OfferExclusion option[value='Y']").text('No');
+    $("#OfferExclusion option[value='N']").text('Yes');
+   
+     
+     
     $("#OfferCoverage").val("Labor").attr("disabled",true);//default to labor, disable user input
 	$("#APIInclusionOfferEPDResults, #APIInclusionOfferCreateResults, #APIInclusionOfferUpdateResults").attr("disabled",true);//disable user input
 //***************************************************
@@ -41,51 +48,91 @@ $(document).ready(function() {
 	$("<div id='OfferEndsDateCustomCalendar' class='input-group-addon input-group-addon-calendar pointer'></div>").insertBefore("#OfferEndsDateCustom");
     //$( "<div class='fineprint padTop12'>(Purchase must be within 30 days of Installation date for eligibility.)</div>" ).insertBefore('#spanOfferBeginDateWarning');
     
-function GetFormattedDate(theDate) {
+GetFormattedDate = function(theDate) {
     var month = theDate.getMonth() + 1;
     var day = theDate.getDate();
     var year = theDate.getFullYear();
     return month + "/" + day + "/" + year;
 }
-function DetermineEndDatesMinDate(OfferBeginDateVal) {
+DetermineEndDatesMinDate = function(OfferBeginDateVal) {
 	//today's date + 30
 	minDate = new Date((new Date(OfferBeginDateVal).valueOf() + 1000*3600*24*30)).toLocaleDateString();//convert ms for date addition of +30D, has to be ms to account for timezones and stream onblur
+
+	try{
+		if(new Date(minDate) == "Invalid Date"){//IE11 fix for bad dates
+			minDate = minDate.replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, '');
+			minDate = new Date(minDate);
+		}
+	}catch(err){console.log('js new Date validation for Invalid Date broke');}
+
 	//tomorrowDate
-	console.log('setup OfferEndsDateCustom: minDate = '+ minDate+ ' | tomorrowDate = '+tomorrowDate);
 	minDate = (tomorrowDate.getTime() > new Date(minDate).getTime()) ? tomorrowDate : minDate;
-	console.log('calculated OfferEndsDateCustom: minDate = '+ minDate);
 	
 	var timestamp = Date.parse(minDate);
 	if (isNaN(timestamp) == true) {//not a date
-		console.log('minDate is not a date: '+timestamp);
 		minDate = new Date();
 		minDate.setDate(minDate.getDate() + 30);
 	}
-	console.log('calculated isNaN OfferEndsDateCustom: minDate = '+ minDate);
 	return minDate;
 }
+isDate = function(date) {
+    return (new Date(date) !== "Invalid Date" && !isNaN(new Date(date)) ) ? true : false;
+}
+//***************************************************
+	//Installations Beginning On date config
+	if(session_vars.EditFlag == "Future"){//is future program, use current program details for start
+		try{
+			tg.APIInclusionOfferResults = JSON.parse($('#APIInclusionOfferResults').val());
+			var i;
+			for(i = 0; i <= tg.APIInclusionOfferResults.InclusionOffers.length-1; i++){
+				if(tg.APIInclusionOfferResults.InclusionOffers[i].OfferStatus.toLowerCase() == "active" && isDate(tg.APIInclusionOfferResults.InclusionOffers[i].OfferEndDate)){
+					//use existing program data as start date
+					var tempDate = new Date(tg.APIInclusionOfferResults.InclusionOffers[i].OfferEndDate);//current OfferEndDate
+					tempDate = new Date(tempDate.getTime() + tempDate.getTimezoneOffset() * 60000);//fix timezone issue
+					var tempDayAfterOfferEndDate = new Date(tempDate.setDate(tempDate.getDate() + 1));//OfferEndDate + 1day
 
-	var projectStartDate = session_vars.ProgramStartDate;
-	var temp = new Date (session_vars.ProgramStartDate);	
-	var projectStartDateDisplay = GetFormattedDate(temp);
+					var projectStartDate = GetFormattedDate(tempDayAfterOfferEndDate);
+					var projectStartDateDisplay = GetFormattedDate(tempDayAfterOfferEndDate);
+				}
+				else{
+					throw new Error("not a date for: OfferEndDate");
+				}
+			}
+		}catch(err){
+			console.log('JSON.parse - APIInclusionOfferResults error = '+err);
+			//error parsing... assume new/current data
+			var projectStartDate = session_vars.ProgramStartDate;
+			var temp = new Date (session_vars.ProgramStartDate);	
+			var projectStartDateDisplay = GetFormattedDate(temp);
+		}
+		
+	} else {// is new/current, use today
+		//no existing data, use predefined start date
+		var projectStartDate = session_vars.ProgramStartDate;
+		var temp = new Date (session_vars.ProgramStartDate);	
+		var projectStartDateDisplay = GetFormattedDate(temp);
+	}
+	
+	//setup tomorrow
 	var date = new Date();//today
 	date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);//fix timezone issue
 	var tomorrowDate = new Date(date.setDate(date.getDate() + 1));//tomorrow
 	
+	//setup startDate
 	var startDate = new Date(projectStartDate);//project start date
 	startDate = new Date(startDate.getTime() + startDate.getTimezoneOffset() * 60000);//fix timezone issue
 
 	var beginDate = (tomorrowDate > startDate) ? tomorrowDate : startDate;
 
+	//setup endDate
 	var date2 = new Date(beginDate);
 	date2 = new Date(date2.getTime() + date2.getTimezoneOffset() * 60000);//fix timezone issue
-
 	var endDate = new Date(date2.setDate(date2.getDate() + 365));
 	endDate = new Date(endDate.getTime() + endDate.getTimezoneOffset() * 60000);//fix timezone issue
 
 	if(startDate !== date){$('#OfferBeginDateErrMsgDate').html(GetFormattedDate(beginDate));}//update error message to state +30D from project start date instead of "today's date"
 
-	
+	//***************************************************
 	
 	$("#OfferBeginDate").datepicker({minDate: beginDate, maxDate: endDate,
     	onSelect: function(dates) {
@@ -94,21 +141,16 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 			$("#OfferBeginDate").trigger('change');//iOS doesn't understand onSelect, no one else understands onChange
 		}
     });
-	$('#OfferBeginDate').datepicker('option', 'minDate', beginDate);//iOS bug where above defaults run b/4 Stream properties are set and thus this is overwritten.  remove Stream settings and recall manual set here 
-	$('#OfferBeginDate').datepicker('option', 'maxDate', endDate);//iOS bug where above defaults run b/4 Stream properties are set and thus this is overwritten  remove Stream settings and recall manual set here 
+	$('#OfferBeginDate').datepicker('option', 'minDate', new Date(beginDate));//iOS bug where above defaults run b/4 Stream properties are set and thus this is overwritten.  remove Stream settings and recall manual set here 
+	$('#OfferBeginDate').datepicker('option', 'maxDate', new Date(endDate));//iOS bug where above defaults run b/4 Stream properties are set and thus this is overwritten  remove Stream settings and recall manual set here 
 
 	$("#OfferBeginDate").change(function() {//use onChange instead of onSelect for iOS bug
 		var dates = $(this).val();
 		$(this).removeClass('inerror');//hide default validation
 		$('#span'+$(this).attr('id')+'Warning').attr('style','');//hide default validation
 		if(dates != ''){
-			//var minDate = new Date(dates);
-			//minDate.setDate(minDate.getDate() + 30);
-			//minDate = new Date(minDate.getTime() + minDate.getTimezoneOffset() * 60000);//fix timezone issue
-			
-			console.log('$("#OfferBeginDate").change calls: DetermineEndDatesMinDate');
 			minDate = DetermineEndDatesMinDate(new Date(dates));
-			$('#OfferEndsDateCustom').datepicker('option', 'minDate', minDate);//date chosen so set #OfferEndsDateCustom minDate to this date
+			$('#OfferEndsDateCustom').datepicker('option', 'minDate', new Date(minDate));//date chosen so set #OfferEndsDateCustom minDate to this date
 			$('#OfferEndsDateCustom').trigger('change');//try to update session var in case of page reload
 			
 			if(session_vars.EditFlag != "Active"){
@@ -119,8 +161,8 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 		}
 
 	});	
-	
-	console.log('page load calls: DetermineEndDatesMinDate');
+//***************************************************
+	//date that the installations ends on date config
 	var minDate = DetermineEndDatesMinDate($("#OfferBeginDate").val());
 	$("#OfferEndsDateCustom").datepicker({minDate: minDate, maxDate: null,
     	onSelect: function(dates) {
@@ -134,14 +176,13 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 		$(this).removeClass('inerror');//hide default validation
 		$('#span'+$(this).attr('id')+'Warning').attr('style','');//hide default validation
 		if(session_vars.EditFlag != "Active"){
-			console.log('$(this).datepicker("option", "minDate") = '+$(this).datepicker("option", "minDate"));
 			$(this).attr("onblur","flagblank(this,'Yes','betweendates','"+$(this).datepicker("option", "minDate")+"', 'null')");//update for Stream auto validation
 		}else {
 			$(this).attr("onblur", "flagblank(this,'No')");
 		}
 	});
 	
-
+	//***************************************************
 
 	$('#OfferBeginDate, #OfferEndsDateCustom').prop('readonly', 'readonly');//prevent user from manually typing date
 	if(session_vars.EditFlag != "Active"){
@@ -161,7 +202,6 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 	});
 //***************************************************
 	$('#EditProgramDetailsBtn').click(function(e) {
-		console.log('#EditProgramDetailsBtn click...');
 		var err = 0;
 		$('#EditProgramDetailsErrorMSGBox').slideUp();
 		$('#EditProgramDetailsBtn').val(function(){return $(this).attr('data-waitmsg')}).addClass("disabled").attr("disabled",true);
@@ -171,6 +211,9 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 		
 		if($('#OfferTier').val() == "-- Please Select --"){$('#spanOfferTierWarning').slideDown();err++;tg.flagError('#OfferTier');}
 		else{$('#spanOfferTierWarning').slideUp();}
+
+		if($('#OfferExclusion').val() == "-- Please Select --"){$('#spanOfferExclusionWarning').slideDown();err++;tg.flagError('#OfferExclusion');}
+		else{$('#spanOfferExclusionWarning').slideUp();}
 		
 		if($('#OfferBeginDate').val() === ""){$('#spanOfferBeginDateWarning').slideDown();err++;tg.flagError('#OfferBeginDate');}
 		else{$('#spanOfferBeginDateWarning').slideUp();}
@@ -182,14 +225,14 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 		else{$('#spanOfferEndsDateCustomWarning').slideUp();}
 		
 		if(err===0){
-			console.log('#EditProgramDetailsBtn no errors found, now call API...');
 			if(session_vars.EditFlag == "Active"){
-				$('#OfferTerm, #OfferTier, #OfferCoverage, #OfferBeginDate').removeClass("disabled").attr("disabled",false);//enable so Stream can read the variables
+				$('#OfferTerm, #OfferTier, #OfferExclusion, #OfferCoverage, #OfferBeginDate').removeClass("disabled").attr("disabled",false);//enable so Stream can read the variables
 			}
 			if(tg.InclusionOfferMode == "create"){
 				//alert('Validation passed, now call APIInclusionOfferCreate');
 				triggerMSDYN_API_APIInclusionOfferCreate();//local validation passed, do API call
 				tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("EditProgramDetails", "APIInclusionOfferCreate");}, tg.APItimeOutLength);//check in case APItimedOut
+
 			}else if(tg.InclusionOfferMode == "update"){//assume new InclusionOfferMode
 				//alert('Validation passed, now call APIInclusionOfferUpdate');
 				triggerMSDYN_API_APIInclusionOfferUpdate();//local validation passed, do API call
@@ -198,10 +241,9 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 				tg.ErrorMessaging("0000-UnknownUpdateMode", "EditProgramDetails", "APIInclusionOfferEPDUnknown");//reusable logic call
 			}
 			if(session_vars.EditFlag == "Active"){
-				$('#OfferTerm, #OfferTier, #OfferCoverage, #OfferBeginDate').addClass("disabled").attr("disabled",true);//active programs cannot update these values
+				$('#OfferTerm, #OfferTier, #OfferExclusion, #OfferCoverage, #OfferBeginDate').addClass("disabled").attr("disabled",true);//active programs cannot update these values
 			}
 		}else{
-			console.log('#EditProgramDetailsBtn errors found...');
 			$('#EditProgramDetailsErrorMSGBox').slideDown();
 			window.location.href="#EditProgramDetailsErrorAnchor";
 			$('#EditProgramDetailsBtn').val(function(){return $(this).attr('data-txtmsg')}).removeClass("disabled").attr("disabled",false);
@@ -255,7 +297,6 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 	});// /#APIInclusionOfferUpdateResults.change
 //**********************************************
 	tg.APIInclusionOffer = function(){
-		console.log('tg.APIInclusionOffer');
 
 		if(session_vars.EditFlag == "Active" || session_vars.EditFlag == "Future"){
 			triggerMSDYN_API_APIInclusionOfferEPD();//local validation passed, do API call
@@ -289,6 +330,18 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 				$('#OfferID').val(tg.InclusionOfferEPDResults.InclusionOffers[0].OfferID).change();	
 				$('#OfferTerm').val(tg.InclusionOfferEPDResults.InclusionOffers[0].OfferTerm).change();
 				$('#OfferTier').val(tg.InclusionOfferEPDResults.InclusionOffers[0].OfferTier).change();
+				
+				if(tg.InclusionOfferEPDResults.InclusionOffers[0].RNCFlag ==null || "" || undefined){
+					console.log("NULL");
+					$("#OfferExclusion").val(tg.InclusionOfferEPDResults.InclusionOffers[0].RNCFlag =="Y").change(); //Display of No for pre-RCN programs
+				} else if(tg.InclusionOfferEPDResults.InclusionOffers[0].RNCFlag =="Y"){
+					console.log("NO");
+					$("#OfferExclusion").val(tg.InclusionOfferEPDResults.InclusionOffers[0].RNCFlag).change(); // Display of No
+				} else{
+					console.log("YES");
+					$("#OfferExclusion").val(tg.InclusionOfferEPDResults.InclusionOffers[0].RNCFlag).change(); // Display of Yes
+				}
+
 				$('#OfferCoverage').val(tg.InclusionOfferEPDResults.InclusionOffers[0].OfferCoverage).change();
 				$('#OfferBeginDate').val(tg.InclusionOfferEPDResults.InclusionOffers[0].OfferBeginDate).change();
 				if(tg.InclusionOfferEPDResults.InclusionOffers[0].OfferEndDate != ""){
@@ -300,7 +353,7 @@ function DetermineEndDatesMinDate(OfferBeginDateVal) {
 				}
 				
 				if(session_vars.EditFlag == "Active"){
-					$('#OfferTerm, #OfferTier, #OfferCoverage, #OfferBeginDate').addClass("disabled").attr("disabled",true);//active programs cannot update these values
+					$('#OfferTerm, #OfferTier, #OfferExclusion, #OfferCoverage, #OfferBeginDate').addClass("disabled").attr("disabled",true);//active programs cannot update these values
 					$('#OfferBeginDate').attr("onblur", "flagblank(this,'No')");
 					$('#OfferBeginDateCalendar').unbind("click").css('cursor','default');
 				}

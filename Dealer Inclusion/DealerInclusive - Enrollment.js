@@ -1,11 +1,29 @@
-//** ENROLLMENT
+//** ENROLLMENT 2170
 $('.TermSelectionModal').attr('id','TermSelectionModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 $('.TierSelectionModal').attr('id','TierSelectionModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
+$('.RncExclusionModal').attr('id','RncExclusionModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 $('.InstallationBeginOnModal').attr('id','InstallationBeginOnModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 $('.InstallationEndOnModal').attr('id','InstallationEndOnModal').attr('tabindex','-1').attr('aria-labelledby','myModalLabel');//run b/4 bootstrap js ready
 
+
+
 //***************************************************
 $(document).ready(function() {
+    
+    //Dropdown Modifier for Exclusions dropdown
+    //Careington requires that 'No Exclusions' have a value of Y, and Exclude Residential New Construction have a value of N
+	$("#OfferExclusion option[value='Y']").text('No');
+	$("#OfferExclusion option[value='N']").text('Yes');
+
+ //Show Billing Form
+	function showEditBillingQuestions() { 
+        $('#BillingAddressWrap').slideUp(); 
+        $('.EditBillingAddressWrap').slideDown(); 
+        
+        return false;
+	}
+
+    
 	tg.UpdateBillingItems = function(source, target){
 		$('#BillingAddress1').val($('#EditBillingAddress1').val()).trigger('change');
 		$('#BillingAddress2').val($('#EditBillingAddress2').val()).trigger('change');
@@ -130,6 +148,8 @@ $(document).ready(function() {
 		$('#span'+$(this).attr('id')+'Warning').attr('style','');//hide default validation
 		$(this).attr("onblur","flagblank(this,'Yes','betweendates','"+$(this).datepicker("option", "minDate").toLocaleDateString()+"', 'null')");//update for Stream auto validation
 	});
+
+	
 	
 
 
@@ -152,6 +172,9 @@ $(document).ready(function() {
 		
 		if($('#OfferTier').val() == "-- Please Select --"){$('#spanOfferTierWarning').slideDown();err++;tg.flagError('#OfferTier');}
 		else{$('#spanOfferTierWarning').slideUp();}
+
+		if($('#OfferExclusion').val() == "-- Please Select --"){$('#spanOfferExclusionWarning').slideDown();err++;tg.flagError('#OfferExclusion');}
+		else{$('#spanOfferExclusionWarning').slideUp();}
 		
 		if($('#OfferBeginDate').val() === ""){$('#spanOfferBeginDateWarning').slideDown();err++;tg.flagError('#OfferBeginDate');}
 		else{$('#spanOfferBeginDateWarning').slideUp();}
@@ -161,7 +184,21 @@ $(document).ready(function() {
 		
 		if($('#OfferEndsDateCustom').is(":visible") == true && $('#OfferEndsDateCustom').val() === ""){$('#spanOfferEndsDateCustomWarning').slideDown();err++;tg.flagError('#OfferEndsDateCustom');}
 		else{$('#spanOfferEndsDateCustomWarning').slideUp();}
-		
+
+		//*** BILLING FORM Error Handling
+
+		if($('#EditBillingAddress1').val() === ""){$('#spanEditBillingAddress1Warning').slideDown();err++;tg.flagError('#EditBillingAddress1');showEditBillingQuestions();}
+		else{$('#spanEditBillingAddress1Warning').slideUp();}
+
+		if($('#EditBillingCity').val() === ""){$('#spanEditBillingCityWarning').slideDown();err++;tg.flagError('#EditBillingCity');showEditBillingQuestions();}
+		else{$('#spanEditBillingCityWarning').slideUp();}
+
+		if($('#EditBillingState').val() === "-- Please Select --"){$('#spanEditBillingStateWarning').slideDown();err++;tg.flagError('#EditBillingState');showEditBillingQuestions();}
+		else{$('#spanEditBillingStateWarning').slideUp();}
+
+		if($('#EditBillingZip').val() === ""){$('#spanEditBillingZipWarning').slideDown();err++;tg.flagError('#EditBillingZip');showEditBillingQuestions();}
+		else{$('#spanEditBillingZipWarning').slideUp();}
+
 		if(!$('#TermsAndConditions').prop('checked')){$('#spanTermsAndConditionsWarning').slideDown();err++;tg.flagError('#TermsAndConditions');}
 		else{$('#spanTermsAndConditionsWarning').slideUp();}
 		
@@ -248,6 +285,16 @@ $(document).ready(function() {
 	}else{
 		$('#EditDealerPhone').val($('#DealerPhone').val()).trigger('change').trigger('keyup');//format #
 	}
+	
+	if($('#EditBillingAddress1, #EditBillingCity, #EditBillingZip').val() == "" || $('#EditBillingAddress1, #EditBillingCity, #EditBillingZip').val() == " " || $('#EditBillingState').val() == "-- Please Select --"  || 
+	$('#EditDealerPhone').val() === "" && $('#EditDealerPhoneFix').val() === "") 
+
+ {
+		showEditBillingQuestions(); 
+	}else{
+
+	}
+
 	if(session_vars.MobileDeviceIdentifier.toLowerCase() == "android"){
 		if($('#EditDealerPhoneFix').val() == "" || $('#EditDealerPhoneFix').val() == " "){//set to space so stream doesn't pass brackets
 			$('#EditDealerPhoneFix').val(' ');
@@ -263,8 +310,13 @@ $(document).ready(function() {
 		}
 		$('#EditDealerPhone').trigger('keyup');//format #
 	}
+
+	
+
 	//restrict to alpha numeric chars
 	$('#EditBillingZip, #BillingZip').keydown(function(event){tg.zipFieldStrictInput(event, 0, 0,$(this).val());});
+
+
 	
 });// /document.ready
 //***************************************************

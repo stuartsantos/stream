@@ -1,56 +1,30 @@
 //** EDIT PAYMENT INFO
 //***************************************************
 $(document).ready(function() {
-$('#APIUpdatePaymentRIC, #APICreatePaymentRIC').val('').attr("disabled",true);//clear cache on page load
-//***************************************************
+    $('#APIUpdatePaymentRIC').val('').attr("disabled",true);//clear cache on page load
+    //***************************************************
 	tg.APIUpdatePayment = function(){
-			console.log('now call APIUpdatePayment...');
-			triggerMSDYN_API_APIUpdatePayment2();//local validation passed, do API call
-			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("UpdatePayment", "APIUpdatePayment");}, tg.APItimeOutLength);//check in case APItimedOut
+		console.log('now call APIUpdatePayment...');
+		triggerMSDYN_API_APIUpdatePayment2();//local validation passed, do API call
+		tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("UpdatePayment", "APIUpdatePayment");}, tg.APItimeOutLength);//check in case APItimedOut
 		
 		return false;
 	};
 	//***********************
-		$('#APIUpdatePaymentRIC').change(function(e) {
-			clearTimeout(tg.APItimeOutWatch);//stop APItimedOut
-			tg.APItimeOutWatch = null;
-						
-			var ReturnInfoCode = $(this).val();
-			if(ReturnInfoCode == "1000"){//successful UpdatePayment;
-				$('#UpdatePaymentErrorMSGBox').slideUp();	
-				$('#btnNext').trigger("click");//works to submit form
-			}else{//triggerMSDYN_API_APIUpdatePayment failed
-				tg.ErrorMessaging(ReturnInfoCode, "UpdatePayment", "APIUpdatePayment");//reusable logic call
-			}
-		});// /#APICreatePaymentRIC.change
-//***************************************************
-	tg.APICreatePayment = function(){
-			console.log('now call APIUpdatePayment...');
-			triggerMSDYN_API_APICreatePayment2();//local validation passed, do API call
-			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("CreatePayment", "APICreatePayment");}, tg.APItimeOutLength);//check in case APItimedOut
-		
-		return false;
-	};
-	//***********************
-		$('#APICreatePaymentRIC').change(function(e) {
-			clearTimeout(tg.APItimeOutWatch);//stop APItimedOut
-			tg.APItimeOutWatch = null;
-						
-			var ReturnInfoCode = $(this).val();
-			if(ReturnInfoCode == "1000"){//successful UpdatePayment;
-				$('#UpdatePaymentErrorMSGBox').slideUp();	
-				$('#btnNext').trigger("click");//works to submit form
-			}else{//triggerMSDYN_API_APICreatePayment failed
-				tg.ErrorMessaging(ReturnInfoCode, "UpdatePayment", "APICreatePayment");//reusable logic call
-			}
-		});// /#APICreatePaymentRIC.change
-//***************************************************
-	console.log('Now processing payment...');
-	if(session_vars.DealerCOD.toLowerCase() == "invoice"){//is invoice, bypass careington APIGetPaymentResults
-		tg.APICreatePayment();//init onload
-	}else{
-		tg.APIUpdatePayment();//init onload
-	}
+	$('#APIUpdatePaymentRIC').change(function(e) {
+		clearTimeout(tg.APItimeOutWatch);//stop APItimedOut
+		tg.APItimeOutWatch = null;
+					
+		var ReturnInfoCode = $(this).val();
+		if(ReturnInfoCode == "1000"){//successful UpdatePayment;
+			$('#UpdatePaymentErrorMSGBox').slideUp();
+			$('#btnNext').trigger("click");//works to submit form
+		}else{//triggerMSDYN_API_APIUpdatePayment failed
+			tg.ErrorMessaging(ReturnInfoCode, "UpdatePayment", "APIUpdatePayment");//reusable logic call
+		}
+	});// /#APICreatePaymentRIC.change
+    //***************************************************
+	tg.APIUpdatePayment();//init onload
 });// /document.ready
 //***************************************************
 	$('.btnCareington.readyCareington').addClass('tgHide');//hide Stream button so custom can run

@@ -254,6 +254,7 @@ $(document).ready(function() {
 			}
 		$(theTable+'_Wrap').slideDown();//show table area b/4 rendering it
 		//init DataTable
+		var DataTableDisplayCount = 10;// enable iDisplayLength to work right
 		if($.fn.DataTable.isDataTable(theTable)){//check if table is already a DataTable object
 			//clear table b/4 use
 console.log('repopulate table: '+theTable);
@@ -271,6 +272,7 @@ console.log('new table: '+theTable);
 				responsive: true,
 				data: dataSet,
 				columns: arrayColumns,
+				"iDisplayLength": DataTableDisplayCount,//set default # items to show.  match w # on .rows().count()
 				order: [[sortPos, 'asc']]//set default sorted order to name
 			});
 			//don't run twice
@@ -278,7 +280,7 @@ console.log('new table: '+theTable);
 			$('<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>').insertBefore(theTable+"_filter input");
 		}
 
-		if($(theTable).DataTable({retrieve: true}).rows().count() <=10){
+		if($(theTable).DataTable({retrieve: true}).rows().count() <=DataTableDisplayCount){
 			$(theTable+"_length, "+theTable+"_paginate").hide();
 		}else{
 			$(theTable+"_length, "+theTable+"_paginate").show();

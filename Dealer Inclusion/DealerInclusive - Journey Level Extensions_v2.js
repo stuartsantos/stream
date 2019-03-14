@@ -1,6 +1,6 @@
 <script language='JavaScript' type='text/javascript'>
 //API time out length in ms
-tg.APItimeOutLength = 30000;
+tg.APItimeOutLength = 45000;
 
 //error counters
 tg.ErrCount_GetDealer=0;
@@ -374,7 +374,11 @@ $(document).ready(function() {
 		}else if(errorCode == "1024" && errAPI == "InclusionOfferUpdate"){
 			errMsg="<h3>There was a problem updating your account.</h3>  Please review and try again. If the problem persists, please call Dealer Support on: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";
 		}else if(errorCode == "1022" && errAPI == "InclusionOfferUpdate"){
-			errMsg="<h3>'Installations Beginning On' date must be in a date in the future.</h3>  Please review and try again. If the problem persists, please call Dealer Support on: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";
+			errMsg="<h3>'Installations Beginning On' date must be in a date in the future.</h3>  Please review and try again. If the problem persists, please call Dealer Support on: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";		
+		}else if(errorCode == "1040" && errAPI == "InclusionOfferUpdate"){
+			errMsg="<h3>Future offer cannot be updated as the current active offer is open ended</h3>  Please review and try again. If the problem persists, please call Dealer Support on: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";		
+		}else if(errorCode == "1048" && errAPI == "InclusionOfferUpdate"){
+			errMsg="<h3>Offer is in Expired status could not allow to update</h3>  Please review and try again. If the problem persists, please call Dealer Support on: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";		
 		}
 		
 	//DealerContracts
@@ -498,7 +502,7 @@ $(document).ready(function() {
 //***************************************************
 });// /document.ready
  $(window).load(function(){
-	//$('.substituteDealerName').html($('.substituteDealerName').html().replace(/&amp;/g, "&1"));//update dealer name incase of &amp;, needs to run onload rather than .ready
+	//$('.substituteDealerName').html($('.substituteDealerName').html().replace(/&/g, "&1"));//update dealer name incase of &, needs to run onload rather than .ready
 });// /window.load
 </script>
 <!-- ***********************************************

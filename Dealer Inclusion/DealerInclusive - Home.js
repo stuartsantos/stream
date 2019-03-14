@@ -40,6 +40,7 @@ $(document).ready(function() {
 		//$('#BillingState, #AccountID, #Region, #IsActive, #DealerDistrict, #DealerCOD').val('').change();//clear values incase of partial signin
 		
 		var err = 0;
+		$('#DealerLoginNumber').val($('#DealerLoginNumber').val().replace(/\s/g, '')); // remove blank spaces		
 		if($('#DealerLoginNumber').val().length < 5){$('#DealerLoginNumberError').slideDown();err++;tg.flagError('#DealerLoginNumber');}
 		else{$('#DealerLoginNumberError').slideUp();}
 		if($('#DealerLoginPassword').val() == " " || $('#DealerLoginPassword').val().length === 0){$('#DealerLoginPasswordError').slideDown();err++;tg.flagError('#DealerLoginPassword');}
@@ -120,6 +121,8 @@ $(document).ready(function() {
 		$('#BillingState, #AccountID, #Region, #IsActive, #DealerDistrict, #DealerCOD').val('').change();//clear values incase of partial signin
 	    //APIDealerSendPasswordResetRIC
 		var err = 0;
+
+
 		if($('#DealerForgotPasswordNumber').val().length < 5){$('#DealerForgotPasswordNumberError').slideDown();err++;tg.flagError('#DealerForgotPasswordNumber');}
 		else{$('#DealerForgotPasswordNumberError').slideUp();}
 		//remove any non alphanumeric chars
@@ -198,10 +201,13 @@ $(document).ready(function() {
 		if($('#DealerCreateAccountPassword2').val() === ""  || $('#DealerCreateAccountPassword2').val() != $('#DealerCreateAccountPassword1').val()){$('#DealerCreateAccountPassword2Error').slideDown();err++;tg.flagError('#DealerCreateAccountPassword2');}
 		else{$('#DealerCreateAccountPassword2Error').slideUp();}
 		
+		$('#DealerCreateAccountNumber').val($('#DealerCreateAccountNumber').val().replace(/\s/g, '')); // remove blank spaces
 		if($('#DealerCreateAccountNumber').val().length < 5){$('#DealerCreateAccountNumberError').slideDown();err++;tg.flagError('#DealerCreateAccountNumber');}
 		else{$('#DealerCreateAccountNumberError').slideUp();}
 		
+
 		//remove any non alphanumeric chars
+		$('#DealerCreateAccountZip').val($('#DealerCreateAccountZip').val().replace(/\s/g, '')); // remove blank spaces
 		var temp = $('#DealerCreateAccountZip').val();
 		$('#DealerCreateAccountZip').val(temp.replace(/[^0-9a-zA-Z]/gi, '')).change();
 		temp = $('#DealerCreateAccountZip').val().length;

@@ -9,6 +9,8 @@ $(document).ready(function() {
 	$('#APIInclusionOfferResults, #APIInclusionOfferPPResults').val('').attr("disabled",true);//clear cache on page load
 	$('#EmailErrorMSG').val('');//clear cache on page load
     //***************************************************
+ 
+ 
 	var temp = $('#SuccessFlag').val();
 	if(temp != ''){
 		console.log('SuccessFlag = '+temp);
@@ -32,6 +34,7 @@ $(document).ready(function() {
 		}
 	};
 //***************************************************
+
 	tg.APIInclusionOffer = function(){
 		console.log('tg.APIInclusionOffer');
 
@@ -60,6 +63,15 @@ $(document).ready(function() {
 				$('#OfferTerm').text(tg.APIInclusionOfferResults.InclusionOffers[0].OfferTerm);
 				$('#OfferTier').text(tg.TierName(tg.APIInclusionOfferResults.InclusionOffers[0].OfferTier));
 
+				// Mock Data for display until API picks up the RNCFlag
+				if(tg.APIInclusionOfferResults.InclusionOffers[0].RNCFlag ==null || "" || undefined){
+					$('#OfferExclusion').text("No");
+				}else if(tg.APIInclusionOfferResults.InclusionOffers[0].RNCFlag == "N"){
+					$('#OfferExclusion').text("Yes");
+				}else{
+					$('#OfferExclusion').text("No");
+				}
+				
 				$('#OfferCoverage').text(tg.APIInclusionOfferResults.InclusionOffers[0].OfferCoverage);
 				$('#OfferBeginDate').text(tg.APIInclusionOfferResults.InclusionOffers[0].OfferBeginDate);
 				
@@ -111,6 +123,16 @@ $(document).ready(function() {
 				$('#DealerBillingUpdateErrorMSGBox').slideUp();
 				//success
 				tg.StyleDataTable(tg.APIInclusionOfferPPResults.InclusionOffers, '#table_PP', "OfferStatus|Expired|==", '');
+
+				//modify RNFflags to yes/no from Y/N. are in reverse order.
+				$("#table_PP .rncflag").text(function(e) {
+					if($(this).text().toLowerCase() == "y"){
+						return $(this).text().toLowerCase().replace("y", "No");
+					}else{
+						return $(this).text().toLowerCase().replace("n", "Yes");
+					}
+				});
+				
 				$("#PreviousProgramsModal").modal("show");//show modal w new data
 			}else if(ReturnInfoCode == "1028"){//successful APIGetDealer
 				$('#ProgramDetailsWarning2MSGBox').slideDown();//show warn
@@ -133,6 +155,7 @@ $(document).ready(function() {
 		+ '<td>'+obj[i].OfferEndDate +'</td>'
 		+ '<td>'+obj[i].OfferStatus +'</td>'
 		+ '<td>'+obj[i].OfferTerm +' Year(s)</td>'
+		+ '<td class="rncflag">'+obj[i].RNCFlag +'</td>'
 		+ '<td>'+tg.TierName(obj[i].OfferTier) +'</td>'
 		+ '<td>'+obj[i].OfferCoverage +'</td>'
 		+ '</tr>';
@@ -141,13 +164,19 @@ $(document).ready(function() {
 		
 		return false;
 	};
-	tg.StyleDataTable = function(obj, theTable, theFilter, hideColumn){	
+	tg.StyleDataTable = function(obj, theTable, theFilter, hideColumn){
 		var objLength = obj.length;
-		//setup the thead tags
-		$(theTable+' thead', theTable+' tbody').empty();//clear table before using it
-		var html = '<tr><th class="spacer"></th><th class="lname">Offer Begin Date</th><th>Offer End Date</th><th>Offer Status</th><th>Offer Term</th><th>Offer Tier</th><th>Offer Coverage</th></tr>';
-		$(theTable+' thead').append(html);
 		
+		if($.fn.DataTable.isDataTable(theTable)){//check if table is already a DataTable object
+			//clear table b/4 use
+			$(theTable).DataTable().rows().remove().draw();//clear all
+			$(theTable).DataTable().destroy();
+		}else {
+			//setup the thead tags
+			$(theTable+' thead', theTable+' tbody').empty();//clear table before using it
+			var html = '<tr><th class="spacer"></th><th class="lname">Offer Begin Date</th><th>Offer End Date</th><th>Offer Status</th><th>Offer Term</th><th>Offer Exclusion</th><th>Offer Tier</th><th>Offer Coverage</th></tr>';
+			$(theTable+' thead').append(html);
+		}
 		if(theFilter){
 			var fields = theFilter.split('|');
 			var operator = {
@@ -183,6 +212,7 @@ $(document).ready(function() {
 				{name: 'OfferEndDate',responsivePriority: 3},
 				{name: 'OfferStatus',responsivePriority: 4},
 				{name: 'OfferTerm'},
+				{name: 'RNCFlag'},
 				{name: 'OfferTier'},
 				{name: 'OfferCoverage'}
 			],

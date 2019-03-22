@@ -186,6 +186,13 @@ $(document).ready(function() {
 	};
 //***************************************************
 	tg.ErrorMessaging = function(errorCode, errLogic, errAPI, target){//IE11 doesn't understand target = errLogic
+		/*console.log(
+			'tg.ErrorMessaging: \n'+
+			'* errorCode = '+errorCode+' \n'+
+			'* errLogic = '+errLogic+' \n'+
+			'* errAPI = '+errAPI+' \n'+
+			'* target = '+target
+		);*/
 		if (target == "") {//typeof target !== 'undefined' || 
 			var target = errLogic;
 			console.log('updated target = '+target);
@@ -467,6 +474,8 @@ $(document).ready(function() {
 			errMsg="<h3>Your current ADVANTAGE program campaign does not have an end date.</h3> You cannot create a new campaign until an end date has been added.  Click here to <a href='/index.php?Page=edit-program-details&EditFlag=Active'>edit current program end date.</a><br/><br/> For assistance, please contact our Dealer Support team by dialing: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";
 		}else if(errorCode == "1026"){//1026 default
 			errMsg="<h3>New program begin date must be after your current program end date.</h3>  Please review and try again.  For assistance, please call Dealer Support on: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";
+		}else if(errorCode == "1038" && errAPI == "APIInclusionOfferUpdateResults"){//1038 (active)
+			errMsg="<h3>Your current ADVANTAGE program campaign must end before your new ADVANTAGE program campaign begins.</h3>  Click here to <a href='/index.php?Page=edit-program-details&EditFlag=Future'>modify new program start date.</a><br/><br/>For assistance, please contact our Dealer Support team by dialing: <a href='tel:1"+session_vars.TelephoneNumber.replace(/\s+|-|\./g, '')+"' class='hasHrefPhoneNum'><span class='isPhoneNum'>"+session_vars.TelephoneNumber+"</span></a>.";
 		}
 	//Default
 		else{

@@ -1,11 +1,16 @@
 <script language='JavaScript' type='text/javascript'>
 //API time out length in ms
-tg.APItimeOutLength = 45000;
+tg.APItimeOutLength = 31000;
 
 //error counters
 tg.ErrCount_GetDealer=0;
 tg.ErrCount_DealerSignIn=0;
 tg.ErrCount_DealerSendPasswordReset=0;
+
+tg.ErrCount_APItimeout_Home_DealerSignIn=0;
+tg.ErrCount_APItimeout_Home_DealerSignInCA=0;
+tg.ErrCount_APItimeout_ManageContracts_DealerContractsPP=0;
+
 //*******************************************************
 	//mobile log display
 	var DM = new Object();
@@ -180,8 +185,38 @@ $(document).ready(function() {
 		$('.hasError').click(function() {$(this).removeClass('hasError');});
 	};
 //***************************************************
-	tg.APItimedOut = function(errLogic, errAPI){
+	tg.APItimedOut = function(errLogic, errAPI, APItimeoutFlag){
+		/*
+		console.log("tg.APItimedOut");
+		console.log("**************************************************");
+		console.log("* errLogic = "+errLogic);
+		console.log("* errAPI = "+errAPI);
+		console.log("* APItimeoutFlag = "+APItimeoutFlag);
+		
+		clearTimeout(tg.APItimeOutWatch);//stop APItimedOut
+		tg.APItimeOutWatch = null;
+		
+		if(typeof(APItimeoutFlag) != "undefined" && APItimeoutFlag == "Home-APIDealerSignIn" && tg.ErrCount_APItimeout_Home_DealerSignIn < 1){
+			//alert("APItimedOut error caught! - APIDealerSignIn");
+			tg.ErrCount_APItimeout_Home_DealerSignIn++;
+			triggerMSDYN_API_APIDealerSignIn();//local validation already passed and timedout, redo API call
+			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerSignIn", "APIDealerSignIn","Home-APIDealerSignIn");}, tg.APItimeOutLength);//check in case APItimedOut
+		}else if(typeof(APItimeoutFlag) != "undefined" && APItimeoutFlag == "Home-APIDealerSignInCA" && tg.ErrCount_APItimeout_Home_DealerSignInCA < 1){
+			//alert("APItimedOut error caught! - APIDealerSignInCA");
+			tg.ErrCount_APItimeout_Home_DealerSignInCA++;
+			triggerMSDYN_API_APIDealerSignInCA();//local validation already passed and timedout, redo API call
+			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerSignIn", "APIDealerSignInCA","Home-APIDealerSignInCA");}, tg.APItimeOutLength);//check in case APItimedOut
+		}else if(typeof(APItimeoutFlag) != "undefined" && APItimeoutFlag == "ManageContracts-APIDealerContractsPP" && tg.ErrCount_APItimeout_ManageContracts_DealerContractsPP < 1){
+			//alert("APItimedOut error caught! - APIDealerContractsPP");
+			tg.ErrCount_APItimeout_ManageContracts_DealerContractsPP++;
+			triggerMSDYN_API_APIDealerContractsPP();//local validation already passed and timedout, redo API call
+			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerContracts", "APIDealerContractsPP","ManageContracts-APIDealerContractsPP");}, tg.APItimeOutLength);//check in case APItimedOut
+		}else{
+			tg.ErrorMessaging("APItimedOut", errLogic, errAPI);
+		}
+		*/
 		tg.ErrorMessaging("APItimedOut", errLogic, errAPI);
+		
 		return false;
 	};
 //***************************************************
@@ -201,10 +236,10 @@ $(document).ready(function() {
 		clearTimeout(tg.APItimeOutWatch);//stop APItimedOut
 		tg.APItimeOutWatch = null;
 		var sendEmail = false, errMsg = "", errMsgEmail = "", isWarning = false;
-		
+	//Default Timeout error message
 		if(errorCode == "APItimedOut"){
 			console.log("errorCode = APItimedOut, errLogic="+errLogic);
-			errMsg="<h3>We're sorry; our system is currently experiencing difficulties.</h3> Please wait and try again.";
+			errMsg="<h3>Well this is embarrassing...</h3> We seem to be experiencing connection issues, please wait and try again.";
 			errMsgEmail = "APItimedOut";
 			sendEmail = true;
 		}
@@ -491,13 +526,14 @@ $(document).ready(function() {
 			window.location.href="#"+target+"WarningMSGBox";
 		}else{//is an error
 			if(sendEmail == true){
-				//send email error
+				//send email error				
 				$('#EmailErrorMSG').val(
-					"<strong>ErrorCode:</strong><br/>" + errorCode +
-					"<br/><strong>ErrorMessage-Email:</strong><br/>" + errMsgEmail + 
+					"<strong>ErrorCode:</strong><br/>" + errorCode + "<br/>" +
+					"<hr/><br/><strong>ErrorMessage-Email:</strong><br/>" + errMsgEmail + "<br/>" +
+					"<hr/><br/><strong>ErrorMessage-Server:</strong><br/>~= " + $('#APIReturnInfoDesc').val() + "<br/>" +
 					"<hr/><br/><strong>ErrorMessage-User:</strong><br/>" + errMsg + 
-					"<hr/><br/><strong>errLogic:</strong><br/>" + errLogic + 
-					"<br/><strong>errAPI:</strong><br/>" + errAPI
+					"<hr/><br/><strong>errLogic:</strong><br/>" + errLogic + "<br/>" +
+					"<hr/><br/><strong>errAPI:</strong><br/>" + errAPI
 				).change();
 				$('#EmailErrorTrigger').val("true").change();
 				console.log('error email triggered');

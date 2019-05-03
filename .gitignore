@@ -6,3 +6,4 @@ node_modules
 *.gif
 *.jpeg
 ~*.xlsx
+Grunt-Shared/stream-aig-shared.sublime-workspace

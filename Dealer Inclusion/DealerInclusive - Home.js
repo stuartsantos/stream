@@ -50,7 +50,7 @@ $(document).ready(function() {
 			$('#DealerSignInErrorMSGBox').slideUp();
 			$('#DealerSignInBtn').val(function(){return $(this).attr('data-waitmsg')});
 			triggerMSDYN_API_APIDealerSignIn();//local validation passed, do API call
-			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerSignIn", "APIDealerSignIn");}, tg.APItimeOutLength);//check in case APItimedOut
+			tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerSignIn", "APIDealerSignIn", "Home-APIDealerSignIn");}, tg.APItimeOutLength);//check in case APItimedOut
 		}else{
 		    $('#DealerSignInBtn').val(function(){return $(this).attr('data-txtmsg')});
 		}// if err===0
@@ -74,7 +74,7 @@ $(document).ready(function() {
 				$('#DealerSignInErrorMSGBox').slideUp();
 			}else if(errVal1 == "1013"){//check for CA account
 					triggerMSDYN_API_APIDealerSignInCA();//APIDealerSignIn passed, do Lennox API call
-					tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerSignIn", "APIDealerSignInCA");}, tg.APItimeOutLength);//check in case APItimedOut
+					tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut("DealerSignIn", "APIDealerSignInCA", "Home-APIDealerSignInCA");}, tg.APItimeOutLength);//check in case APItimedOut
 					console.log('not a US dealer, checking to see if CA dealer...');
 			}else{
 				tg.ErrorMessaging(errVal1, "DealerSignIn", "APIDealerSignIn");//reusable logic call

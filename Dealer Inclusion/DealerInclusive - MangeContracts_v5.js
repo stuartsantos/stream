@@ -63,7 +63,7 @@ $(document).ready(function() {
 	//***************************************************
 	tg.APIDealerContracts = function(){
 		triggerMSDYN_API_APIDealerContractsPP();//local validation passed, do API call
-		tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut('DealerContracts', "APIDealerContractsPP");}, tg.APItimeOutLength);//check in case APItimedOut
+		tg.APItimeOutWatch = setTimeout(function(){tg.APItimedOut('DealerContracts', "APIDealerContractsPP", "ManageContracts-APIDealerContractsPP");}, tg.APItimeOutLength);//check in case APItimedOut
 
 		return false;
 	};
